@@ -14,6 +14,7 @@ window.removeEventListener("load", load, false);
 		document.querySelector('.albumplayer').style.backgroundImage="url('"+track.artwork_url.split("large").join("crop")+"')"
 		SC.stream(track.uri, {autoPlay: true}, function (stream) {
 			window.stream = stream;
+			window.stream = stream.play();
 		});
 	});
 },false);
