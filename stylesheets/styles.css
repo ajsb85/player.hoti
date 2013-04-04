@@ -37,7 +37,7 @@ body {
     list-style-type: none;
     cursor: pointer;
     padding: 0 0 0 0;
-    visibility: hidden;
+    
     }
     .albumplayer > ul > li:hover{
         //background-color:  white;
@@ -64,32 +64,26 @@ body {
 	
 	.albumplayer:hover > ul > .pause:after {
 		content: "d";
-		visibility: visible;
 	}
 	
 	.albumplayer:hover > ul > .play:after {
 		content: "a";
-		visibility: visible;
 	}
 	
 	.albumplayer:hover > ul > #next:after {
 		content: "b";
-		visibility: visible;
 	}
 	
 	.albumplayer:hover > ul > #prev:after {
 		content: "c";
-		visibility: visible;
 	}
 	
 	.albumplayer:hover > ul > #playlist:after {
 		content: "f";
-		visibility: visible;
 	}
 	
 	.albumplayer:hover > ul > .downloadable:after {
 		content: "e";
-		visibility: visible;
 	}
 	
 	.waveform{
