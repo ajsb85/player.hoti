@@ -1,9 +1,4 @@
-wp-hoti
-=======
-
-Wordpress Plugin for Hoti Player
-(based on SoundCloud Is Gold)
-
+=== SoundCloud Is Gold ===
 Contributors: Thomas Michalak
 Donate link: http://www.mightymess.com/wp-hoti-wordpress-plugin
 Tags: soundcloud, integrated, media, shortcode, browse, design, easy, simple, music, sound, js, live preview, flash, html5
