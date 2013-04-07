@@ -4,6 +4,19 @@
 /***                     SOUNDCLOUD UTILITIES                      ***/
 /***                                                               ***/
 /*********************************************************************/
+function my_github_plugin_updater() {
+
+if ( ! function_exists( 'github_plugin_updater_register' ) )
+return false;
+
+github_plugin_updater_register( array(
+'owner' => 'hotitv',
+'repo' => 'wp-hoti',
+'slug' => 'wp-hoti/wp-hoti.php', // defaults to the repo value ('repo/repo.php')
+) );
+}
+add_action( 'plugins_loaded', 'my_github_plugin_updater' );
+
 function get_soundcloud_is_gold_player_types(){
     $m = array('Mini', 'Standard', 'Artwork', 'html5');
     return $m;

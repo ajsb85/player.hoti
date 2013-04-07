@@ -1,12 +1,12 @@
 <?php
 /*
-Plugin Name: WP Hotï.
-Plugin URI: http://www.mightymess.com/wp-hoti-wordpress-plugin
+Plugin Name: WP Hotï
+Plugin URI: http://hoti.tv/dev/wp-hoti
 Description: <strong><a href="http://www.mightymess.com/wp-hoti-wordpress-plugin">Soundcloud is gold</a></strong> integrates perfectly into wordpress. Browse through your soundcloud tracks, sets and favorites from the 'soundcloud is gold' tab with the post's 'upload media' popup window. Select, set and add track, sets or favorites to your post using the soundcloud player. Live Preview, easy, smart and straightforward. You can set default settings in the option page, choose your defaut soundcloud player (Mini, Standard, Artwork, html5), its width, extra classes for you CSS lovers and your favorite colors. You'll still be able to set players to different settings before adding to your post if you fancy a one off change. Now with Html5 player and Widget!
-Version: 2.2.1
-Author: Thomas Michalak
-Author URI: http://www.mightymess.com/thomas-michalak
-License: GPL2 or Later
+Version: 1.0.0
+Author: Alexander Salas
+Author URI: https://github.com/alexsalas
+License: GPLv3 or Later
 */
 
 /*
@@ -169,7 +169,7 @@ function soundcloud_is_gold_options(){
     
     <div class="soundcloudMMWrapper soundcloudMMOptions soundcloudMMMainWrapper">
         <div id="soundcloudMMTop" class="darkGreyGradient">
-            <a id="soundcloudMMLogo" class="orangeGradient" href="http://www.soundcloud.com" title="visit SoundCloud website"><img src="<?php echo SIG_PLUGIN_DIR ?>/images/soundcloud-logo-sc.png" width="107" height="71" alt="Soundcloud Logo"/></a>
+            <a id="soundcloudMMLogo" class="orangeGradient" href="http://www.soundcloud.com" title="visit SoundCloud website"><img src="<?php echo SIG_PLUGIN_DIR ?>/images/hoti-logo.png" width="107" height="71" alt="Soundcloud Logo"/></a>
             <a id="soundcloudMMHeader" class="mediumGreyGradient textShadow" href="http://www.mightymess.com/wp-hoti-wordpress-plugin" alt="Visit Mighty Mess for more cool stuff">
                 <span class="soundcloudMMTitle">SoundCloud is gold <small>by Thomas Michalak</small></span>
                 <span class="soundcloudMMUrl">www.mightymess.com/wp-hoti-wordpress-plugin</span>
