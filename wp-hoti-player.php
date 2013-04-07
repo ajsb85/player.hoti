@@ -1,12 +1,12 @@
 <?php
 /*
 Plugin Name: Hotï Player
-Plugin URI: http://www.mightymess.com/wp-hoti-player-wordpress-plugin
-Description: <strong><a href="http://www.mightymess.com/wp-hoti-player-wordpress-plugin">Hotï Player</a></strong> integrates perfectly into wordpress. Browse through your soundcloud tracks, sets and favorites from the 'Hotï Player' tab with the post's 'upload media' popup window. Select, set and add track, sets or favorites to your post using the soundcloud player. Live Preview, easy, smart and straightforward. You can set default settings in the option page, choose your defaut soundcloud player (Mini, Standard, Artwork, html5), its width, extra classes for you CSS lovers and your favorite colors. You'll still be able to set players to different settings before adding to your post if you fancy a one off change. Now with Html5 player and Widget!
-Version: 2.2.1
-Author: Thomas Michalak
-Author URI: http://www.mightymess.com/thomas-michalak
-License: GPL2 or Later
+Plugin URI: http://hoti.tv/dev/wp-hoti-player
+Description: <strong><a href="http://hoti.tv/dev/wp-hoti-player">Hotï Player</a></strong> integrates perfectly into wordpress. Browse through your soundcloud tracks, sets and favorites from the 'Hotï Player' tab with the post's 'upload media' popup window. Select, set and add track, sets or favorites to your post using the soundcloud player. Live Preview, easy, smart and straightforward. You can set default settings in the option page, choose your defaut soundcloud player (Mini, Standard, Artwork, html5), its width, extra classes for you CSS lovers and your favorite colors. You'll still be able to set players to different settings before adding to your post if you fancy a one off change. Now with Html5 player and Widget!
+Version: 1.0.0
+Author: Alexander Salas
+Author URI: https://github.com/alexsalas
+License: GPLv3
 */
 
 /*
@@ -15,6 +15,29 @@ License: GPL2 or Later
  standard: h = 81 (165), w = 100%
  artwork: h = 300, w = 300
  html5: h=166, w=100%
+*/
+
+/*
+    Hotï - Venezuelan Artistic Material
+    Copyright (C) 2013 Marcos Colina
+	
+	Contributors
+		Marcos Colina <ceo@hoti.tv>
+		Alexander Salas <a.salas@ieee.org>
+	
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+	
 */
 
 define ('SIG_PLUGIN_DIR', WP_PLUGIN_URL.'/'.str_replace(basename( __FILE__),"",plugin_basename(__FILE__)) );

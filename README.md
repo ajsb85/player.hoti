@@ -1,12 +1,8 @@
-wp-hoti
-=======
+Wordpress Plugin for Hotï Player
+(based on SoundCloud is Gold)
 
-Wordpress Plugin for Hoti Player
-(based on SoundCloud Is Gold)
-
-Contributors: Thomas Michalak
-Donate link: http://www.mightymess.com/wp-hoti-wordpress-plugin
-Tags: soundcloud, integrated, media, shortcode, browse, design, easy, simple, music, sound, js, live preview, flash, html5
+Contributors: Alexander Salas, Marcos Colina
+Tags: soundcloud, integrated, media, shortcode, browse, design, easy, simple, music, sound, js, live preview, flash, html5, hoti
 Requires at least: 3.2
 Tested up to: 3.5.1
 Stable tag: 2.2.1
@@ -21,19 +17,19 @@ Browse through your soundcloud tracks, sets and favourites. Select and add track
 
 **New Widget to display latest and random track, favorites or sets for one user, multiple users or random users.**
 
-**Soundcloud is Gold** integrates perfectly into wordpress. Browse through your soundcloud tracks, sets and favorites from the 'Soundcloud is gold' tab in the post's 'upload media' popup window. Select, set and add track, sets, favorites to your post using the soundcloud player. Live Preview, easy, smart and straightforward.
+**Hotï Player** integrates perfectly into wordpress. Browse through your soundcloud tracks, sets and favorites from the 'Hotï Player' tab in the post's 'upload media' popup window. Select, set and add track, sets, favorites to your post using the soundcloud player. Live Preview, easy, smart and straightforward.
 You can set default settings in the option page, choose your defaut soundcloud player (Mini, Standard, Artwork, Html5), it's width, add extra classes for you CSS lovers, show comments, autoplay and your favorite color.
 You'll also be able to set players to different settings before adding to your post if you fancy a one off change.
 
 **Save multiple users, very useful for labels, collectives or artists with many projects.**
 
-**Soundcloud is Gold** use a shortcode but the "Soundcloud is Gold" tab will write it for you dynamicly as you select parameters, and on top of this it will provide a nice live preview of your player so you know what does what. When done just press the 'insert soundcloud player' and it will added to your post just like when you're adding a photo or gallery.
+**Hotï Player** use a shortcode but the "Hotï Player" tab will write it for you dynamicly as you select parameters, and on top of this it will provide a nice live preview of your player so you know what does what. When done just press the 'insert soundcloud player' and it will added to your post just like when you're adding a photo or gallery.
 
 If you love it please rate it! If you use it and want to help, [donations are always welcomed](http://www.mightymess.com/wp-hoti-wordpress-plugin) or you could like, tweet or spread the love on your blog ;)
 
-Latest developments updates on twitter: [#soundcloudisgold](https://twitter.com/#!/search/realtime/%23soundcloudisgold) or follow me on [twitter](http://twitter.com/#!/mighty_mess)
+Latest developments updates on twitter: [#hotiplayer](https://twitter.com/#!/search/realtime/%23hotitv) or follow me on [twitter](http://twitter.com/#!/hotitv)
 
-Check out my [TM soundcloud profile](http://www.soundcloud.com/t-m), more [mighty mess](http://www.mightymess.com).
+Check out my [TM soundcloud profile](http://www.soundcloud.com/hotitv), more [Hotï](http://hoti.tv).
 
 = Features =
 
@@ -66,10 +62,10 @@ That's just my opinion of course...
 
 = To Do List =
 
-* v2.2: new UI.
-* V2.2: Advance Settings (change background color and comments color, playcounts, buy link, font, wmode, etc, show/hide styled shortcode, number of tracks per page)
-* v2.2: url attribute for shortcode: easier for people using the shortcode manually.
-* v2.2: other soundcloud shortcode conflict fix (jetpack)
+* v1.1: new UI.
+* V1.1: Advance Settings (change background color and comments color, playcounts, buy link, font, wmode, etc, show/hide styled shortcode, number of tracks per page)
+* v1.1: url attribute for shortcode: easier for people using the shortcode manually.
+* v1.1: other soundcloud shortcode conflict fix (jetpack)
 * Add Soundcloud default Width to the options
 * Trigger live preview when changing Soundcloud user name
 * Live search while typing a name in the user name field. So if you're looking for someone it's kind of easier.
@@ -80,10 +76,9 @@ That's just my opinion of course...
 == Installation ==
 
 = Updating =
-When updating to 2.0, if you're experiencing issues, deactivate and reactivate the plugin from the plugin page. This is due to switching to the Settings API. Sorry for the inconvenient. 
+When updating to 1.0, if you're experiencing issues, deactivate and reactivate the plugin from the plugin page. This is due to switching to the Settings API. Sorry for the inconvenient. 
 
-Just follow the usual procedure. Log on to your wordpress, go to plugin -> add new -> search 'Soundcloud is Gold' -> click install
-
+Just follow the usual procedure. Log on to your wordpress, go to plugin -> add new -> search 'Hoti Player' -> click install
 
 
 == Frequently Asked Questions ==
@@ -99,7 +94,7 @@ Just follow the usual procedure. Log on to your wordpress, go to plugin -> add n
 Here's a simple method to track down incompatibilities with plugins and themes:
 
 * Disable all plugins
-* Enable 'soundcloud is gold' and check if it works (add a track to a post to be sure)
+* Enable 'Hotï Player' and check if it works (add a track to a post to be sure)
 * If it worked: enable the other plugins one by one and check if it breaks
 * If it didn't worked: enable the default Worpress theme and check if it works (add a track to a post to be sure).
 
@@ -107,7 +102,7 @@ Remenber that even if a plugin is popular, most of the plugins are badly coded o
 
 = Can't play my tracks on my iphone, ipad or ipod? =
 
-Soundcloud has just released a html5 player. It's currently in it's beta version, which means that there might be bugs. Soundcloud is gold give you the option to use the html5 player but it's either flash all flash or all html5 for now.
+Soundcloud has just released a html5 player. It's currently in it's beta version, which means that there might be bugs. Hotï Player give you the option to use the html5 player but it's either flash all flash or all html5 for now.
 
 = How can I use the shortcode manually? =
 
@@ -123,7 +118,6 @@ If you wish to have more control here is an example:
 
 **[soundcloud id='10450254' comments='true' autoplay='false' playertype='Standard' width='100%' color='#005bff']**
 
-
 = Can I request features? =
 
 Yes, you can. If asked nicely and the requests are sensibles, I almost always integrate them to new releases.
@@ -134,19 +128,8 @@ Sometimes, I generally keep a eye on my plugin's forums and website's comments. 
 
 == Upgrade Notice ==
 
-= 2.2.1 =
+= 1.0.0 =
 * Security Update. Thanks to Samuel Wood for his help and time.
-
-= 2.2 =
-Widget Update! Display latest and random track, favorites or sets for one user, multiple users or random users.
-Perfect for labels, collectives, festivals and schizophrenic artists.
-
-= 2.1 =
-New widget to display a user's latest track. New "user" argument for the shortcode to display user's latest track.
-
-= 2.0 =
-When updating to 2.0, if you're experiencing issues, deactivate and reactivate the plugin from the plugin page. This is due to switching to the Settings API. Sorry for the inconvenient. 
-
 
 
 == Screenshots ==
@@ -160,50 +143,29 @@ When updating to 2.0, if you're experiencing issues, deactivate and reactivate t
 
 == Changelog ==
 
-= 2.2.1 =
+= 1.0.0 =
 * Security Update. Thanks to Samuel Wood for his help and time.
 
-= 2.2 =
-* Widget Update! Display latest and random track, favorites or sets for one user, multiple users or random users.
 
-= 2.1 =
-* Widget to display a user's latest track in the sidebar
-* New "user" argument for the shortcode to show latest track of an user
+== License ==
 
-= 2.0 =
-* Save multiple users, very useful for labels, collectives or artists with many projects.
-* favourites browsing fix.
-* Settings API (Should fix the multi wp install issues)
+    Hotï - Venezuelan Artistic Material
+    Copyright (C) 2013 Marcos Colina
+	
+	Contributors
+		Marcos Colina <ceo@hoti.tv>
+		Alexander Salas <a.salas@ieee.org>
+	
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
 
-= 1.0.7 =
-* Moved to Settings API, which should enable multi-site compatibility (good tutorial at http://www.presscoders.com/2010/05/wordpress-settings-api-explained/ and plugin for reference at http://wordpress.org/extend/plugins/plugin-options-starter-kit/)
-* Fixed bug where pagination would always go back to tracks when browsing sets or favourites. Thanks to givafizz for spotting it.
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
 
-= 1.0.6 =
-* Now you can browse and add Sets and your favorites ;)
-
-= 1.0.5 =
-* New Soundcloud official Html5 player! Woop Woop!
-
-= 1.0.4 =
-* Faster loading of the tab (only load player's preview when click on 'show')
-* Pagination as people with more than 50 tracks couldn't access the rest of their tracks (25 tracks per page)
-* Styled shortcode in tinymce editor with delete and edit buttons
-
-= 1.0.3.2 =
-* Emergency fix linked to soundcloud server been attacked (DDoS): Added user-agent header to request.
-
-= 1.0.3 and 1.0.3.1 =
-* Fixed warning message related to xml not loading when allow_url_fopen is disable: Now using cURL as a first choice for getting xml, and then simplexml_load_file as a last desperate option. Thanks a million to Karl Rixon (http://www.karlrixon.co.uk/).
-
-= 1.0.2 =
-* Fixed minor warnings
-* Made shortcode stronger/safer with shortcode_atts()
-* Set object mode to transparent until V1.1 is ready with new advance settings.
-* Made all shortcode attributes lowercase (autoPlay is now autoplay, playerType is now playertype). sorry about that but it's needed.
-
-= 1.0.1 =
-* Fixed shortode using echo instead of return (silly I know). This caused the shortcode to be outputted at the top of the post instead of it's position in the post. Thanks raceyblood for spotting it.
-
-= 1.0 =
-* Hello world! Listen to me.
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+	
