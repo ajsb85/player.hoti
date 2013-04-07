@@ -192,9 +192,9 @@
     background:#DAE8F6;
 }
 .soundcloudMMWrapper .soundcloudMMBt.blue{
-    border: 1px solid #7B9DA2;
-    color:#21759B;
-    text-decoration:underline;
+    border: 1px solid #999999;
+    color:#999999;
+    text-decoration:none;
 }
 .soundcloudMMWrapper .soundcloudMMBt.blue:hover{
     background:#8FB6BC;
@@ -367,7 +367,7 @@
     width: 99%;
 }
 #soundcloudIsGoldAddUser{
-    font-size: 70%;
+    font-size: 140%;
     margin: 0;
     padding: 0.5% 0;
     width: 99%;
@@ -455,7 +455,7 @@
 .soundcloudIsGoldUserContainer div p{
     background:#F6F6F6;
     bottom: 0;
-    font-size: 60%;
+    font-size: 120%;
     left: 0;
     padding: 0 6px;
     position: absolute;
