@@ -1,6 +1,6 @@
-=== SoundCloud Is Gold ===
+=== Hotï Player ===
 Contributors: Thomas Michalak
-Donate link: http://www.mightymess.com/wp-hoti-wordpress-plugin
+Donate link: http://www.mightymess.com/wp-hoti-player-wordpress-plugin
 Tags: soundcloud, integrated, media, shortcode, browse, design, easy, simple, music, sound, js, live preview, flash, html5
 Requires at least: 3.2
 Tested up to: 3.5.1
@@ -16,15 +16,15 @@ Browse through your soundcloud tracks, sets and favourites. Select and add track
 
 **New Widget to display latest and random track, favorites or sets for one user, multiple users or random users.**
 
-**Soundcloud is Gold** integrates perfectly into wordpress. Browse through your soundcloud tracks, sets and favorites from the 'Soundcloud is gold' tab in the post's 'upload media' popup window. Select, set and add track, sets, favorites to your post using the soundcloud player. Live Preview, easy, smart and straightforward.
+**Hotï Player** integrates perfectly into wordpress. Browse through your soundcloud tracks, sets and favorites from the 'Hotï Player' tab in the post's 'upload media' popup window. Select, set and add track, sets, favorites to your post using the soundcloud player. Live Preview, easy, smart and straightforward.
 You can set default settings in the option page, choose your defaut soundcloud player (Mini, Standard, Artwork, Html5), it's width, add extra classes for you CSS lovers, show comments, autoplay and your favorite color.
 You'll also be able to set players to different settings before adding to your post if you fancy a one off change.
 
 **Save multiple users, very useful for labels, collectives or artists with many projects.**
 
-**Soundcloud is Gold** use a shortcode but the "Soundcloud is Gold" tab will write it for you dynamicly as you select parameters, and on top of this it will provide a nice live preview of your player so you know what does what. When done just press the 'insert soundcloud player' and it will added to your post just like when you're adding a photo or gallery.
+**Hotï Player** use a shortcode but the "Hotï Player" tab will write it for you dynamicly as you select parameters, and on top of this it will provide a nice live preview of your player so you know what does what. When done just press the 'insert soundcloud player' and it will added to your post just like when you're adding a photo or gallery.
 
-If you love it please rate it! If you use it and want to help, [donations are always welcomed](http://www.mightymess.com/wp-hoti-wordpress-plugin) or you could like, tweet or spread the love on your blog ;)
+If you love it please rate it! If you use it and want to help, [donations are always welcomed](http://www.mightymess.com/wp-hoti-player-wordpress-plugin) or you could like, tweet or spread the love on your blog ;)
 
 Latest developments updates on twitter: [#soundcloudisgold](https://twitter.com/#!/search/realtime/%23soundcloudisgold) or follow me on [twitter](http://twitter.com/#!/mighty_mess)
 
@@ -77,7 +77,7 @@ That's just my opinion of course...
 = Updating =
 When updating to 2.0, if you're experiencing issues, deactivate and reactivate the plugin from the plugin page. This is due to switching to the Settings API. Sorry for the inconvenient. 
 
-Just follow the usual procedure. Log on to your wordpress, go to plugin -> add new -> search 'Soundcloud is Gold' -> click install
+Just follow the usual procedure. Log on to your wordpress, go to plugin -> add new -> search 'Hotï Player' -> click install
 
 
 
@@ -94,7 +94,7 @@ Just follow the usual procedure. Log on to your wordpress, go to plugin -> add n
 Here's a simple method to track down incompatibilities with plugins and themes:
 
 * Disable all plugins
-* Enable 'soundcloud is gold' and check if it works (add a track to a post to be sure)
+* Enable 'Hotï Player' and check if it works (add a track to a post to be sure)
 * If it worked: enable the other plugins one by one and check if it breaks
 * If it didn't worked: enable the default Worpress theme and check if it works (add a track to a post to be sure).
 
@@ -102,7 +102,7 @@ Remenber that even if a plugin is popular, most of the plugins are badly coded o
 
 = Can't play my tracks on my iphone, ipad or ipod? =
 
-Soundcloud has just released a html5 player. It's currently in it's beta version, which means that there might be bugs. Soundcloud is gold give you the option to use the html5 player but it's either flash all flash or all html5 for now.
+Soundcloud has just released a html5 player. It's currently in it's beta version, which means that there might be bugs. Hotï Player give you the option to use the html5 player but it's either flash all flash or all html5 for now.
 
 = How can I use the shortcode manually? =
 

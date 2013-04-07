@@ -79,7 +79,7 @@
 		//Replace Shortcode with Styled img or whatever
 		_do_soundcloudIsGold : function(co) {
 			return co.replace(/\[soundcloud([^\]]*)\]/g, function(a,b){
-				return '<img src="../wp-content/plugins/wp-hoti/tinymce-plugin/img/t.gif" class="soundcloudIsGold mceItem" title="soundcloud'+tinymce.DOM.encode(b)+'" />';
+				return '<img src="../wp-content/plugins/wp-hoti-player/tinymce-plugin/img/t.gif" class="soundcloudIsGold mceItem" title="soundcloud'+tinymce.DOM.encode(b)+'" />';
 			});
 		},
 		
@@ -114,7 +114,7 @@
 			
 			//Create Edit Button: Keep wp_editgallery as id to herite style for gallery edit button
 			soundcloudIGold_editButton = DOM.add('soundcloudisgoldbtns', 'img', {
-				src : '../wp-content/plugins/wp-hoti/tinymce-plugin/img/edit.png',
+				src : '../wp-content/plugins/wp-hoti-player/tinymce-plugin/img/edit.png',
 				id : 'wp_editgallery',
 				width : '24',
 				height : '24',
@@ -129,7 +129,7 @@
 			
 			//Create Delite Button: Keep wp_editgallery as id to herite style for gallery edit button
 			soundcloudIGold_dellButton = DOM.add('soundcloudisgoldbtns', 'img', {
-				src : '../wp-content/plugins/wp-hoti/tinymce-plugin/img/delete.png',
+				src : '../wp-content/plugins/wp-hoti-player/tinymce-plugin/img/delete.png',
 				id : 'wp_delgallery',
 				width : '24',
 				height : '24',
@@ -150,7 +150,7 @@
 
 		getInfo : function() {
 			return {
-				longname : 'Soundcloud is Gold Shortcode Settings',
+				longname : 'Hotï Player Shortcode Settings',
 				author : 'TM',
 				authorurl : 'http://www.mightymess.com',
 				infourl : '',

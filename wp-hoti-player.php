@@ -1,12 +1,12 @@
 <?php
 /*
-Plugin Name: WP Hotï
-Plugin URI: http://hoti.tv/dev/wp-hoti
-Description: <strong><a href="http://www.mightymess.com/wp-hoti-wordpress-plugin">Soundcloud is gold</a></strong> integrates perfectly into wordpress. Browse through your soundcloud tracks, sets and favorites from the 'soundcloud is gold' tab with the post's 'upload media' popup window. Select, set and add track, sets or favorites to your post using the soundcloud player. Live Preview, easy, smart and straightforward. You can set default settings in the option page, choose your defaut soundcloud player (Mini, Standard, Artwork, html5), its width, extra classes for you CSS lovers and your favorite colors. You'll still be able to set players to different settings before adding to your post if you fancy a one off change. Now with Html5 player and Widget!
-Version: 1.0.1
-Author: Alexander Salas
-Author URI: https://github.com/alexsalas
-License: GPLv3 or Later
+Plugin Name: Hotï Player
+Plugin URI: http://www.mightymess.com/wp-hoti-player-wordpress-plugin
+Description: <strong><a href="http://www.mightymess.com/wp-hoti-player-wordpress-plugin">Hotï Player</a></strong> integrates perfectly into wordpress. Browse through your soundcloud tracks, sets and favorites from the 'Hotï Player' tab with the post's 'upload media' popup window. Select, set and add track, sets or favorites to your post using the soundcloud player. Live Preview, easy, smart and straightforward. You can set default settings in the option page, choose your defaut soundcloud player (Mini, Standard, Artwork, html5), its width, extra classes for you CSS lovers and your favorite colors. You'll still be able to set players to different settings before adding to your post if you fancy a one off change. Now with Html5 player and Widget!
+Version: 2.2.1
+Author: Thomas Michalak
+Author URI: http://www.mightymess.com/thomas-michalak
+License: GPL2 or Later
 */
 
 /*
@@ -18,7 +18,7 @@ License: GPLv3 or Later
 */
 
 define ('SIG_PLUGIN_DIR', WP_PLUGIN_URL.'/'.str_replace(basename( __FILE__),"",plugin_basename(__FILE__)) );
-require_once('wp-hoti-functions.php');
+require_once('wp-hoti-player-functions.php');
 
 /** Get Plugin Version **/
 function get_soundcloud_is_gold_version() {
@@ -31,52 +31,52 @@ function get_soundcloud_is_gold_version() {
 add_action( 'admin_init', 'soundcloud_is_gold_admin_init' );
 function soundcloud_is_gold_admin_init() {
     register_setting( 'soundcloud_is_gold_options', 'soundcloud_is_gold_options' );
-    wp_register_script('wp-hoti-js', SIG_PLUGIN_DIR.'wp-hoti-js.js', array('jquery', 'farbtastic'));
+    wp_register_script('wp-hoti-player-js', SIG_PLUGIN_DIR.'wp-hoti-player-js.js', array('jquery', 'farbtastic'));
     wp_register_script('carouFredSel', SIG_PLUGIN_DIR.'includes/jquery.carouFredSel-5.5.0-packed.js', array('jquery'));
-    wp_register_style('wp-hoti-css', SIG_PLUGIN_DIR.'wp-hoti-css.css');
-    wp_register_style('ChunkFive', SIG_PLUGIN_DIR.'includes/ChunkFive-fontfacekit/stylesheet.css');
-    wp_register_style('Quicksand', SIG_PLUGIN_DIR.'includes/Quicksand-fontfacekit/stylesheet.css');
-    wp_register_style('wp-hoti-editor-css', SIG_PLUGIN_DIR.'tinymce-plugin/wp-hoti-editor_plugin.css');
+    wp_register_style('wp-hoti-player-css', SIG_PLUGIN_DIR.'wp-hoti-player-css.css');
+    //wp_register_style('ChunkFive', SIG_PLUGIN_DIR.'includes/ChunkFive-fontfacekit/stylesheet.css');
+    //wp_register_style('Quicksand', SIG_PLUGIN_DIR.'includes/Quicksand-fontfacekit/stylesheet.css');
+    wp_register_style('wp-hoti-player-editor-css', SIG_PLUGIN_DIR.'tinymce-plugin/wp-hoti-player-editor_plugin.css');
 }
 //Plugin option scripts
 function soundcloud_is_gold_option_scripts() {
     wp_enqueue_script('farbtastic');
-    wp_enqueue_script('wp-hoti-js');
+    wp_enqueue_script('wp-hoti-player-js');
     wp_enqueue_script('carouFredSel');
 }
 //Plugin option style
 function soundcloud_is_gold_option_styles() {
-  wp_enqueue_style('wp-hoti-css');
+  wp_enqueue_style('wp-hoti-player-css');
   wp_enqueue_style('farbtastic');
 }
 //Plugin Options' Fonts
-function soundcloud_is_gold_option_fonts() {
+/* function soundcloud_is_gold_option_fonts() {
   wp_enqueue_style('ChunkFive');
   wp_enqueue_style('Quicksand');
-}
+} */
 /*** Add Admin Menu ***/
-add_action('admin_menu', 'soundcloud_is_gold_menu');
+/* add_action('admin_menu', 'soundcloud_is_gold_menu');
 function soundcloud_is_gold_menu() {
 	//Main
-	$soundcloudIsGoldPage = add_menu_page('Soundcloud is Gold: Options', 'Soundcloud is Gold', 'activate_plugins', __FILE__, 'soundcloud_is_gold_options', SIG_PLUGIN_DIR.'images/wp-hoti-icon.png');
+	$soundcloudIsGoldPage = add_menu_page('Hotï Player: Options', 'Hotï Player', 'activate_plugins', __FILE__, 'soundcloud_is_gold_options', SIG_PLUGIN_DIR.'images/wp-hoti-player-icon.png');
 	add_action( "admin_print_scripts-$soundcloudIsGoldPage", 'soundcloud_is_gold_option_scripts' ); // Add script
 	add_action( "admin_print_styles-$soundcloudIsGoldPage", 'soundcloud_is_gold_option_styles' ); // Add Style
-	add_action( "admin_print_styles-$soundcloudIsGoldPage", 'soundcloud_is_gold_option_fonts' ); // Add Fonts
-}
+	//add_action( "admin_print_styles-$soundcloudIsGoldPage", 'soundcloud_is_gold_option_fonts' ); // Add Fonts
+} */
 function soundcloud_is_gold_advanced_options() {
-	//include('wp-hoti-advanced.php');
+	//include('wp-hoti-player-advanced.php');
 }
 /*** Link to Settings from the plugin Page ***/
-function soundcloud_is_gold_settings_link($links, $file) { 
+/* function soundcloud_is_gold_settings_link($links, $file) { 
     if ( $file == plugin_basename( __FILE__ ) ) {
-	$settings_link = '<a href="admin.php?page=wp-hoti/wp-hoti.php">'.__('Settings').'</a>'; 
+	$settings_link = '<a href="admin.php?page=wp-hoti-player/wp-hoti-player.php">'.__('Settings').'</a>'; 
 	array_unshift($links, $settings_link);
     }
     return $links;
 }
-add_filter("plugin_action_links", 'soundcloud_is_gold_settings_link', 10, 2 );
+add_filter("plugin_action_links", 'soundcloud_is_gold_settings_link', 10, 2 ); */
 
-/*** Add tint Mce Soundcloud is Gold Plugin ***/
+/*** Add tint Mce Hotï Player Plugin ***/
 add_filter("mce_external_plugins", 'soundcloud_is_gold_mce_plugin');
 //add_filter( 'mce_buttons', 'soundcloud_is_gold_mce_button' );
 add_filter('mce_css', 'soundcloud_is_gold_mce_css');
@@ -96,7 +96,7 @@ function soundcloud_is_gold_add_defaults() {
 	$soundcloudIsGoldDefaultUser = $soundcloudIsGoldDefaultUsers[array_rand($soundcloudIsGoldDefaultUsers, 1)][0];
 	if(get_option('soundcloud_is_gold_user')){
 	    $soundcloudIsGoldDefaultUser = get_option('soundcloud_is_gold_user');
-	    $userInfo = get_soundcloud_is_gold_api_response("http://api.soundcloud.com/users/".$soundcloudIsGoldDefaultUser.".xml?client_id=9rD2GrGrajkmkw5eYFDp2g");
+	    $userInfo = get_soundcloud_is_gold_api_response("http://api.soundcloud.com/users/".$soundcloudIsGoldDefaultUser.".xml?client_id=43195eb2f2b85520cb5f65e78d6501bf");
 	    $newUsername = (string)$userInfo['response']->permalink;
 	    $newUsernameImg = (string)$userInfo['response']->{'avatar-url'}[0];
 	    $soundcloudIsGoldDefaultUsers[$newUsername][0] = $newUsername;
@@ -151,7 +151,7 @@ function soundcloud_is_gold_options(){
     $soundcloudIsGoldClasses = isset($options['soundcloud_is_gold_classes']) ? $options['soundcloud_is_gold_classes'] : '';
     $soundcloudIsGoldColor = isset($options['soundcloud_is_gold_color']) ? $options['soundcloud_is_gold_color'] : ''; 
     
-    $soundcloudIsGoldApiCall = 'http://api.soundcloud.com/users/'.$soundcloudIsGoldActiveUser.'/tracks.xml?limit=1&client_id=9rD2GrGrajkmkw5eYFDp2g';
+    $soundcloudIsGoldApiCall = 'http://api.soundcloud.com/users/'.$soundcloudIsGoldActiveUser.'/tracks.xml?limit=1&client_id=43195eb2f2b85520cb5f65e78d6501bf';
     $soundcloudIsGoldApiResponse = get_soundcloud_is_gold_api_response($soundcloudIsGoldApiCall);
     if(isset($soundcloudIsGoldApiResponse['response']) && $soundcloudIsGoldApiResponse['response']){
 	foreach($soundcloudIsGoldApiResponse['response'] as $soundcloudMMLatestTrack){
@@ -163,16 +163,16 @@ function soundcloud_is_gold_options(){
 ?>
     
     <script type="text/javascript">
-	//Set default Soundcloud Is Gold Settings
+	//Set default Hotï Player Settings
         <?php get_soundcloud_is_gold_default_settings_for_js(); ?>
     </script>
     
     <div class="soundcloudMMWrapper soundcloudMMOptions soundcloudMMMainWrapper">
         <div id="soundcloudMMTop" class="darkGreyGradient">
-            <a id="soundcloudMMLogo" class="orangeGradient" href="http://www.soundcloud.com" title="visit SoundCloud website"><img src="<?php echo SIG_PLUGIN_DIR ?>/images/hoti-logo.png" width="107" height="71" alt="Soundcloud Logo"/></a>
-            <a id="soundcloudMMHeader" class="mediumGreyGradient textShadow" href="http://www.mightymess.com/wp-hoti-wordpress-plugin" alt="Visit Mighty Mess for more cool stuff">
-                <span class="soundcloudMMTitle">SoundCloud is gold <small>by Thomas Michalak</small></span>
-                <span class="soundcloudMMUrl">www.mightymess.com/wp-hoti-wordpress-plugin</span>
+            <a id="soundcloudMMLogo" class="orangeGradient" href="http://www.soundcloud.com" title="visit SoundCloud website"><img src="<?php echo SIG_PLUGIN_DIR ?>/images/soundcloud-logo-sc.png" width="107" height="71" alt="Soundcloud Logo"/></a>
+            <a id="soundcloudMMHeader" class="mediumGreyGradient textShadow" href="http://www.mightymess.com/wp-hoti-player-wordpress-plugin" alt="Visit Mighty Mess for more cool stuff">
+                <span class="soundcloudMMTitle">Hotï Player <small>by Thomas Michalak</small></span>
+                <span class="soundcloudMMUrl">www.mightymess.com/wp-hoti-player-wordpress-plugin</span>
             </a>
 	    <p id="soundcloudMMVersion">version <?php echo get_soundcloud_is_gold_version($options) ?></p>
         </div>
@@ -263,7 +263,7 @@ function soundcloud_is_gold_options(){
             <ul id="soundcloudMMExtras" class="lightGreyGradient">
                 <li><a href="http://soundcloud.com/t-m" title="TM's music on SoundCloud" class="soundcloudMMBt orangeGradient soundcloudMMRounder">TM on SoundCloud</a></li>
                 <li><a href="http://www.mightymess.com" title="Thomas Michalak's Website" class="soundcloudMMBt orangeGradient soundcloudMMRounder">More Mighty Mess</a></li>
-                <li><a href="http://wordpress.org/tags/wp-hoti?forum_id=10" title="Soundcloud is Gold Forum" class="soundcloudMMBt orangeGradient soundcloudMMRounder">Forum</a></li>
+                <li><a href="http://wordpress.org/tags/wp-hoti-player?forum_id=10" title="Hotï Player Forum" class="soundcloudMMBt orangeGradient soundcloudMMRounder">Forum</a></li>
                 <li>
                 <form class="soundcloudMMBtForm" action="https://www.paypal.com/cgi-bin/webscr" method="post">
                         <input type="hidden" name="cmd" value="_s-xclick">

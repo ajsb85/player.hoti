@@ -745,3 +745,7 @@ select.soundcloudMMInput option{
     color:#333333;
     text-align:center;
 }
+
+.soundcloudMM_settings, .soundcloudMM_playerType, .soundcloudMM_size, .soundcloudMM_color, .soundcloudMM_classes{
+	display: none;
+}
