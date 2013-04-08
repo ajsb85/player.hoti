@@ -710,6 +710,11 @@ MY_MARKER;
 			if(track.downloadable){
 				$("#download").addClass('downloadable');
 				$("#download").attr('onclick', "window.location.href='"+track.download_url+"?consumer_key=43195eb2f2b85520cb5f65e78d6501bf'");
+				$("#download").show();
+			}else{
+				$("#download").attr("class","");
+				$("#download").attr("onclick","");
+				$("#download").hide();
 			}
 		SC.stream(track.uri, {autoPlay: true, onfinish:playNextSound, ontimedcomments: comments}, function (stream) {
 			window.stream = stream;
