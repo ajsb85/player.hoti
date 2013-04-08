@@ -706,7 +706,8 @@ MY_MARKER;
 			var track = playlists[i];
 			document.getElementById('track').innerHTML = current+1;
 			document.getElementById('title').innerHTML = track.title;
-			document.querySelector('.soundcloudIsGold').style.backgroundImage="url('"+track.artwork_url.split("large").join("crop")+"')";
+			if(track.artwork_url != null)
+				document.querySelector('.soundcloudIsGold').style.backgroundImage="url('"+track.artwork_url.split("large").join("crop")+"')";
 			if(track.downloadable){
 				$("#download").addClass('downloadable');
 				$("#download").attr('onclick', "window.location.href='"+track.download_url+"?consumer_key=43195eb2f2b85520cb5f65e78d6501bf'");
