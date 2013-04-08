@@ -673,6 +673,7 @@ if($format == 'tracks') {
 			<h1>$format</h1>
 MY_MARKER;
 }else{
+	$dir = substr(SIG_PLUGIN_DIR, 0, -1);
 	$player .= <<<MY_MARKER
 	<script>
 	var playlists = {};
@@ -708,6 +709,8 @@ MY_MARKER;
 			document.getElementById('title').innerHTML = track.title;
 			if(track.artwork_url != null)
 				document.querySelector('.soundcloudIsGold').style.backgroundImage="url('"+track.artwork_url.split("large").join("crop")+"')";
+			//else
+				//document.querySelector('.soundcloudIsGold').style.backgroundImage="url('$dir/images/400.jpg')";
 			if(track.downloadable){
 				$("#download").addClass('downloadable');
 				$("#download").attr('onclick', "window.location.href='"+track.download_url+"?consumer_key=43195eb2f2b85520cb5f65e78d6501bf'");
