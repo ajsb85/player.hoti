@@ -644,6 +644,7 @@ function soundcloud_is_gold_player($id, $user, $autoPlay, $comments, $width, $cl
 	//Html5 Player
 	else{
 /* 		$player .= '<iframe width="'.esc_attr($width).'" height="'.esc_attr($height).'" scrolling="no" frameborder="no" src="http://w.soundcloud.com/player/?url=http%3A%2F%2Fapi.soundcloud.com%2F'.esc_attr($format).'%2F'.esc_attr($id).'&amp;auto_play='.esc_attr($autoPlay).'&amp;show_artwork='.esc_attr($artwork).'&amp;color='.esc_attr($color).'"></iframe>'; */
+if($format == 'tracks') {
 	$player .= <<<MY_MARKER
 	<script>
 	window.addEventListener("load", function load(event){
@@ -669,10 +670,85 @@ function soundcloud_is_gold_player($id, $user, $autoPlay, $comments, $width, $cl
             <li id="toggle" class="pause"></li>
             <li id="download"></li>
         </ul>
+			<h1>$format</h1>
 MY_MARKER;
-	}
+}else{
+	$player .= <<<MY_MARKER
+	<script>
+	var playlists = {};
+	var current = 0;
+	window.addEventListener("load", function load(event){
+		window.removeEventListener("load", load, false); 
+		SC.get("/playlists/$id", function (playlist) {
+			playlists = playlist.tracks;
+			playSong(2);
+		});
+		$("#toggle").on("click", function () { 
+			window.stream.togglePause();
+			$("#toggle").toggleClass("play");
+		});
+		$("#next").on("click", function () { 
+			window.stream.stop();
+			playNextSound();
+			document.getElementById('comments').innerHTML = "";
+		});
+		$("#prev").on("click", function () { 
+			window.stream.stop();
+			playPrevSound();
+			document.getElementById('comments').innerHTML = "";
+		});
+	},false);
+	
+	function playSong(i){
+			current = i;
+			var track = playlists[i];
+			document.getElementById('track').innerHTML = current;
+			document.getElementById('title').innerHTML = track.title;
+			document.querySelector('.soundcloudIsGold').style.backgroundImage="url('"+track.artwork_url.split("large").join("crop")+"')";
+			if(track.downloadable){
+				$("#download").addClass('downloadable');
+				$("#download").attr('onclick', "window.location.href='"+track.download_url+"?consumer_key=43195eb2f2b85520cb5f65e78d6501bf'");
+			}
+		SC.stream(track.uri, {autoPlay: true, onfinish:playNextSound, ontimedcomments: comments}, function (stream) {
+			window.stream = stream;
+			//window.stream = stream.play();
+		});
 
+	}
+	
+	function playNextSound(){
+		if(playlists.length-1 > current)
+			playSong(current + 1);
+		else
+			playSong(0);
+	}
+	
+	function playPrevSound(){
+		if(current==0)
+			playSong(playlists.length-1);
+		else
+			playSong(current - 1);
+	}
+	
+	function comments(comments){
+				document.getElementById('comments').innerHTML = comments[0].body;
+			}		
+	</script>
+        <ul>
+            <li id="toggle" class="pause"></li>
+            <li id="next"></li>
+            <li id="prev"></li>
+            <li id="download"></li>
+			
+        </ul>
+MY_MARKER;
+}
+	}
+//if($format == 'sets' || $format == 'set') $format = 'playlists';
 	$player .= '</div>';
+	$player .= '<h5 id="track"></h5>';
+	$player .= '<h2 id="title"></h2>';
+	$player .= '<h5 id="comments"></h5>';
         
 	
 	return $player;
