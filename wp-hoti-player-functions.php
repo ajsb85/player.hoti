@@ -678,18 +678,28 @@ MY_MARKER;
 	<script>
 	var playlists = {};
 	var current = 0;
+	var objImage = new Image(400,400); 
+	function imagesLoaded(){
+		document.querySelector('.soundcloudIsGold').style.backgroundImage="url('"+objImage.src+"')";
+	}
 	window.addEventListener("load", function load(event){
 		window.removeEventListener("load", load, false); 
 		SC.get("/playlists/$id", function (playlist) {
 			playlists = playlist.tracks;
 			playSong(0);
-			if(playlist.artwork_url != null)
-				document.querySelector('.soundcloudIsGold').style.backgroundImage="url('"+playlist.artwork_url.split("large").join("crop")+"')";
+			if(playlist.artwork_url != null){
+				if (document.images)
+				{
+				  objImage.onLoad=imagesLoaded();
+				  objImage.src= playlist.artwork_url.split("large").join("crop");
+				}
+  
+				
+				}
 		});
 		$("#toggle").on("click", function () { 
 			window.stream.togglePause();
 			$("#toggle").toggleClass("play");
-			clearComments();
 		});
 		$("#next").on("click", function () { 
 			window.stream.stop();
@@ -717,8 +727,15 @@ MY_MARKER;
 			var track = playlists[i];
 			document.getElementById('track').innerHTML = current+1;
 			document.getElementById('title').innerHTML = track.title;
-			if(track.artwork_url != null)
-				document.querySelector('.soundcloudIsGold').style.backgroundImage="url('"+track.artwork_url.split("large").join("crop")+"')";
+			if(track.artwork_url != null){
+				if (document.images)
+				{
+				  objImage.onLoad=imagesLoaded();
+				  objImage.src= track.artwork_url.split("large").join("crop");
+				}
+			}
+			
+				//document.querySelector('.soundcloudIsGold').style.backgroundImage="url('"+track.artwork_url.split("large").join("crop")+"')";
 			if(track.downloadable){
 				$("#download").addClass('downloadable');
 				$("#download").attr('onclick', "window.location.href='"+track.download_url+"?consumer_key=43195eb2f2b85520cb5f65e78d6501bf'");
