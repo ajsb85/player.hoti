@@ -743,6 +743,8 @@ MY_MARKER;
 	
 	function comments(comments){
 				document.getElementById('comments').innerHTML = comments[0].body;
+				document.getElementById('avatar').src = comments[0].user.avatar_url;
+				document.getElementById('user').innerHTML = comments[0].user.username;
 			}		
 	</script>
         <ul>
@@ -759,6 +761,8 @@ MY_MARKER;
 	$player .= '</div>';
 	$player .= '<h5 id="track"></h5>';
 	$player .= '<h2 id="title"></h2>';
+	$player .= '<img id="avatar" src="image.jpg" alt="An awesome image" />';
+	$player .= '<h5 id="user"></h5>';
 	$player .= '<h5 id="comments"></h5>';
         
 	
