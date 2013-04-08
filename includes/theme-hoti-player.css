@@ -31,7 +31,7 @@
     margin-bottom:5px;
     
     }
-    .soundcloudIsGold > ul > li:hover{
+    .soundcloudIsGold > ul > li{
 		 background:url('data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=');
 		 background-size:28px 28px;
 		 background-repeat:no-repeat;
