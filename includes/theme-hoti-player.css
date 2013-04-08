@@ -28,6 +28,7 @@
     list-style-type: none;
     cursor: pointer;
     padding: 0 0 0 0;
+    margin-bottom:15px;
     
     }
     .soundcloudIsGold > ul > li:hover{
@@ -75,5 +76,68 @@
 	.soundcloudIsGold:hover > ul > .downloadable:after {
 		content: "e";
 	}
-	
-	
+@media screen and (max-width: 479px) {
+	    .soundcloudIsGold{
+        background-size:300px 300px;
+        background-repeat:no-repeat;
+    height: 300px;
+    width: 300px;
+    margin:  0;
+    padding:  0;
+    }
+    .soundcloudIsGold > ul > li{
+    font-family: "hoti";
+    font-size: 35px;
+    height: 35px;
+    width: 35px;
+    color: #000;
+    list-style-type: none;
+    cursor: pointer;
+    padding: 0 0 0 0;
+    
+    }
+}
+@media screen and (max-width: 479px) {
+	    .soundcloudIsGold{
+        background-size:300px 300px;
+        background-repeat:no-repeat;
+    height: 300px;
+    width: 300px;
+    margin:  0;
+    padding:  0;
+    }
+    .soundcloudIsGold > ul > li{
+    font-family: "hoti";
+    font-size: 35px;
+    height: 35px;
+    width: 35px;
+    color: #000;
+    list-style-type: none;
+    cursor: pointer;
+    padding: 0 0 0 0;
+    
+    }
+}
+
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : portrait) {
+
+	    .soundcloudIsGold{
+        background-size:425px 425px;
+        background-repeat:no-repeat;
+    height: 425px;
+    width: 425px;
+    margin:  0;
+    padding:  0;
+    }
+    .soundcloudIsGold > ul > li{
+    font-family: "hoti";
+    font-size: 35px;
+    height: 35px;
+    width: 35px;
+    color: #000;
+    list-style-type: none;
+    cursor: pointer;
+    padding: 0 0 0 0;
+    
+    }
+}
