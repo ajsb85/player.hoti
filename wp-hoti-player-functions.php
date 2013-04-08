@@ -683,6 +683,8 @@ MY_MARKER;
 		SC.get("/playlists/$id", function (playlist) {
 			playlists = playlist.tracks;
 			playSong(0);
+			if(playlist.artwork_url != null)
+				document.querySelector('.soundcloudIsGold').style.backgroundImage="url('"+playlist.artwork_url.split("large").join("crop")+"')";
 		});
 		$("#toggle").on("click", function () { 
 			window.stream.togglePause();
@@ -709,8 +711,6 @@ MY_MARKER;
 			document.getElementById('title').innerHTML = track.title;
 			if(track.artwork_url != null)
 				document.querySelector('.soundcloudIsGold').style.backgroundImage="url('"+track.artwork_url.split("large").join("crop")+"')";
-			//else
-				//document.querySelector('.soundcloudIsGold').style.backgroundImage="url('$dir/images/400.jpg')";
 			if(track.downloadable){
 				$("#download").addClass('downloadable');
 				$("#download").attr('onclick', "window.location.href='"+track.download_url+"?consumer_key=43195eb2f2b85520cb5f65e78d6501bf'");
