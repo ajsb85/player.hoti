@@ -750,10 +750,12 @@ MY_MARKER;
 	}
 	
 	function comments(comments){
-				document.getElementById('comments').innerHTML = comments[0].body;
-				document.getElementById('avatar').src = comments[0].user.avatar_url;
-				document.getElementById('user').innerHTML = comments[0].user.username;
-			}		
+		if (comments[0].body.indexOf("http") == -1) {
+			document.getElementById('comments').innerHTML = comments[0].body;
+			document.getElementById('avatar').src = comments[0].user.avatar_url;
+			document.getElementById('user').innerHTML = comments[0].user.username;
+		}		
+	}
 	</script>
         <ul>
             <li id="toggle" class="pause"></li>
