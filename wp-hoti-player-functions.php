@@ -689,11 +689,13 @@ MY_MARKER;
 		});
 		$("#next").on("click", function () { 
 			window.stream.stop();
+			$("#toggle").attr("class","play");
 			playNextSound();
 			document.getElementById('comments').innerHTML = "";
 		});
 		$("#prev").on("click", function () { 
 			window.stream.stop();
+			$("#toggle").attr("class","play");
 			playPrevSound();
 			document.getElementById('comments').innerHTML = "";
 		});
