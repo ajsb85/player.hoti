@@ -1,0 +1,79 @@
+@font-face {
+    font-family: 'hoti';
+    src: url('hoti-webfont/hoti-webfont.eot');
+    src: url('hoti-webfont/hoti-webfont.eot?#iefix') format('embedded-opentype'),
+         url('hoti-webfont/hoti-webfont.woff') format('woff'),
+         url('hoti-webfont/hoti-webfont.ttf') format('truetype'),
+         url('hoti-webfont/hoti-webfont.svg#hotiregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+    .soundcloudIsGold{
+        background-size:400px 400px;
+        background-repeat:no-repeat;
+    height: 400px;
+    width: 400px;
+    margin:  0;
+    padding:  0;
+    }
+    .soundcloudIsGold > ul > li{
+    font-family: "hoti";
+    font-size: 35px;
+    height: 35px;
+    width: 35px;
+    color: #000;
+    list-style-type: none;
+    cursor: pointer;
+    padding: 0 0 0 0;
+    
+    }
+    .soundcloudIsGold > ul > li:hover{
+		 background:url('data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=');
+		 background-size:28px 28px;
+		 background-repeat:no-repeat;
+		 background-position: center center;
+    }
+    
+    .soundcloudIsGold > ul{
+        padding-left: 0;
+        padding-top: 100px;
+    }
+
+/* 	.soundcloudIsGold > ul > .pause:after {
+		content: "d";
+	}
+	
+
+	.soundcloudIsGold > ul > .play:after {
+		content: "a";
+	} */
+	
+	
+	.soundcloudIsGold:hover > ul > .pause:after {
+		content: "d";
+	}
+	
+	.soundcloudIsGold:hover > ul > .play:after {
+		content: "a";
+	}
+	
+	.soundcloudIsGold:hover > ul > #next:after {
+		content: "b";
+	}
+	
+	.soundcloudIsGold:hover > ul > #prev:after {
+		content: "c";
+	}
+	
+	.soundcloudIsGold:hover > ul > #playlist:after {
+		content: "f";
+	}
+	
+	.soundcloudIsGold:hover > ul > .downloadable:after {
+		content: "e";
+	}
+	
+	

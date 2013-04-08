@@ -643,8 +643,35 @@ function soundcloud_is_gold_player($id, $user, $autoPlay, $comments, $width, $cl
 	}
 	//Html5 Player
 	else{
-		$player .= '<iframe width="'.esc_attr($width).'" height="'.esc_attr($height).'" scrolling="no" frameborder="no" src="http://w.soundcloud.com/player/?url=http%3A%2F%2Fapi.soundcloud.com%2F'.esc_attr($format).'%2F'.esc_attr($id).'&amp;auto_play='.esc_attr($autoPlay).'&amp;show_artwork='.esc_attr($artwork).'&amp;color='.esc_attr($color).'"></iframe>';
+/* 		$player .= '<iframe width="'.esc_attr($width).'" height="'.esc_attr($height).'" scrolling="no" frameborder="no" src="http://w.soundcloud.com/player/?url=http%3A%2F%2Fapi.soundcloud.com%2F'.esc_attr($format).'%2F'.esc_attr($id).'&amp;auto_play='.esc_attr($autoPlay).'&amp;show_artwork='.esc_attr($artwork).'&amp;color='.esc_attr($color).'"></iframe>'; */
+	$player .= <<<MY_MARKER
+	<script>
+	window.addEventListener("load", function load(event){
+		window.removeEventListener("load", load, false); 
+		SC.get("/tracks/$id", function (track) {
+			if(track.downloadable){
+				$("#download").addClass('downloadable');
+				$("#download").attr('onclick', "window.location.href='"+track.download_url+"?consumer_key=43195eb2f2b85520cb5f65e78d6501bf'");
+			}
+			document.querySelector('.soundcloudIsGold').style.backgroundImage="url('"+track.artwork_url.split("large").join("crop")+"')"
+			SC.stream(track.uri, {autoPlay: true}, function (stream) {
+				window.stream = stream;
+				//window.stream = stream.play();
+			});
+		});
+		$("#toggle").on("click", function () { 
+			window.stream.togglePause();
+			$("#toggle").toggleClass("play");
+		});
+	},false);
+	</script>
+        <ul>
+            <li id="toggle" class="pause"></li>
+            <li id="download"></li>
+        </ul>
+MY_MARKER;
 	}
+
 	$player .= '</div>';
         
 	
@@ -974,6 +1001,42 @@ class Soundcloud_Is_Gold_Widget extends WP_Widget {
 		</p>
 		<?php
 	}
-
+	
 } // class Foo_Widget
+
+/*********************************************************************/
+/***                                                               ***/
+/***                     Theme Files		                       ***/
+/***                                                               ***/
+/*********************************************************************/
+
+    
+function prefix_add_my_stylesheet() {
+	wp_register_style( 'wp-hoti-player', plugins_url('includes/theme-hoti-player.css', __FILE__) );
+	wp_enqueue_style( 'wp-hoti-player' );
+}
+
+function my_soundcloud_enqueue() {
+   wp_deregister_script('soundcloud');
+   wp_register_script('soundcloud', "http" . ($_SERVER['SERVER_PORT'] == 443 ? "s" : "") . "://connect.soundcloud.com/sdk.js", false, null);
+   wp_enqueue_script('soundcloud');
+}
+
+/* function my_scripts_method() {
+	wp_enqueue_script(
+		'custom-script',
+		plugins_url( 'includes/script-hoti-player.js', __FILE__ ),
+		array( 'jquery' )
+	);
+} */
+
+function my_scripts_method() {
+	wp_register_script( 'wp-hoti-player' , plugins_url( 'includes/script-hoti-player.js', __FILE__ ));
+	wp_enqueue_script( 'wp-hoti-player' );
+}
+
+add_action( 'wp_enqueue_scripts', 'prefix_add_my_stylesheet' );
+add_action("wp_enqueue_scripts", "my_soundcloud_enqueue");
+add_action( 'wp_enqueue_scripts', 'my_scripts_method' );
+
 ?>
