@@ -702,7 +702,7 @@ MY_MARKER;
 	function playSong(i){
 			current = i;
 			var track = playlists[i];
-			document.getElementById('track').innerHTML = current;
+			document.getElementById('track').innerHTML = current+1;
 			document.getElementById('title').innerHTML = track.title;
 			document.querySelector('.soundcloudIsGold').style.backgroundImage="url('"+track.artwork_url.split("large").join("crop")+"')";
 			if(track.downloadable){
