@@ -689,22 +689,30 @@ MY_MARKER;
 		$("#toggle").on("click", function () { 
 			window.stream.togglePause();
 			$("#toggle").toggleClass("play");
+			clearComments();
 		});
 		$("#next").on("click", function () { 
 			window.stream.stop();
 			$("#toggle").attr("class","pause");
 			playNextSound();
-			document.getElementById('comments').innerHTML = "";
+			clearComments();
 		});
 		$("#prev").on("click", function () { 
 			window.stream.stop();
 			$("#toggle").attr("class","pause");
 			playPrevSound();
-			document.getElementById('comments').innerHTML = "";
+			clearComments();
 		});
 	},false);
 	
+	function clearComments(){
+		document.getElementById('comments').innerHTML = "";
+		document.getElementById('user').innerHTML = "";
+		document.getElementById('avatar').src = "data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=";
+	}
+	
 	function playSong(i){
+			clearComments();
 			current = i;
 			var track = playlists[i];
 			document.getElementById('track').innerHTML = current+1;
