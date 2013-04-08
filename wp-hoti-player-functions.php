@@ -681,7 +681,7 @@ MY_MARKER;
 		window.removeEventListener("load", load, false); 
 		SC.get("/playlists/$id", function (playlist) {
 			playlists = playlist.tracks;
-			playSong(2);
+			playSong(0);
 		});
 		$("#toggle").on("click", function () { 
 			window.stream.togglePause();
