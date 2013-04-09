@@ -182,7 +182,7 @@
 	var current = 0;
 	window.addEventListener("load", function load(event){
 		window.removeEventListener("load", load, false); 
-		SC.get("/playlists/2815190", function (playlist) {
+		SC.get("/playlists/2676835", function (playlist) {
 			playlists = playlist.tracks;
 			playSong(0);
 			if(playlist.artwork_url != null)
