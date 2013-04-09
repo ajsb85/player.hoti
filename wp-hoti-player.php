@@ -92,7 +92,7 @@ function soundcloud_is_gold_advanced_options() {
 /*** Link to Settings from the plugin Page ***/
 /* function soundcloud_is_gold_settings_link($links, $file) { 
     if ( $file == plugin_basename( __FILE__ ) ) {
-	$settings_link = '<a href="admin.php?page=wp-hoti-player-master/wp-hoti-player.php">'.__('Settings').'</a>'; 
+	$settings_link = '<a href="admin.php?page=wp-hoti-player-simple/wp-hoti-player.php">'.__('Settings').'</a>'; 
 	array_unshift($links, $settings_link);
     }
     return $links;

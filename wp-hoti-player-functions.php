@@ -705,28 +705,17 @@ MY_MARKER;
 			window.stream.stop();
 			$("#toggle").attr("class","pause");
 			playNextSound();
-			clearComments();
 		});
 		$("#prev").on("click", function () { 
 			window.stream.stop();
 			$("#toggle").attr("class","pause");
 			playPrevSound();
-			clearComments();
 		});
 	},false);
 	
-	function clearComments(){
-		document.getElementById('comments').innerHTML = "";
-		document.getElementById('user').innerHTML = "";
-		document.getElementById('avatar').src = "data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=";
-	}
-	
 	function playSong(i){
-			clearComments();
 			current = i;
 			var track = playlists[i];
-			document.getElementById('track').innerHTML = current+1;
-			document.getElementById('title').innerHTML = track.title;
 			if(track.artwork_url != null){
 				if (document.images)
 				{
@@ -745,9 +734,8 @@ MY_MARKER;
 				$("#download").attr("onclick","");
 				$("#download").hide();
 			}
-		SC.stream(track.uri, {autoPlay: true, onfinish:playNextSound, ontimedcomments: comments}, function (stream) {
+		SC.stream(track.uri, {autoPlay: true, onfinish:playNextSound}, function (stream) {
 			window.stream = stream;
-			//window.stream = stream.play();
 		});
 
 	}
@@ -766,13 +754,6 @@ MY_MARKER;
 			playSong(current - 1);
 	}
 	
-	function comments(comments){
-		if (comments[0].body.indexOf("http") == -1) {
-			document.getElementById('comments').innerHTML = comments[0].body;
-			document.getElementById('avatar').src = comments[0].user.avatar_url;
-			document.getElementById('user').innerHTML = comments[0].user.username;
-		}		
-	}
 	</script>
         <ul>
             <li id="toggle" class="pause"></li>
@@ -784,13 +765,7 @@ MY_MARKER;
 MY_MARKER;
 }
 	}
-//if($format == 'sets' || $format == 'set') $format = 'playlists';
 	$player .= '</div>';
-	$player .= '<h5 id="track"></h5>';
-	$player .= '<h2 id="title"></h2>';
-	$player .= '<img id="avatar" src="image.jpg" alt="An awesome image" />';
-	$player .= '<h5 id="user"></h5>';
-	$player .= '<h5 id="comments"></h5>';
         
 	
 	return $player;
