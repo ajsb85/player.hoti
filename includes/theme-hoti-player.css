@@ -1,73 +1,69 @@
 @font-face {
-    font-family: 'hoti';
-    src: url('hoti-webfont/hoti-webfont.eot');
-    src: url('hoti-webfont/hoti-webfont.eot?#iefix') format('embedded-opentype'),
-         url('hoti-webfont/hoti-webfont.woff') format('woff'),
-         url('hoti-webfont/hoti-webfont.ttf') format('truetype'),
-         url('hoti-webfont/hoti-webfont.svg#hotiregular') format('svg');
-    font-weight: normal;
-    font-style: normal;
-
+	font-family: SourceSansPro-ExtraLight;  
+	src: local('SourceSansPro-ExtraLight'), 
+		url("http://hoti.tv/wp-content/plugins/fonts/SourceSansPro-ExtraLight.ttf") format('truetype');  
+	font-weight: normal;
 }
-
-
     .soundcloudIsGold{
         background: url('../images/400.jpg');
-        background-size:400px 400px;
+        background-size:500px 500px;
         background-repeat:no-repeat;
-    height: 400px;
-    width: 400px;
+    height: 500px;
+    width: 500px;
     margin:  0;
     padding:  0;
     }
     .soundcloudIsGold > ul > li{
-    font-family: "hoti";
+    font-family: "SourceSansPro-ExtraLight";
     font-size: 35px;
-    height: 35px;
-    width: 35px;
-    color: #000;
+    font-weight: 200;
+    letter-spacing:-3px;
+    color: #fff;
     list-style-type: none;
     cursor: pointer;
     padding: 0 0 0 0;
     margin-bottom:5px;
-    
+  
     }
+
     .soundcloudIsGold:hover > ul > li{
-		 background:url('data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=');
-		 background-size:28px 28px;
+		 background-color: #000;
+    		 height: auto;
+                 width: auto;
 		 background-repeat:no-repeat;
 		 background-position: center center;
+
     }
-    
+
     .soundcloudIsGold > ul{
         padding-left: 0;
         padding-top: 100px;
     }
 
 /* 	.soundcloudIsGold > ul > .pause:after {
-		content: "d";
+		content: "Pausar";
 	}
 	
 
 	.soundcloudIsGold > ul > .play:after {
-		content: "a";
+		content: "Reproducir";
 	} */
 	
 	
 	.soundcloudIsGold:hover > ul > .pause:after {
-		content: "d";
+		content: "Pausar";
 	}
 	
 	.soundcloudIsGold:hover > ul > .play:after {
-		content: "a";
+		content: "Reproducir";
 	}
 	
 	.soundcloudIsGold:hover > ul > #next:after {
-		content: "b";
+		content: "Siguiente";
 	}
 	
 	.soundcloudIsGold:hover > ul > #prev:after {
-		content: "c";
+		content: "Anterior";
 	}
 	
 	.soundcloudIsGold:hover > ul > #playlist:after {
@@ -75,8 +71,9 @@
 	}
 	
 	.soundcloudIsGold:hover > ul > .downloadable:after {
-		content: "e";
+		content: "Descargar";
 	}
+
 @media screen and (max-width: 479px) {
 	    .soundcloudIsGold{
         background-size:300px 300px;
@@ -88,19 +85,20 @@
     }
     
     .soundcloudIsGold > ul > li{
-    font-family: "hoti";
+    font-family: "SourceSansPro-ExtraLight";
     font-size: 35px;
     height: 35px;
     width: 35px;
-    color: #000;
+    color: #fff;
     list-style-type: none;
     cursor: pointer;
     padding: 0 0 0 0;
     
     }
-        .soundcloudIsGold > ul > li{
-		 background:url('data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=');
-		 background-size:28px 28px;
+    .soundcloudIsGold:hover > ul > li{
+		 background-color: #000;
+    		 height: 40px;
+		 width: auto;
 		 background-repeat:no-repeat;
 		 background-position: center center;
     }
@@ -111,37 +109,37 @@
     }
 
 /* 	.soundcloudIsGold > ul > .pause:after {
-		content: "d";
+		content: "Pausar";
 	}
 	
 
 	.soundcloudIsGold > ul > .play:after {
-		content: "a";
+		content: "Reproducir";
 	} */
 	
 	
 	.soundcloudIsGold > ul > .pause:after {
-		content: "d";
+		content: "Pausar";
 	}
 	
 	.soundcloudIsGold > ul > .play:after {
-		content: "a";
+		content: "Reproducir";
 	}
 	
 	.soundcloudIsGold > ul > #next:after {
-		content: "b";
+		content: "Siguiente";
 	}
 	
 	.soundcloudIsGold > ul > #prev:after {
-		content: "c";
+		content: "Anterior";
 	}
 	
 	.soundcloudIsGold > ul > #playlist:after {
-		content: "f";
+		content: "t";
 	}
 	
 	.soundcloudIsGold > ul > .downloadable:after {
-		content: "e";
+		content: "Descargar";
 	}
 }
 
@@ -180,36 +178,36 @@
     }
 
 /* 	.soundcloudIsGold > ul > .pause:after {
-		content: "d";
+		content: "Pausar";
 	}
 	
 
 	.soundcloudIsGold > ul > .play:after {
-		content: "a";
+		content: "Reproducir";
 	} */
 	
 	
 	.soundcloudIsGold > ul > .pause:after {
-		content: "d";
+		content: "Pausar";
 	}
 	
 	.soundcloudIsGold > ul > .play:after {
-		content: "a";
+		content: "Reproducir";
 	}
 	
 	.soundcloudIsGold > ul > #next:after {
-		content: "b";
+		content: "Siguiente";
 	}
 	
 	.soundcloudIsGold > ul > #prev:after {
-		content: "c";
+		content: "Anterior";
 	}
 	
 	.soundcloudIsGold > ul > #playlist:after {
-		content: "f";
+		content: "t";
 	}
 	
 	.soundcloudIsGold > ul > .downloadable:after {
-		content: "e";
+		content: "Descargar";
 	}
 }
