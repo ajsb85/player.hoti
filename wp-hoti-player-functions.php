@@ -712,10 +712,17 @@ MY_MARKER;
 			playPrevSound();
 		});
 	},false);
+
+function padDigits(number) {
+    return Array(Math.max(3 - String(number).length + 1, 0)).join(0) + number;
+}
 	
 	function playSong(i){
 			current = i;
 			var track = playlists[i];
+			
+	document.getElementById('track').setAttribute('data-content', padDigits(current+1)); 
+	document.getElementById('title').setAttribute('data-content', track.title);
 			if(track.artwork_url != null){
 				if (document.images)
 				{
@@ -760,7 +767,12 @@ MY_MARKER;
             <li id="next"></li>
             <li id="prev"></li>
             <li id="download"></li>
-			
+        </ul>
+		 <ul id="info_track">
+            <li id="track" data-content="001"></li>
+        </ul>
+		 <ul id="info_title">
+            <li ><marquee behavior="alternate" id="title" data-content=""></marquee></li>
         </ul>
 MY_MARKER;
 }

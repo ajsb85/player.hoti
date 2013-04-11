@@ -70,6 +70,30 @@
 		content: "f";
 	}
 	
+	.soundcloudIsGold:hover > ul > #track:after {
+		content: attr(data-content);
+	}
+	
+	.soundcloudIsGold:hover > ul > li > #title:before {
+		content: attr(data-content);
+		
+	}
+	
+
+	
+	#info_track{
+		bottom: 60px;
+		position: absolute;
+		width: 500px;
+	}
+	
+	#info_title{
+		bottom: 0px;
+		position: absolute;
+		width: 500px;
+		white-space:nowrap;
+	}
+	
 	.soundcloudIsGold:hover > ul > .downloadable:after {
 		content: "Descargar";
 	}
