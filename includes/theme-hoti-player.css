@@ -117,6 +117,7 @@
     list-style-type: none;
     cursor: pointer;
     padding: 0 0 0 0;
+	visibility: collapse;
     
     }
     .soundcloudIsGold:hover > ul > li{
@@ -125,6 +126,7 @@
 		 width: auto;
 		 background-repeat:no-repeat;
 		 background-position: center center;
+		 visibility: visible;
     }
     
     .soundcloudIsGold > ul{
