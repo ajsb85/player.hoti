@@ -27,7 +27,7 @@
 /***                                                               ***/
 /*********************************************************************/
 
-require_once 'includes/Mobile-Detect/Mobile_Detect.php';
+require_once 'includes/Mobile_Detect.php';
 
 
 function get_soundcloud_is_gold_player_types(){
