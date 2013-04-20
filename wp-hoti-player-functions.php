@@ -26,6 +26,10 @@
 /***                     SOUNDCLOUD UTILITIES                      ***/
 /***                                                               ***/
 /*********************************************************************/
+
+require_once 'includes/Mobile-Detect/Mobile_Detect.php';
+
+
 function get_soundcloud_is_gold_player_types(){
     $m = array('Mini', 'Standard', 'Artwork', 'html5');
     return $m;
@@ -631,7 +635,14 @@ function soundcloud_is_gold_player($id, $user, $autoPlay, $comments, $width, $cl
 	}
 
 	$player = '<div class="soundcloudIsGold '.esc_attr($classes).'" id="soundcloud-'.esc_attr($id).'">';
-	
+	$detect = new Mobile_Detect;
+	if($detect->isIOS()){
+ 		$iOS = 'true';
+		$ap = 'false';
+	}else{
+		$iOS = 'false';
+		$ap = 'true'; 
+	}
 	//Flash Player
 	if(!$html5Player){
 		$player .= '<object height="'.esc_attr($height).'" width="'.esc_attr($width).'">';
@@ -655,9 +666,11 @@ if($format == 'tracks') {
 				$("#download").attr('onclick', "window.location.href='"+track.download_url+"?consumer_key=43195eb2f2b85520cb5f65e78d6501bf'");
 			}
 			document.querySelector('.soundcloudIsGold').style.backgroundImage="url('"+track.artwork_url.split("large").join("crop")+"')"
-			SC.stream(track.uri, {autoPlay: true}, function (stream) {
+			SC.stream(track.uri, {autoPlay: $ap}, function (stream) {
 				window.stream = stream;
-				//window.stream = stream.play();
+				if($iOS){
+					window.stream = stream.play();
+				}
 			});
 		});
 		$("#toggle").on("click", function () { 
