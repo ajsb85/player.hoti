@@ -755,7 +755,7 @@ function padDigits(number) {
 				$("#download").attr("onclick","");
 				$("#download").hide();
 			}
-		SC.stream(track.uri, {autoPlay: $ap, onfinish:playNextSound}, function (stream) {
+		SC.stream(track.uri, {autoPlay: true, onfinish:playNextSound}, function (stream) {
 			window.stream = stream;
 				$iOS
 		});
