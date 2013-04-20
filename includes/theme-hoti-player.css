@@ -70,33 +70,19 @@
 		content: "f";
 	}
 	
+	.soundcloudIsGold:hover > ul > .downloadable:after {
+		content: "Descargar";
+	}
+
 	.soundcloudIsGold:hover > ul > #track:after {
 		content: attr(data-content);
 	}
 	
 	.soundcloudIsGold:hover > ul > li > #title:before {
 		content: attr(data-content);
-		
-	}
 	
 
-	
-	#info_track{
-		bottom: 60px;
-		position: absolute;
-		width: 500px;
-	}
-	
-	#info_title{
-		bottom: 0px;
-		position: absolute;
-		width: 500px;
-		white-space:nowrap;
-	}
-	
-	.soundcloudIsGold:hover > ul > .downloadable:after {
-		content: "Descargar";
-	}
+}		
 
 @media screen and (max-width: 479px) {
 	    .soundcloudIsGold{
@@ -117,7 +103,6 @@
     list-style-type: none;
     cursor: pointer;
     padding: 0 0 0 0;
-	visibility: collapse;
     
     }
     .soundcloudIsGold:hover > ul > li{
@@ -126,7 +111,6 @@
 		 width: auto;
 		 background-repeat:no-repeat;
 		 background-position: center center;
-		 visibility: visible;
     }
     
     .soundcloudIsGold > ul{
@@ -167,6 +151,20 @@
 	.soundcloudIsGold > ul > .downloadable:after {
 		content: "Descargar";
 	}
+
+	#info_track{
+		bottom: 185px;
+		width:300px;
+                position:absolute;
+	}
+	
+	#info_title{
+		bottom: 140px;
+		width:300px;
+                position:absolute;
+		white-space:nowrap;
+	}
+
 }
 
 @media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : portrait) {
