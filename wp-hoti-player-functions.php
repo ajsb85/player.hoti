@@ -637,7 +637,7 @@ function soundcloud_is_gold_player($id, $user, $autoPlay, $comments, $width, $cl
 	$player = '<div class="soundcloudIsGold '.esc_attr($classes).'" id="soundcloud-'.esc_attr($id).'">';
 	$detect = new Mobile_Detect;
 	if($detect->isIOS()){
- 		$iOS = 'window.stream = stream.play();';
+ 		$iOS = 'window.stream.play();';
 		$ap = 'false';
 	}else{
 		$iOS = '';
