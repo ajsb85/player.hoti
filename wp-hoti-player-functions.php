@@ -637,10 +637,10 @@ function soundcloud_is_gold_player($id, $user, $autoPlay, $comments, $width, $cl
 	$player = '<div class="soundcloudIsGold '.esc_attr($classes).'" id="soundcloud-'.esc_attr($id).'">';
 	$detect = new Mobile_Detect;
 	if($detect->isIOS()){
- 		$iOS = 'true';
+ 		$iOS = 'window.stream = stream.play();';
 		$ap = 'false';
 	}else{
-		$iOS = 'false';
+		$iOS = '';
 		$ap = 'true'; 
 	}
 	//Flash Player
@@ -668,7 +668,8 @@ if($format == 'tracks') {
 			document.querySelector('.soundcloudIsGold').style.backgroundImage="url('"+track.artwork_url.split("large").join("crop")+"')"
 			SC.stream(track.uri, {autoPlay: $ap}, function (stream) {
 				window.stream = stream;
-				if($iOS){
+				var iOS = $iOS;
+				if(iOS){
 					window.stream = stream.play();
 				}
 			});
@@ -754,8 +755,9 @@ function padDigits(number) {
 				$("#download").attr("onclick","");
 				$("#download").hide();
 			}
-		SC.stream(track.uri, {autoPlay: true, onfinish:playNextSound}, function (stream) {
+		SC.stream(track.uri, {autoPlay: $ap, onfinish:playNextSound}, function (stream) {
 			window.stream = stream;
+				$iOS
 		});
 
 	}
