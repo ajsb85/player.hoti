@@ -634,10 +634,10 @@ function soundcloud_is_gold_player($id, $user, $autoPlay, $comments, $width, $cl
 			break;
 	}
 
-	$player = '<div class="soundcloudIsGold '.esc_attr($classes).'" id="soundcloud-'.esc_attr($id).'">';
+	$player = '<div id="mySwipe" class="swipe"><div class="swipe-wrap"><div class="soundcloudIsGold '.esc_attr($classes).'" id="soundcloud-'.esc_attr($id).'"><b>';
 	$detect = new Mobile_Detect;
 	if($detect->isIOS()){
- 		$iOS = 'window.stream.play();';
+ 		//$iOS = 'window.stream.play();';
 		$ap = 'false';
 	}else{
 		$iOS = '';
@@ -692,9 +692,10 @@ MY_MARKER;
 	<script>
 	var playlists = {};
 	var current = 0;
+	var block = false;
 	var objImage = new Image(400,400); 
 	function imagesLoaded(){
-		document.querySelector('.soundcloudIsGold').style.backgroundImage="url('"+objImage.src+"')";
+		document.getElementById('mySwipe').style.backgroundImage="url('"+objImage.src+"')";
 	}
 	window.addEventListener("load", function load(event){
 		window.removeEventListener("load", load, false); 
@@ -707,22 +708,26 @@ MY_MARKER;
 				  objImage.onLoad=imagesLoaded();
 				  objImage.src= playlist.artwork_url.split("large").join("crop");
 				}
-  
-				
-				}
+	}
 		});
-		$("#toggle").on("click", function () { 
-			window.stream.togglePause();
-			$("#toggle").toggleClass("play");
+
+		$("#toggle").on("click", function () {
+			if(!block){
+				window.stream.play();
+				block = true;
+			}else{
+				window.stream.togglePause();
+			}
+			$("#toggle").toggleClass("pause");
 		});
 		$("#next").on("click", function () { 
 			window.stream.stop();
-			$("#toggle").attr("class","pause");
+			$("#toggle").attr("class","play pause");
 			playNextSound();
 		});
 		$("#prev").on("click", function () { 
 			window.stream.stop();
-			$("#toggle").attr("class","pause");
+			$("#toggle").attr("class","play pause");
 			playPrevSound();
 		});
 	},false);
@@ -735,8 +740,8 @@ function padDigits(number) {
 			current = i;
 			var track = playlists[i];
 			
-	document.getElementById('track').setAttribute('data-content', padDigits(current+1)); 
-	document.getElementById('title').setAttribute('data-content', track.title);
+	//document.getElementById('track').setAttribute('data-content', padDigits(current+1)); 
+	//document.getElementById('title').setAttribute('data-content', track.title);
 			if(track.artwork_url != null){
 				if (document.images)
 				{
@@ -755,11 +760,10 @@ function padDigits(number) {
 				$("#download").attr("onclick","");
 				$("#download").hide();
 			}
-		SC.stream(track.uri, {autoPlay: true, onfinish:playNextSound}, function (stream) {
+		SC.stream(track.uri, {autoPlay: false, onfinish:playNextSound}, function (stream) {
 			window.stream = stream;
-				$iOS
+            window.stream.play();
 		});
-
 	}
 	
 	function playNextSound(){
@@ -778,21 +782,16 @@ function padDigits(number) {
 	
 	</script>
         <ul>
-            <li id="toggle" class="pause"></li>
+            <li id="toggle" class="play"></li>
             <li id="next"></li>
             <li id="prev"></li>
             <li id="download"></li>
         </ul>
-		 <ul id="info_track">
-            <li id="track" data-content="001"></li>
-        </ul>
-		 <ul id="info_title">
-            <li ><marquee behavior="alternate" id="title" data-content=""></marquee></li>
-        </ul>
+		
 MY_MARKER;
 }
 	}
-	$player .= '</div>';
+	$player .= '</b></div><div><b></b></div></div></div>';
         
 	
 	return $player;
@@ -1131,12 +1130,12 @@ class Soundcloud_Is_Gold_Widget extends WP_Widget {
 /*********************************************************************/
 
     
-function prefix_add_my_stylesheet() {
+function stylesheet_hoti_player() {
 	wp_register_style( 'wp-hoti-player', plugins_url('includes/theme-hoti-player.css', __FILE__) );
 	wp_enqueue_style( 'wp-hoti-player' );
 }
 
-function my_soundcloud_enqueue() {
+function script_soundcloud() {
    wp_deregister_script('soundcloud');
    wp_register_script('soundcloud', "http" . ($_SERVER['SERVER_PORT'] == 443 ? "s" : "") . "://connect.soundcloud.com/sdk.js", false, null);
    wp_enqueue_script('soundcloud');
@@ -1150,13 +1149,19 @@ function my_soundcloud_enqueue() {
 	);
 } */
 
-function my_scripts_method() {
+function script_hoti_player() {
 	wp_register_script( 'wp-hoti-player' , plugins_url( 'includes/script-hoti-player.js', __FILE__ ));
 	wp_enqueue_script( 'wp-hoti-player' );
 }
 
-add_action( 'wp_enqueue_scripts', 'prefix_add_my_stylesheet' );
-add_action("wp_enqueue_scripts", "my_soundcloud_enqueue");
-add_action( 'wp_enqueue_scripts', 'my_scripts_method' );
+function script_swipe() {
+	wp_register_script( 'swipe' , plugins_url( 'includes/swipe.js', __FILE__ ));
+	wp_enqueue_script( 'swipe' );
+}
+
+add_action( 'wp_enqueue_scripts', 'stylesheet_hoti_player' );
+add_action( 'wp_enqueue_scripts', 'script_soundcloud');
+add_action( 'wp_enqueue_scripts', 'script_hoti_player' );
+add_action( 'wp_enqueue_scripts', 'script_swipe' );
 
 ?>

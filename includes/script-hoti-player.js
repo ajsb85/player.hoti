@@ -24,3 +24,26 @@
 SC.initialize({
 	client_id: "43195eb2f2b85520cb5f65e78d6501bf"
 });
+
+
+window.addEventListener("load", function load(event){
+    window.removeEventListener("load", load, false); //remove listener, no longer needed
+
+
+ 
+// pure JS
+var elem = document.getElementById('mySwipe');
+window.mySwipe = Swipe(elem, {
+  //startSlide: 4,
+  auto: 1300,
+   continuous: false,
+  // disableScroll: true,
+   //stopPropagation: true,
+  // callback: function(index, element) {},
+  // transitionEnd: function(index, element) {}
+});
+
+// with jQuery
+// window.mySwipe = $('#mySwipe').Swipe().data('Swipe');
+
+},false);

@@ -4,16 +4,49 @@
 		url("http://hoti.tv/wp-content/plugins/fonts/SourceSansPro-ExtraLight.ttf") format('truetype');  
 	font-weight: normal;
 }
-    .soundcloudIsGold{
-        background: url('../images/400.jpg');
-        background-size:500px 500px;
-        background-repeat:no-repeat;
-    height: 500px;
-    width: 500px;
+
+
+.swipe {
+  overflow: hidden;
+  visibility: hidden;
+  position: relative;
+  background: white;
+}
+.swipe-wrap {
+  overflow: hidden;
+  position: relative;
+}
+.swipe-wrap > div {
+  float:left;
+  width:100%;
+  position: relative;
+}
+
+
+#mySwipe div b {
+  display:block;
+  font-weight:bold;
+  height:500px;
+  color:#14ADE5;
+  font-size:20px;
+  text-align:left;
+
+  box-shadow: 0 1px #EBEBEB;
+  
+}
+
+#mySwipe{
+background: url('../images/400.jpg');
+background-size: 500px 500px;
     margin:  0;
     padding:  0;
-    }
-    .soundcloudIsGold > ul > li{
+    height: 500px;
+    width: 500px;
+	background-repeat:no-repeat;
+	margin-top: -139px;
+}
+
+    .soundcloudIsGold > b > ul > li{
     font-family: "SourceSansPro-ExtraLight";
     font-size: 35px;
     font-weight: 200;
@@ -26,7 +59,7 @@
   
     }
 
-    .soundcloudIsGold:hover > ul > li{
+    .soundcloudIsGold > b > ul > li{
 		 background-color: #000;
     		 height: auto;
                  width: auto;
@@ -35,66 +68,84 @@
 
     }
 
-    .soundcloudIsGold > ul{
+    .soundcloudIsGold > b > ul{
         padding-left: 0;
         padding-top: 100px;
     }
 
-/* 	.soundcloudIsGold > ul > .pause:after {
+/* 	.soundcloudIsGold > b > ul > .pause:after {
 		content: "Pausar";
 	}
 	
 
-	.soundcloudIsGold > ul > .play:after {
+	.soundcloudIsGold > b > ul > .play:after {
 		content: "Reproducir";
 	} */
 	
 	
-	.soundcloudIsGold:hover > ul > .pause:after {
+	.soundcloudIsGold > b > ul > .pause:after {
 		content: "Pausar";
 	}
 	
-	.soundcloudIsGold:hover > ul > .play:after {
+	.soundcloudIsGold > b > ul > .play:after {
 		content: "Reproducir";
 	}
 	
-	.soundcloudIsGold:hover > ul > #next:after {
+	.soundcloudIsGold > b > ul > #next:after {
 		content: "Siguiente";
 	}
 	
-	.soundcloudIsGold:hover > ul > #prev:after {
+	.soundcloudIsGold > b > ul > #prev:after {
 		content: "Anterior";
 	}
 	
-	.soundcloudIsGold:hover > ul > #playlist:after {
+	.soundcloudIsGold > b > ul > #playlist:after {
 		content: "f";
 	}
 	
-	.soundcloudIsGold:hover > ul > .downloadable:after {
+	.soundcloudIsGold > b > ul > .downloadable:after {
 		content: "Descargar";
 	}
 
-	.soundcloudIsGold:hover > ul > #track:after {
+	.soundcloudIsGold > b > ul > #track:after {
 		content: attr(data-content);
 	}
 	
-	.soundcloudIsGold:hover > ul > li > #title:before {
+	.soundcloudIsGold > b > ul > li > #title:before {
 		content: attr(data-content);
 	
 
 }		
 
 @media screen and (max-width: 479px) {
-	    .soundcloudIsGold{
-        background-size:300px 300px;
-        background-repeat:no-repeat;
+	
+#mySwipe{
+	background: url('../images/400.jpg');
+	background-size: 300px 300px;
+    margin: 0;
+    padding: 0;
     height: 300px;
     width: 300px;
-    margin:  0;
-    padding:  0;
-    }
-    
-    .soundcloudIsGold > ul > li{
+	background-repeat: no-repeat;
+	max-width: 300px;
+	max-height: 300px;
+	margin: 0 auto;
+}
+
+#mySwipe div b {
+  display:block;
+  font-weight:bold;
+  height:300px;
+  color:#14ADE5;
+  font-size:20px;
+  text-align:left;
+
+  box-shadow: 0 1px #EBEBEB;
+  
+}
+
+ 
+    .soundcloudIsGold > b > ul > li{
     font-family: "SourceSansPro-ExtraLight";
     font-size: 35px;
     height: 35px;
@@ -105,7 +156,7 @@
     padding: 0 0 0 0;
     
     }
-    .soundcloudIsGold:hover > ul > li{
+    .soundcloudIsGold > b > ul > li{
 		 background-color: #000;
     		 height: 40px;
 		 width: auto;
@@ -113,46 +164,46 @@
 		 background-position: center center;
     }
     
-    .soundcloudIsGold > ul{
+    .soundcloudIsGold > b > ul{
         padding-left: 0;
         padding-top: 100px;
     }
 
-/* 	.soundcloudIsGold > ul > .pause:after {
+/* 	.soundcloudIsGold > b > ul > .pause:after {
 		content: "Pausar";
 	}
 	
 
-	.soundcloudIsGold > ul > .play:after {
+	.soundcloudIsGold > b > ul > .play:after {
 		content: "Reproducir";
 	} */
+	.soundcloudIsGold > b > ul > .play:after {
+		content: "Reproducir";
+	}
 	
-	
-	.soundcloudIsGold > ul > .pause:after {
+	.soundcloudIsGold > b > ul > .pause:after {
 		content: "Pausar";
 	}
 	
-	.soundcloudIsGold > ul > .play:after {
-		content: "Reproducir";
-	}
+
 	
-	.soundcloudIsGold > ul > #next:after {
+	.soundcloudIsGold > b > ul > #next:after {
 		content: "Siguiente";
 	}
 	
-	.soundcloudIsGold > ul > #prev:after {
+	.soundcloudIsGold > b > ul > #prev:after {
 		content: "Anterior";
 	}
 	
-	.soundcloudIsGold > ul > #playlist:after {
+	.soundcloudIsGold > b > ul > #playlist:after {
 		content: "t";
 	}
 	
-	.soundcloudIsGold > ul > .downloadable:after {
+	.soundcloudIsGold > b > ul > .downloadable:after {
 		content: "Descargar";
 	}
 
-	#info_track{
+/* 	#info_track{
 		bottom: 185px;
 		width:300px;
                 position:absolute;
@@ -163,75 +214,96 @@
 		width:300px;
                 position:absolute;
 		white-space:nowrap;
-	}
+	} */ 
 
 }
 
+ #mySwipe{
+		
+	}
+
+
 @media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : portrait) {
 
-	    .soundcloudIsGold{
-        background-size:425px 425px;
-        background-repeat:no-repeat;
-    height: 425px;
-    width: 425px;
-    margin:  0;
-    padding:  0;
-    }
+	#mySwipe{
+		background: url('../images/400.jpg');
+		background-size: 500px 500px;
+		margin: 0;
+		padding: 0;
+		height: 500px;
+		width: 500px;
+		background-repeat: no-repeat;
+		max-width: 500px;
+		max-height: 500px;
+		margin: 0 auto;
+	}
+
+	#mySwipe div b {
+	  display:block;
+	  font-weight:bold;
+	  height:500px;
+	  color:#14ADE5;
+	  font-size:20px;
+	  text-align:left;
+
+	  box-shadow: 0 1px #EBEBEB;
+	  
+	}
     
-    .soundcloudIsGold > ul > li{
-    font-family: "hoti";
+    .soundcloudIsGold > b > ul > li{
+    font-family: "SourceSansPro-ExtraLight";
     font-size: 35px;
     height: 35px;
     width: 35px;
-    color: #000;
+    color: #fff;
     list-style-type: none;
     cursor: pointer;
     padding: 0 0 0 0;
     
     }
-            .soundcloudIsGold > ul > li{
-		 background:url('data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=');
-		 background-size:28px 28px;
+    .soundcloudIsGold > b > ul > li{
+		 background-color: #000;
+    		 height: 40px;
+		 width: auto;
 		 background-repeat:no-repeat;
 		 background-position: center center;
     }
     
-    .soundcloudIsGold > ul{
+    .soundcloudIsGold > b > ul{
         padding-left: 0;
         padding-top: 100px;
     }
 
-/* 	.soundcloudIsGold > ul > .pause:after {
+/* 	.soundcloudIsGold > b > ul > .pause:after {
 		content: "Pausar";
 	}
 	
 
-	.soundcloudIsGold > ul > .play:after {
+	.soundcloudIsGold > b > ul > .play:after {
 		content: "Reproducir";
 	} */
+	.soundcloudIsGold > b > ul > .play:after {
+		content: "Reproducir";
+	}
 	
-	
-	.soundcloudIsGold > ul > .pause:after {
+	.soundcloudIsGold > b > ul > .pause:after {
 		content: "Pausar";
 	}
 	
-	.soundcloudIsGold > ul > .play:after {
-		content: "Reproducir";
-	}
+
 	
-	.soundcloudIsGold > ul > #next:after {
+	.soundcloudIsGold > b > ul > #next:after {
 		content: "Siguiente";
 	}
 	
-	.soundcloudIsGold > ul > #prev:after {
+	.soundcloudIsGold > b > ul > #prev:after {
 		content: "Anterior";
 	}
 	
-	.soundcloudIsGold > ul > #playlist:after {
+	.soundcloudIsGold > b > ul > #playlist:after {
 		content: "t";
 	}
 	
-	.soundcloudIsGold > ul > .downloadable:after {
+	.soundcloudIsGold > b > ul > .downloadable:after {
 		content: "Descargar";
 	}
-}
