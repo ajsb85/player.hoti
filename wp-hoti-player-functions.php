@@ -710,6 +710,7 @@ if($detect->isIOS()){
 	$player .= <<<MY_MARKER
 	<script>
 	var playlists = {};
+	var artwork_url= "";
 	var current = 0;
 	var block = false;
 	var objImage = new Image(400,400); 
@@ -720,14 +721,18 @@ if($detect->isIOS()){
 		window.removeEventListener("load", load, false); 
 		SC.get("/playlists/$id", function (playlist) {
 			playlists = playlist.tracks;
+			artwork_url = playlist.artwork_url;
 			playSong(0);
-			if(playlist.artwork_url != null){
+			if(track.artwork_url != null){
 				if (document.images)
 				{
 				  objImage.onLoad=imagesLoaded();
-				  objImage.src= playlist.artwork_url.split("large").join("crop");
+				  objImage.src= track.artwork_url.split("large").join("crop");
 				}
-	}
+			}else if(artwork_url != null){
+				  objImage.onLoad=imagesLoaded();
+				  objImage.src= artwork_url.split("large").join("crop");
+			}
 		});
 
 		$("#toggle").on("click", function () {
