@@ -655,8 +655,6 @@ function soundcloud_is_gold_player($id, $user, $autoPlay, $comments, $width, $cl
 	//Html5 Player
 	else{
 /* 		$player .= '<iframe width="'.esc_attr($width).'" height="'.esc_attr($height).'" scrolling="no" frameborder="no" src="http://w.soundcloud.com/player/?url=http%3A%2F%2Fapi.soundcloud.com%2F'.esc_attr($format).'%2F'.esc_attr($id).'&amp;auto_play='.esc_attr($autoPlay).'&amp;show_artwork='.esc_attr($artwork).'&amp;color='.esc_attr($color).'"></iframe>'; */
-
-$dir = SIG_PLUGIN_DIR.'images/400.jpg';
 if($format == 'tracks') {
 	$player .= <<<MY_MARKER
 	<script>
@@ -713,7 +711,6 @@ if($detect->isIOS()){
 	var playlists = {};
 	var current = 0;
 	var block = false;
-	var artwork_url= "";
 	var objImage = new Image(400,400); 
 	function imagesLoaded(){
 		document.querySelector('.soundcloudIsGold').style.backgroundImage="url('"+objImage.src+"')";
@@ -722,7 +719,6 @@ if($detect->isIOS()){
 		window.removeEventListener("load", load, false); 
 		SC.get("/playlists/$id", function (playlist) {
 			playlists = playlist.tracks;
-			artwork_url = playlist.artwork_url;
 			playSong(0);
 			if(playlist.artwork_url != null){
 				if (document.images)
@@ -768,12 +764,6 @@ function padDigits(number) {
 				  objImage.onLoad=imagesLoaded();
 				  objImage.src= track.artwork_url.split("large").join("crop");
 				}
-			}else if(artwork_url != null){
-				  objImage.onLoad=imagesLoaded();
-				  objImage.src= artwork_url.split("large").join("crop");
-			}else{
-				  objImage.onLoad=imagesLoaded();
-				  objImage.src= $dir;
 			}
 			
 				//document.querySelector('.soundcloudIsGold').style.backgroundImage="url('"+track.artwork_url.split("large").join("crop")+"')";
@@ -821,6 +811,7 @@ MY_MARKER;
 /***                                                               ***/
 /*********************************************************************/
 }else{
+	$dir = SIG_PLUGIN_DIR.'images/400.jpg';
 	$player .= <<<MY_MARKER
 	<script>
 	var playlists = {};
@@ -841,6 +832,13 @@ MY_MARKER;
 				block = true;
 				$("#toggle").toggleClass("pause");
 			  }
+			if(playlist.artwork_url != null){
+				if (document.images)
+				{
+				  objImage.onLoad=imagesLoaded();
+				  objImage.src= playlist.artwork_url.split("large").join("crop");
+				}
+	}
 		});
 
 		$("#toggle").on("click", function () {
