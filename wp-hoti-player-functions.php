@@ -867,6 +867,7 @@ function padDigits(number) {
 			current = i;
 			var track = playlists[i];
 			document.getElementById('title').innerHTML = track.title;
+			console.log(track.artwork_url);
 			if(track.artwork_url != null){
 				if (document.images)
 				{
@@ -920,9 +921,6 @@ MY_MARKER;
 	$player .= '</div>';
 	$player .= '<h5 id="track"></h5>';
 	$player .= '<h2 id="title"></h2>';
-	$player .= '<img id="avatar" src="image.jpg" alt="An awesome image" />';
-	$player .= '<h5 id="user"></h5>';
-	$player .= '<h5 id="comments"></h5>';
     
 	return $player;
 
