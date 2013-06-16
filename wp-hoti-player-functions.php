@@ -613,7 +613,7 @@ function soundcloud_is_gold_player($id, $user, $autoPlay, $comments, $width, $cl
 	}
 	
 	if($format == 'favorites') $format = "tracks"; //Reset Favorites to tracks as soundcloud treats them as tracks.
-	$dir = SIG_PLUGIN_DIR.'images/400.jpg'
+	$dir = SIG_PLUGIN_DIR.'images/400.jpg';
 	//Player types sizes
 	switch($playerTypes){
 		case 'Standard':
