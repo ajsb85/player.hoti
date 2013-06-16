@@ -710,8 +710,8 @@ if($detect->isIOS()){
 	$player .= <<<MY_MARKER
 	<script>
 	var playlists = {};
-	var artwork_url= "";
 	var current = 0;
+	var artwork_url= "";
 	var block = false;
 	var objImage = new Image(400,400); 
 	function imagesLoaded(){
@@ -723,16 +723,13 @@ if($detect->isIOS()){
 			playlists = playlist.tracks;
 			artwork_url = playlist.artwork_url;
 			playSong(0);
-			if(track.artwork_url != null){
+			if(playlist.artwork_url != null){
 				if (document.images)
 				{
 				  objImage.onLoad=imagesLoaded();
-				  objImage.src= track.artwork_url.split("large").join("crop");
+				  objImage.src= playlist.artwork_url.split("large").join("crop");
 				}
-			}else if(artwork_url != null){
-				  objImage.onLoad=imagesLoaded();
-				  objImage.src= artwork_url.split("large").join("crop");
-			}
+	}
 		});
 
 		$("#toggle").on("click", function () {
@@ -770,6 +767,9 @@ function padDigits(number) {
 				  objImage.onLoad=imagesLoaded();
 				  objImage.src= track.artwork_url.split("large").join("crop");
 				}
+			}else if(artwork_url != null){
+				  objImage.onLoad=imagesLoaded();
+				  objImage.src= artwork_url.split("large").join("crop");
 			}
 			
 				//document.querySelector('.soundcloudIsGold').style.backgroundImage="url('"+track.artwork_url.split("large").join("crop")+"')";
