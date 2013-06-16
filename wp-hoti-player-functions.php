@@ -654,6 +654,7 @@ function soundcloud_is_gold_player($id, $user, $autoPlay, $comments, $width, $cl
 	}
 	//Html5 Player
 	else{
+		$dir = SIG_PLUGIN_DIR.'images/400.jpg';
 /* 		$player .= '<iframe width="'.esc_attr($width).'" height="'.esc_attr($height).'" scrolling="no" frameborder="no" src="http://w.soundcloud.com/player/?url=http%3A%2F%2Fapi.soundcloud.com%2F'.esc_attr($format).'%2F'.esc_attr($id).'&amp;auto_play='.esc_attr($autoPlay).'&amp;show_artwork='.esc_attr($artwork).'&amp;color='.esc_attr($color).'"></iframe>'; */
 if($format == 'tracks') {
 	$player .= <<<MY_MARKER
@@ -811,7 +812,6 @@ MY_MARKER;
 /***                                                               ***/
 /*********************************************************************/
 }else{
-$dir = SIG_PLUGIN_DIR.'images/400.jpg'
 	$player .= <<<MY_MARKER
 	<script>
 	var playlists = {};
