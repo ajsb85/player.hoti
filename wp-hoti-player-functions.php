@@ -816,6 +816,7 @@ MY_MARKER;
 	var playlists = {};
 	var current = 0;
 	var block = false;
+	var artwork_url= "";
 	var objImage = new Image(400,400); 
 	function imagesLoaded(){
 		document.querySelector('.soundcloudIsGold').style.backgroundImage="url('"+objImage.src+"')";
@@ -824,6 +825,7 @@ MY_MARKER;
 		window.removeEventListener("load", load, false); 
 		SC.get("/playlists/$id", function (playlist) {
 			playlists = playlist.tracks;
+			artwork_url = playlist.artwork_url;
 			  if($ap){
 				playSong(0);
 				block = true;
@@ -868,15 +870,16 @@ function padDigits(number) {
 			var track = playlists[i];
 			document.getElementById('title').innerHTML = track.title;
 			console.log(track.artwork_url);
+			console.log(playlists.artwork_url);
 			if(track.artwork_url != null){
 				if (document.images)
 				{
 				  objImage.onLoad=imagesLoaded();
 				  objImage.src= track.artwork_url.split("large").join("crop");
 				}
-			}else{
+			}else if(artwork_url != null){
 				  objImage.onLoad=imagesLoaded();
-				  objImage.src= playlists.artwork_url.split("large").join("crop");
+				  objImage.src= artwork_url.split("large").join("crop");
 			}
 			
 				//document.querySelector('.soundcloudIsGold').style.backgroundImage="url('"+track.artwork_url.split("large").join("crop")+"')";
