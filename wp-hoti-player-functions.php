@@ -697,7 +697,15 @@ $("#download").show();
             <li id="download"></li>
         </ul>
 MY_MARKER;
-}else if($detect->isIOS()){
+}else 
+
+/*********************************************************************/
+/***                                                               ***/
+/***                    playlists for iOS	                       ***/
+/***                                                               ***/
+/*********************************************************************/
+
+if($detect->isIOS()){
 	$player .= <<<MY_MARKER
 	<script>
 	var playlists = {};
@@ -799,6 +807,11 @@ function padDigits(number) {
         </ul>
 		
 MY_MARKER;
+/*********************************************************************/
+/***                                                               ***/
+/***                    playlists  for others browsers             ***/
+/***                                                               ***/
+/*********************************************************************/
 }else{
 	$player .= <<<MY_MARKER
 	<script>
