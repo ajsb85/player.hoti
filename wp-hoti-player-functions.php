@@ -712,11 +712,7 @@ MY_MARKER;
 		window.removeEventListener("load", load, false); 
 		SC.get("/playlists/$id", function (playlist) {
 			playlists = playlist.tracks;
-			if($ap){
-				playSong(0);
-				block = true;
-				$("#toggle").toggleClass("pause");
-			}
+			playSong(0);
 			if(playlist.artwork_url != null){
 				if (document.images)
 				{
