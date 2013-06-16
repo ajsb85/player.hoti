@@ -811,7 +811,7 @@ MY_MARKER;
 /***                                                               ***/
 /*********************************************************************/
 }else{
-	$dir = SIG_PLUGIN_DIR.'images/400.jpg';
+$dir = SIG_PLUGIN_DIR.'images/400.jpg'
 	$player .= <<<MY_MARKER
 	<script>
 	var playlists = {};
@@ -880,9 +880,6 @@ function padDigits(number) {
 			}else if(artwork_url != null){
 				  objImage.onLoad=imagesLoaded();
 				  objImage.src= artwork_url.split("large").join("crop");
-			}else{
-				  objImage.onLoad=imagesLoaded();
-				  objImage.src= $dir;
 			}
 			
 				//document.querySelector('.soundcloudIsGold').style.backgroundImage="url('"+track.artwork_url.split("large").join("crop")+"')";
