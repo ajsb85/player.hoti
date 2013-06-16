@@ -708,7 +708,10 @@ MY_MARKER;
 		window.removeEventListener("load", load, false); 
 		SC.get("/playlists/$id", function (playlist) {
 			playlists = playlist.tracks;
-			playSong(0);
+			if($ap){
+				playSong(0);
+				block = true;
+			}
 			if(playlist.artwork_url != null){
 				if (document.images)
 				{
