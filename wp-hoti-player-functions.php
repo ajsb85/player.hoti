@@ -674,6 +674,10 @@ $("#download").show();
 			document.querySelector('.soundcloudIsGold').style.backgroundImage="url('"+track.artwork_url.split("large").join("crop")+"')"
 			SC.stream(track.uri, {autoPlay: true}, function (stream) {
 				window.stream = stream;
+				if($ap){
+					block = true;
+					$("#toggle").toggleClass("pause");
+				}
 				//window.stream = stream.play();
 			});
 		});
