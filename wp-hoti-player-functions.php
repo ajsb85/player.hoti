@@ -613,7 +613,7 @@ function soundcloud_is_gold_player($id, $user, $autoPlay, $comments, $width, $cl
 	}
 	
 	if($format == 'favorites') $format = "tracks"; //Reset Favorites to tracks as soundcloud treats them as tracks.
-	
+	$dir = SIG_PLUGIN_DIR.'images/400.jpg'
 	//Player types sizes
 	switch($playerTypes){
 		case 'Standard':
@@ -711,6 +711,7 @@ if($detect->isIOS()){
 	var playlists = {};
 	var current = 0;
 	var block = false;
+	var artwork_url= "";
 	var objImage = new Image(400,400); 
 	function imagesLoaded(){
 		document.querySelector('.soundcloudIsGold').style.backgroundImage="url('"+objImage.src+"')";
@@ -764,6 +765,12 @@ function padDigits(number) {
 				  objImage.onLoad=imagesLoaded();
 				  objImage.src= track.artwork_url.split("large").join("crop");
 				}
+			}else if(artwork_url != null){
+				  objImage.onLoad=imagesLoaded();
+				  objImage.src= artwork_url.split("large").join("crop");
+			}else{
+				  objImage.onLoad=imagesLoaded();
+				  objImage.src= $dir;
 			}
 			
 				//document.querySelector('.soundcloudIsGold').style.backgroundImage="url('"+track.artwork_url.split("large").join("crop")+"')";
@@ -831,13 +838,6 @@ MY_MARKER;
 				block = true;
 				$("#toggle").toggleClass("pause");
 			  }
-			if(playlist.artwork_url != null){
-				if (document.images)
-				{
-				  objImage.onLoad=imagesLoaded();
-				  objImage.src= playlist.artwork_url.split("large").join("crop");
-				}
-	}
 		});
 
 		$("#toggle").on("click", function () {
@@ -870,7 +870,6 @@ function padDigits(number) {
 			var track = playlists[i];
 			document.getElementById('title').innerHTML = track.title;
 			console.log(track.artwork_url);
-			console.log(playlists.artwork_url);
 			if(track.artwork_url != null){
 				if (document.images)
 				{
@@ -880,6 +879,9 @@ function padDigits(number) {
 			}else if(artwork_url != null){
 				  objImage.onLoad=imagesLoaded();
 				  objImage.src= artwork_url.split("large").join("crop");
+			}else{
+				  objImage.onLoad=imagesLoaded();
+				  objImage.src= $dir;
 			}
 			
 				//document.querySelector('.soundcloudIsGold').style.backgroundImage="url('"+track.artwork_url.split("large").join("crop")+"')";
