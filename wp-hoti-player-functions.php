@@ -26,6 +26,10 @@
 /***                     SOUNDCLOUD UTILITIES                      ***/
 /***                                                               ***/
 /*********************************************************************/
+
+require_once 'includes/Mobile_Detect.php';
+
+
 function get_soundcloud_is_gold_player_types(){
     $m = array('Mini', 'Standard', 'Artwork', 'html5');
     return $m;
@@ -136,7 +140,7 @@ function get_soundcloud_is_gold_username_interface($options, $soundcloudIsGoldUs
  **/
 function get_soundcloud_is_gold_latest_track_id($soundcloudIsGoldUser, $format = "tracks"){
 	$soundcouldMMId = "";
-	$soundcloudIsGoldApiCall = 'http://api.soundcloud.com/users/'.$soundcloudIsGoldUser.'/tracks.xml?limit=1&client_id=43195eb2f2b85520cb5f65e78d6501bf';
+	if($format == "tracks") $soundcloudIsGoldApiCall = 'http://api.soundcloud.com/users/'.$soundcloudIsGoldUser.'/tracks.xml?limit=1&client_id=43195eb2f2b85520cb5f65e78d6501bf';
 	if($format == "sets") $soundcloudIsGoldApiCall = 'http://api.soundcloud.com/users/'.$soundcloudIsGoldUser.'/playlists.xml?limit=1&client_id=43195eb2f2b85520cb5f65e78d6501bf';
 	if($format == "favorites") $soundcloudIsGoldApiCall = 'http://api.soundcloud.com/users/'.$soundcloudIsGoldUser.'/favorites.xml?limit=1&client_id=43195eb2f2b85520cb5f65e78d6501bf';
 	
@@ -159,7 +163,7 @@ function get_soundcloud_is_gold_multiple_tracks_id($soundcloudIsGoldUser, $nbr =
 	if($random) $getNbr = 50;
 	$soundcouldMMIds= array();
 
-if($format == 'tracks') $soundcloudIsGoldApiCall = 'http://api.soundcloud.com/users/'.$soundcloudIsGoldUser.'/tracks.xml?limit='.$getNbr.'&client_id=43195eb2f2b85520cb5f65e78d6501bf';
+	if($format == 'tracks') $soundcloudIsGoldApiCall = 'http://api.soundcloud.com/users/'.$soundcloudIsGoldUser.'/tracks.xml?limit='.$getNbr.'&client_id=43195eb2f2b85520cb5f65e78d6501bf';
 	if($format == 'sets') $soundcloudIsGoldApiCall = 'http://api.soundcloud.com/users/'.$soundcloudIsGoldUser.'/playlists.xml?limit='.$getNbr.'&client_id=43195eb2f2b85520cb5f65e78d6501bf';
 	if($format == 'favorites') $soundcloudIsGoldApiCall = 'http://api.soundcloud.com/users/'.$soundcloudIsGoldUser.'/favorites.xml?limit='.$getNbr.'&client_id=43195eb2f2b85520cb5f65e78d6501bf';
 	
@@ -630,8 +634,15 @@ function soundcloud_is_gold_player($id, $user, $autoPlay, $comments, $width, $cl
 			break;
 	}
 
-	$player = '<div class="soundcloudIsGold '.esc_attr($classes).'" id="soundcloud-'.esc_attr($id).'">';
-	
+    $player = '<div class="soundcloudIsGold '.esc_attr($classes).'" id="soundcloud-'.esc_attr($id).'">';
+	$detect = new Mobile_Detect;
+	if($detect->isIOS()){
+ 		//$iOS = 'window.stream.play();';
+		$ap = 'false';
+	}else{
+		$iOS = '';
+		$ap = 'true'; 
+	}
 	//Flash Player
 	if(!$html5Player){
 		$player .= '<object height="'.esc_attr($height).'" width="'.esc_attr($width).'">';
@@ -682,6 +693,7 @@ MY_MARKER;
 	<script>
 	var playlists = {};
 	var current = 0;
+	var block = false;
 	var objImage = new Image(400,400); 
 	function imagesLoaded(){
 		document.querySelector('.soundcloudIsGold').style.backgroundImage="url('"+objImage.src+"')";
@@ -697,40 +709,40 @@ MY_MARKER;
 				  objImage.onLoad=imagesLoaded();
 				  objImage.src= playlist.artwork_url.split("large").join("crop");
 				}
-  
-				
-				}
+	}
 		});
-		$("#toggle").on("click", function () { 
-			window.stream.togglePause();
-			$("#toggle").toggleClass("play");
+
+		$("#toggle").on("click", function () {
+			if(!block){
+				window.stream.play();
+				block = true;
+			}else{
+				window.stream.togglePause();
+			}
+			$("#toggle").toggleClass("pause");
 		});
 		$("#next").on("click", function () { 
 			window.stream.stop();
-			$("#toggle").attr("class","pause");
+			$("#toggle").attr("class","play pause");
 			playNextSound();
-			clearComments();
 		});
 		$("#prev").on("click", function () { 
 			window.stream.stop();
-			$("#toggle").attr("class","pause");
+			$("#toggle").attr("class","play pause");
 			playPrevSound();
-			clearComments();
 		});
 	},false);
-	
-	function clearComments(){
-		document.getElementById('comments').innerHTML = "";
-		document.getElementById('user').innerHTML = "";
-		document.getElementById('avatar').src = "data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=";
-	}
+
+function padDigits(number) {
+    return Array(Math.max(3 - String(number).length + 1, 0)).join(0) + number;
+}
 	
 	function playSong(i){
-			clearComments();
 			current = i;
 			var track = playlists[i];
-			document.getElementById('track').innerHTML = current+1;
-			document.getElementById('title').innerHTML = track.title;
+			
+	//document.getElementById('track').setAttribute('data-content', padDigits(current+1)); 
+	//document.getElementById('title').setAttribute('data-content', track.title);
 			if(track.artwork_url != null){
 				if (document.images)
 				{
@@ -749,11 +761,10 @@ MY_MARKER;
 				$("#download").attr("onclick","");
 				$("#download").hide();
 			}
-		SC.stream(track.uri, {autoPlay: true, onfinish:playNextSound, ontimedcomments: comments}, function (stream) {
+		SC.stream(track.uri, {autoPlay: false, onfinish:playNextSound}, function (stream) {
 			window.stream = stream;
-			//window.stream = stream.play();
+            window.stream.play();
 		});
-
 	}
 	
 	function playNextSound(){
@@ -770,31 +781,18 @@ MY_MARKER;
 			playSong(current - 1);
 	}
 	
-	function comments(comments){
-		if (comments[0].body.indexOf("http") == -1) {
-			document.getElementById('comments').innerHTML = comments[0].body;
-			document.getElementById('avatar').src = comments[0].user.avatar_url;
-			document.getElementById('user').innerHTML = comments[0].user.username;
-		}		
-	}
 	</script>
         <ul>
-            <li id="toggle" class="pause"></li>
+            <li id="toggle" class="play"></li>
             <li id="next"></li>
             <li id="prev"></li>
             <li id="download"></li>
-			
         </ul>
+		
 MY_MARKER;
 }
 	}
-//if($format == 'sets' || $format == 'set') $format = 'playlists';
-	$player .= '</div>';
-	$player .= '<h5 id="track"></h5>';
-	$player .= '<h2 id="title"></h2>';
-	$player .= '<img id="avatar" src="image.jpg" alt="An awesome image" />';
-	$player .= '<h5 id="user"></h5>';
-	$player .= '<h5 id="comments"></h5>';
+	$player .= '</b></div><div><b></b></div></div></div>';
         
 	
 	return $player;

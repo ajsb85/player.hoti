@@ -44,44 +44,43 @@
     padding-top: 100px;
     }
 
-/* 	.soundcloudIsGold > ul > .pause:after {
-		content: "d";
+/* 	.soundcloudIsGold > b > ul > .pause:after {
+		content: "Pausar";
 	}
 	
 
+	.soundcloudIsGold > b > ul > .play:after {
+		content: "Reproducir";
+	} */
 	.soundcloudIsGold > ul > .play:after {
 		content: "a";
-	} */
-	
-	
+	}
+
 	.soundcloudIsGold > ul > .pause:after {
 		content: "d";
 	}
-	
-	.soundcloudIsGold > ul > .play:after {
-		content: "a";
-	}
-	
+
 	.soundcloudIsGold > ul > #next:after {
 		content: "b";
 	}
-	
+
 	.soundcloudIsGold > ul > #prev:after {
 		content: "c";
 	}
-	
+
 	.soundcloudIsGold > ul > #playlist:after {
 		content: "f";
 	}
-	
+
 	.soundcloudIsGold > ul > .downloadable:after {
 		content: "e";
 	}
 
 #title {
-        font-size: 14px;
+        font-size: 18px;
+	font-weight: normal;
 	padding: 0px 0px 0px 0px;
-	margin:  0px 0px 0px 0px;
+	margin:  10px 0px 0px 0px;
 }
 #track {
         display: none;
@@ -94,4 +93,43 @@
 }
 #user {
         display: none;
+}
+
+@media only screen and (min-width: 768px) and (max-width: 959px) {
+ 
+.soundcloudIsGold{
+    background-color: #fff;
+    background-size:750px 750px;
+    background-repeat:no-repeat;
+    height: 750px;
+    width: 750px;
+    margin:  0;
+    padding:  0;
+    }
+    .soundcloudIsGold > ul > li{
+    font-family: "hoti";
+    font-size: 95px;
+    height: 95px;
+    width: 95px;
+    color: #000;
+    list-style-type: none;
+    cursor: pointer;
+    padding: 0 0 0 0;
+    margin-bottom:15px;
+    
+    }
+    .soundcloudIsGold > ul > li{
+	background:url('data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=');
+	background-size:88px 88px;
+	background-repeat:no-repeat;
+	background-position: center center;
+    }
+
+#title {
+        font-size: 25px;
+	font-weight: normal;
+	padding: 0px 0px 0px 0px;
+	margin:  10px 0px 0px 0px;
+}
+    
 }
