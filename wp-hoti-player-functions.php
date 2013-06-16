@@ -159,7 +159,7 @@ function get_soundcloud_is_gold_multiple_tracks_id($soundcloudIsGoldUser, $nbr =
 	if($random) $getNbr = 50;
 	$soundcouldMMIds= array();
 
-	$soundcloudIsGoldApiCall = 'http://api.soundcloud.com/users/'.$soundcloudIsGoldUser.'/tracks.xml?limit='.$getNbr.'&client_id=43195eb2f2b85520cb5f65e78d6501bf';
+if($format == 'tracks') $soundcloudIsGoldApiCall = 'http://api.soundcloud.com/users/'.$soundcloudIsGoldUser.'/tracks.xml?limit='.$getNbr.'&client_id=43195eb2f2b85520cb5f65e78d6501bf';
 	if($format == 'sets') $soundcloudIsGoldApiCall = 'http://api.soundcloud.com/users/'.$soundcloudIsGoldUser.'/playlists.xml?limit='.$getNbr.'&client_id=43195eb2f2b85520cb5f65e78d6501bf';
 	if($format == 'favorites') $soundcloudIsGoldApiCall = 'http://api.soundcloud.com/users/'.$soundcloudIsGoldUser.'/favorites.xml?limit='.$getNbr.'&client_id=43195eb2f2b85520cb5f65e78d6501bf';
 	
@@ -653,7 +653,12 @@ if($format == 'tracks') {
 			if(track.downloadable){
 				$("#download").addClass('downloadable');
 				$("#download").attr('onclick', "window.location.href='"+track.download_url+"?consumer_key=43195eb2f2b85520cb5f65e78d6501bf'");
-			}
+$("#download").show();
+}else{
+                $("#download").attr("class","");
+                $("#download").attr("onclick","");
+                $("#download").hide();
+}
 			document.querySelector('.soundcloudIsGold').style.backgroundImage="url('"+track.artwork_url.split("large").join("crop")+"')"
 			SC.stream(track.uri, {autoPlay: true}, function (stream) {
 				window.stream = stream;
@@ -670,7 +675,6 @@ if($format == 'tracks') {
             <li id="toggle" class="pause"></li>
             <li id="download"></li>
         </ul>
-			<h1>$format</h1>
 MY_MARKER;
 }else{
 	$dir = substr(SIG_PLUGIN_DIR, 0, -1);
