@@ -757,9 +757,7 @@ function padDigits(number) {
 	function playSong(i){
 			current = i;
 			var track = playlists[i];
-			
-	document.getElementById('track').setAttribute('data-content', padDigits(current+1)); 
-	document.getElementById('title').setAttribute('data-content', track.title);
+			document.getElementById('title').innerHTML = track.title;
 			if(track.artwork_url != null){
 				if (document.images)
 				{
@@ -868,9 +866,7 @@ function padDigits(number) {
 	function playSong(i){
 			current = i;
 			var track = playlists[i];
-			
-	document.getElementById('track').setAttribute('data-content', padDigits(current+1)); 
-	document.getElementById('title').setAttribute('data-content', track.title);
+			document.getElementById('title').innerHTML = track.title;
 			if(track.artwork_url != null){
 				if (document.images)
 				{
