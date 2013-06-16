@@ -758,8 +758,8 @@ function padDigits(number) {
 			current = i;
 			var track = playlists[i];
 			
-	//document.getElementById('track').setAttribute('data-content', padDigits(current+1)); 
-	//document.getElementById('title').setAttribute('data-content', track.title);
+	document.getElementById('track').setAttribute('data-content', padDigits(current+1)); 
+	document.getElementById('title').setAttribute('data-content', track.title);
 			if(track.artwork_url != null){
 				if (document.images)
 				{
@@ -869,8 +869,8 @@ function padDigits(number) {
 			current = i;
 			var track = playlists[i];
 			
-	//document.getElementById('track').setAttribute('data-content', padDigits(current+1)); 
-	//document.getElementById('title').setAttribute('data-content', track.title);
+	document.getElementById('track').setAttribute('data-content', padDigits(current+1)); 
+	document.getElementById('title').setAttribute('data-content', track.title);
 			if(track.artwork_url != null){
 				if (document.images)
 				{
