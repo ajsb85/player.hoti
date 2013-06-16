@@ -697,8 +697,7 @@ $("#download").show();
             <li id="download"></li>
         </ul>
 MY_MARKER;
-}else{
-	$dir = substr(SIG_PLUGIN_DIR, 0, -1);
+}else if($detect->isIOS()){
 	$player .= <<<MY_MARKER
 	<script>
 	var playlists = {};
@@ -713,6 +712,112 @@ MY_MARKER;
 		SC.get("/playlists/$id", function (playlist) {
 			playlists = playlist.tracks;
 			playSong(0);
+			if(playlist.artwork_url != null){
+				if (document.images)
+				{
+				  objImage.onLoad=imagesLoaded();
+				  objImage.src= playlist.artwork_url.split("large").join("crop");
+				}
+	}
+		});
+
+		$("#toggle").on("click", function () {
+			if(!block){
+				window.stream.play();
+				block = true;
+			}else{
+				window.stream.togglePause();
+			}
+			$("#toggle").toggleClass("pause");
+		});
+		$("#next").on("click", function () { 
+			window.stream.stop();
+			$("#toggle").attr("class","play pause");
+			playNextSound();
+		});
+		$("#prev").on("click", function () { 
+			window.stream.stop();
+			$("#toggle").attr("class","play pause");
+			playPrevSound();
+		});
+	},false);
+
+function padDigits(number) {
+    return Array(Math.max(3 - String(number).length + 1, 0)).join(0) + number;
+}
+	
+	function playSong(i){
+			current = i;
+			var track = playlists[i];
+			
+	//document.getElementById('track').setAttribute('data-content', padDigits(current+1)); 
+	//document.getElementById('title').setAttribute('data-content', track.title);
+			if(track.artwork_url != null){
+				if (document.images)
+				{
+				  objImage.onLoad=imagesLoaded();
+				  objImage.src= track.artwork_url.split("large").join("crop");
+				}
+			}
+			
+				//document.querySelector('.soundcloudIsGold').style.backgroundImage="url('"+track.artwork_url.split("large").join("crop")+"')";
+			if(track.downloadable){
+				$("#download").addClass('downloadable');
+				$("#download").attr('onclick', "window.location.href='"+track.download_url+"?consumer_key=43195eb2f2b85520cb5f65e78d6501bf'");
+				$("#download").show();
+			}else{
+				$("#download").attr("class","");
+				$("#download").attr("onclick","");
+				$("#download").hide();
+			}
+		SC.stream(track.uri, {autoPlay: false, onfinish:playNextSound}, function (stream) {
+			window.stream = stream;
+            window.stream.play();
+		});
+	}
+	
+	function playNextSound(){
+		if(playlists.length-1 > current)
+			playSong(current + 1);
+		else
+			playSong(0);
+	}
+	
+	function playPrevSound(){
+		if(current==0)
+			playSong(playlists.length-1);
+		else
+			playSong(current - 1);
+	}
+	
+	</script>
+        <ul>
+            <li id="toggle" class="play"></li>
+            <li id="next"></li>
+            <li id="prev"></li>
+            <li id="download"></li>
+        </ul>
+		
+MY_MARKER;
+}else{
+	$player .= <<<MY_MARKER
+	<script>
+	var playlists = {};
+	var current = 0;
+	var block = false;
+	var objImage = new Image(400,400); 
+	function imagesLoaded(){
+		document.querySelector('.soundcloudIsGold').style.backgroundImage="url('"+objImage.src+"')";
+	}
+	window.addEventListener("load", function load(event){
+		window.removeEventListener("load", load, false); 
+		SC.get("/playlists/$id", function (playlist) {
+			playlists = playlist.tracks;
+			  if($ap){
+				playSong(0);
+				block = true;
+				$("#toggle").toggleClass("pause");
+			  }
 			if(playlist.artwork_url != null){
 				if (document.images)
 				{
