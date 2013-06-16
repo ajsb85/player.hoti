@@ -805,14 +805,8 @@ function padDigits(number) {
 		
 MY_MARKER;
 }
-        }
-//if($format == 'sets' || $format == 'set') $format = 'playlists';
-	$player .= '</div>';
-	$player .= '<h5 id="track"></h5>';
-	$player .= '<h2 id="title"></h2>';
-	$player .= '<img id="avatar" src="image.jpg" alt="An awesome image" />';
-	$player .= '<h5 id="user"></h5>';
-	$player .= '<h5 id="comments"></h5>';
+	}
+	$player .= '</b></div><div><b></b></div></div></div>';
         
 
 	return $player;
