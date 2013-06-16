@@ -689,7 +689,7 @@ $("#download").show();
 	},false);
 	</script>
         <ul>
-            <li id="toggle" class="pause"></li>
+            <li id="toggle" class="play"></li>
             <li id="download"></li>
         </ul>
 MY_MARKER;
