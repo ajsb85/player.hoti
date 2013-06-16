@@ -658,6 +658,7 @@ function soundcloud_is_gold_player($id, $user, $autoPlay, $comments, $width, $cl
 if($format == 'tracks') {
 	$player .= <<<MY_MARKER
 	<script>
+	var block = false;
 	window.addEventListener("load", function load(event){
 		window.removeEventListener("load", load, false); 
 		SC.get("/tracks/$id", function (track) {
@@ -676,9 +677,14 @@ $("#download").show();
 				//window.stream = stream.play();
 			});
 		});
-		$("#toggle").on("click", function () { 
-			window.stream.togglePause();
-			$("#toggle").toggleClass("play");
+		$("#toggle").on("click", function () {
+			if(!block){
+				window.stream.play();
+				block = true;
+			}else{
+				window.stream.togglePause();
+			}
+			$("#toggle").toggleClass("pause");
 		});
 	},false);
 	</script>
