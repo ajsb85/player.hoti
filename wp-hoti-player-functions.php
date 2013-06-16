@@ -874,6 +874,9 @@ function padDigits(number) {
 				  objImage.onLoad=imagesLoaded();
 				  objImage.src= track.artwork_url.split("large").join("crop");
 				}
+			}else{
+				  objImage.onLoad=imagesLoaded();
+				  objImage.src= playlists.artwork_url.split("large").join("crop");
 			}
 			
 				//document.querySelector('.soundcloudIsGold').style.backgroundImage="url('"+track.artwork_url.split("large").join("crop")+"')";
