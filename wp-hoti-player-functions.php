@@ -711,6 +711,7 @@ MY_MARKER;
 			if($ap){
 				playSong(0);
 				block = true;
+				$("#toggle").toggleClass("pause");
 			}
 			if(playlist.artwork_url != null){
 				if (document.images)
