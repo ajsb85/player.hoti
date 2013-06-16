@@ -613,7 +613,7 @@ function soundcloud_is_gold_player($id, $user, $autoPlay, $comments, $width, $cl
 	}
 	
 	if($format == 'favorites') $format = "tracks"; //Reset Favorites to tracks as soundcloud treats them as tracks.
-	$dir = SIG_PLUGIN_DIR.'images/400.jpg';
+	
 	//Player types sizes
 	switch($playerTypes){
 		case 'Standard':
@@ -655,6 +655,8 @@ function soundcloud_is_gold_player($id, $user, $autoPlay, $comments, $width, $cl
 	//Html5 Player
 	else{
 /* 		$player .= '<iframe width="'.esc_attr($width).'" height="'.esc_attr($height).'" scrolling="no" frameborder="no" src="http://w.soundcloud.com/player/?url=http%3A%2F%2Fapi.soundcloud.com%2F'.esc_attr($format).'%2F'.esc_attr($id).'&amp;auto_play='.esc_attr($autoPlay).'&amp;show_artwork='.esc_attr($artwork).'&amp;color='.esc_attr($color).'"></iframe>'; */
+
+$dir = SIG_PLUGIN_DIR.'images/400.jpg';
 if($format == 'tracks') {
 	$player .= <<<MY_MARKER
 	<script>
@@ -720,6 +722,7 @@ if($detect->isIOS()){
 		window.removeEventListener("load", load, false); 
 		SC.get("/playlists/$id", function (playlist) {
 			playlists = playlist.tracks;
+			artwork_url = playlist.artwork_url;
 			playSong(0);
 			if(playlist.artwork_url != null){
 				if (document.images)
