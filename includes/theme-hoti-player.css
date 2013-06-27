@@ -1,10 +1,8 @@
 @font-face {
-    font-family: 'hoti';
-    src: url('hoti-webfont/hoti-webfont.eot');
-    src: url('hoti-webfont/hoti-webfont.eot?#iefix') format('embedded-opentype'),
-         url('hoti-webfont/hoti-webfont.woff') format('woff'),
-         url('hoti-webfont/hoti-webfont.ttf') format('truetype'),
-         url('hoti-webfont/hoti-webfont.svg#hotiregular') format('svg');
+    font-family: 'v1';
+    src: url('hoti-webfont/v1.eot');
+    src: url('hoti-webfont/v1.eot?#iefix') format('embedded-opentype'),
+         url('hoti-webfont/v1.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 
@@ -21,7 +19,7 @@
     padding:  0;
     }
     .soundcloudIsGold > ul > li{
-    font-family: "hoti";
+    font-family: "v1";
     font-size: 35px;
     height: 35px;
     width: 35px;
@@ -57,15 +55,15 @@
 	}
 
 	.soundcloudIsGold > ul > .pause:after {
-		content: "d";
-	}
-
-	.soundcloudIsGold > ul > #next:after {
 		content: "b";
 	}
 
-	.soundcloudIsGold > ul > #prev:after {
+	.soundcloudIsGold > ul > #next:after {
 		content: "c";
+	}
+
+	.soundcloudIsGold > ul > #prev:after {
+		content: "d";
 	}
 
 	.soundcloudIsGold > ul > #playlist:after {
