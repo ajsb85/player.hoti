@@ -51,7 +51,7 @@ content: "a";
 color: rgba(0,0,0,0);
 background-image:  url('http://hoti.tv/buttons/play.svg');
 background-image:  none,url('http://hoti.tv/buttons/play.svg'), url('http://hoti.tv/buttons/play.png');
-background-size: 100% 100%;
+background-size: 35px 35px;
 background-repeat:no-repeat;
 background-position: center center;
 }
@@ -60,7 +60,7 @@ content: "b";
 color: rgba(0,0,0,0);
 background-image:  url('http://hoti.tv/buttons/pause.svg');
 background-image:  none,url('http://hoti.tv/buttons/pause.svg'), url('http://hoti.tv/buttons/pause.png');
-background-size: 100% 100%;
+background-size: 35px 35px;
 background-repeat:no-repeat;
 background-position: center center;
 }
@@ -69,7 +69,7 @@ content: "c";
 color: rgba(0,0,0,0);
 background-image:  url('http://hoti.tv/buttons/next.svg');
 background-image:  none,url('http://hoti.tv/buttons/next.svg'), url('http://hoti.tv/buttons/next.png');
-background-size: 100% 100%;
+background-size: 35px 35px;
 background-repeat:no-repeat;
 background-position: center center;
 }
@@ -78,7 +78,7 @@ content: "d";
 color: rgba(0,0,0,0);
 background-image:  url('http://hoti.tv/buttons/previous.svg');
 background-image:  none,url('http://hoti.tv/buttons/previous.svg'), url('http://hoti.tv/buttons/previous.png');
-background-size: 100% 100%;
+background-size: 35px 35px;
 background-repeat:no-repeat;
 background-position: center center;
 }
@@ -87,7 +87,7 @@ content: "f";
 color: rgba(0,0,0,0);
 background-image:  url('http://hoti.tv/buttons/info.svg');
 background-image:  none,url('http://hoti.tv/buttons/info.svg'), url('http://hoti.tv/buttons/info.png');
-background-size: 100% 100%;
+background-size: 35px 35px;
 background-repeat:no-repeat;
 background-position: center center;
 }
@@ -96,7 +96,7 @@ content: "e";
 color: rgba(0,0,0,0);
 background-image:  url('http://hoti.tv/buttons/love.svg');
 background-image:  none,url('http://hoti.tv/buttons/love.svg'), url('http://hoti.tv/buttons/love.png');
-background-size: 100% 100%;
+background-size: 35px 35px;
 background-repeat:no-repeat;
 background-position: center center;
 }
