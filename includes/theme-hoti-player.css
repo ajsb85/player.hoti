@@ -1,16 +1,16 @@
 /*
-Theme Name: Hoti Player
-Theme URI: http://hoti.tv
+Plugin Name: Hoti Player
+Plugin URI: https://github.com/hotitv/Hoti-Music-Player
 Description: A todos los artistas en todas sus expresiones, esto va dedicado a ustedes.
+Version: 1.0.1
 Author: Alex & Marcos
 Author URI: http://hoti.tv/
-Version: 1.0
 Tags: clean,white,black,album,cover,made,in,venezuela,bitch
 License: GNU General Public License v2.0
-License URI: http://www.gnu.org/licenses/gpl-2.0.html
+License URI: http://www.gnu.org/licenses/gpl-2.0.html	
 /*********************************************************************/
 /***                                                               ***/
-/***                   Hecho en Veneuzela Bitch!                   ***/
+/***                   Hecho en Veneuzela                          ***/
 /***                                                               ***/
 /*********************************************************************/
 
@@ -142,48 +142,54 @@ margin-bottom:15px;
 .soundcloudIsGold > ul > .play:after {
 content: "a";
 color: rgba(0,0,0,0);
-background:url('http://hoti.tv/buttons/play.svg');
-background-size:85px 85px;
+background-image:  url('http://hoti.tv/buttons/play.svg');
+background-image:  none,url('http://hoti.tv/buttons/play.svg'), url('http://hoti.tv/buttons/playb.png');
+background-size: 75px 75px;
 background-repeat:no-repeat;
 background-position: center center;
 }
 .soundcloudIsGold > ul > .pause:after {
 content: "b";
 color: rgba(0,0,0,0);
-background:url('http://hoti.tv/buttons/pause.svg');
-background-size:85px 85px;
+background-image:  url('http://hoti.tv/buttons/pause.svg');
+background-image:  none,url('http://hoti.tv/buttons/pause.svg'), url('http://hoti.tv/buttons/pauseb.png');
+background-size: 75px 75px;
 background-repeat:no-repeat;
 background-position: center center;
 }
 .soundcloudIsGold > ul > #next:after {
 content: "c";
 color: rgba(0,0,0,0);
-background:url('http://hoti.tv/buttons/next.svg');
-background-size:85px 85px;
+background-image:  url('http://hoti.tv/buttons/next.svg');
+background-image:  none,url('http://hoti.tv/buttons/next.svg'), url('http://hoti.tv/buttons/nextb.png');
+background-size: 75px 75px;
 background-repeat:no-repeat;
 background-position: center center;
 }
 .soundcloudIsGold > ul > #prev:after {
 content: "d";
 color: rgba(0,0,0,0);
-background:url('http://hoti.tv/buttons/previous.svg');
-background-size:85px 85px;
+background-image:  url('http://hoti.tv/buttons/previous.svg');
+background-image:  none,url('http://hoti.tv/buttons/previous.svg'), url('http://hoti.tv/buttons/previousb.png');
+background-size: 75px 75px;
 background-repeat:no-repeat;
 background-position: center center;
 }
 .soundcloudIsGold > ul > #playlist:after {
 content: "f";
 color: rgba(0,0,0,0);
-background:url('http://hoti.tv/buttons/info.svg');
-background-size:85px 85px;
+background-image:  url('http://hoti.tv/buttons/info.svg');
+background-image:  none,url('http://hoti.tv/buttons/info.svg'), url('http://hoti.tv/buttons/infob.png');
+background-size: 75px 75px;
 background-repeat:no-repeat;
 background-position: center center;
 }
 .soundcloudIsGold > ul > .downloadable:after {
 content: "e";
 color: rgba(0,0,0,0);
-background:url('http://hoti.tv/buttons/love.svg');
-background-size:85px 85px;
+background-image:  url('http://hoti.tv/buttons/love.svg');
+background-image:  none,url('http://hoti.tv/buttons/love.svg'), url('http://hoti.tv/buttons/loveb.png');
+background-size: 75px 75px;
 background-repeat:no-repeat;
 background-position: center center;
 }
