@@ -1,145 +1,208 @@
+/*
+Theme Name: Hoti Player
+Theme URI: http://hoti.tv
+Description: A todos los artistas en todas sus expresiones, esto va dedicado a ustedes.
+Author: Alex & Marcos
+Author URI: http://hoti.tv/
+Version: 1.0
+Tags: clean,white,black,album,cover,made,in,venezuela,bitch
+License: GNU General Public License v2.0
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+/*********************************************************************/
+/***                                                               ***/
+/***                   Hecho en Veneuzela Bitch!                   ***/
+/***                                                               ***/
+/*********************************************************************/
+
 @font-face {
-    font-family: 'v1';
-    src: url('hoti-webfont/v1.eot');
-    src: url('hoti-webfont/v1.eot?#iefix') format('embedded-opentype'),
-         url('hoti-webfont/v1.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
+font-family: 'v1';
+src: url('hoti-webfont/v1.eot');
+src: url('hoti-webfont/v1.eot?#iefix') format('embedded-opentype'),
+url('hoti-webfont/v1.ttf') format('truetype');
+font-weight: normal;
+font-style: normal;
+}  
 
+.soundcloudIsGold{
+background-color: #fff;
+background-size:300px 300px;
+background-repeat:no-repeat;
+height: 300px;
+width: 300px;
+margin-top: 30px;
+padding:  0;
 }
-
-
-    .soundcloudIsGold{
-    background-color: #fff;
-    background-size:300px 300px;
-    background-repeat:no-repeat;
-    height: 300px;
-    width: 300px;
-    margin:  0;
-    padding:  0;
-    }
-    .soundcloudIsGold > ul > li{
-    font-family: "v1";
-    font-size: 35px;
-    height: 35px;
-    width: 35px;
-    color: #000;
-    list-style-type: none;
-    cursor: pointer;
-    padding: 0 0 0 0;
-    margin-bottom:5px;
-    
-    }
-    .soundcloudIsGold > ul > li{
-	background:url('data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=');
-	background-size:28px 28px;
-	background-repeat:no-repeat;
-	background-position: center center;
-    }
-    
-    .soundcloudIsGold > ul{
-    padding: adding-left: 0;
-    padding-top: 100px;
-    }
-
+.soundcloudIsGold > ul > li{
+font-family: "v1";
+font-size: 35px;
+height: 35px;
+width: 35px;
+color: #000;
+list-style-type: none;
+cursor: pointer;
+padding: 0 0 0 0;
+margin-bottom:5px;
+}
+.soundcloudIsGold > ul{
+padding: adding-left: 0;
+padding-top: 100px;
+}
 /* 	.soundcloudIsGold > b > ul > .pause:after {
 		content: "Pausar";
-	}
-	
-
-	.soundcloudIsGold > b > ul > .play:after {
-		content: "Reproducir";
-	} */
-	.soundcloudIsGold > ul > .play:after {
-		content: "a";
-	}
-
-	.soundcloudIsGold > ul > .pause:after {
-		content: "b";
-	}
-
-	.soundcloudIsGold > ul > #next:after {
-		content: "c";
-	}
-
-	.soundcloudIsGold > ul > #prev:after {
-		content: "d";
-	}
-
-	.soundcloudIsGold > ul > #playlist:after {
-		content: "f";
-	}
-
-	.soundcloudIsGold > ul > .downloadable:after {
-		content: "e";
-	}
-
+}
+.soundcloudIsGold > b > ul > .play:after {
+content: "Reproducir";
+} */
+.soundcloudIsGold > ul > .play:after {
+content: "a";
+color: rgba(0,0,0,0);
+background:url('http://hoti.tv/buttons/play.svg');
+background-size:35px 35px;
+background-repeat:no-repeat;
+background-position: center center;
+}
+.soundcloudIsGold > ul > .pause:after {
+content: "b";
+color: rgba(0,0,0,0);
+background:url('http://hoti.tv/buttons/pause.svg');
+background-size:35px 35px;
+background-repeat:no-repeat;
+background-position: center center;
+}
+.soundcloudIsGold > ul > #next:after {
+content: "c";
+color: rgba(0,0,0,0);
+background:url('http://hoti.tv/buttons/next.svg');
+background-size:35px 35px;
+background-repeat:no-repeat;
+background-position: center center;
+}
+.soundcloudIsGold > ul > #prev:after {
+content: "d";
+color: rgba(0,0,0,0);
+background:url('http://hoti.tv/buttons/previous.svg');
+background-size:35px 35px;
+background-repeat:no-repeat;
+background-position: center center;
+}
+.soundcloudIsGold > ul > #playlist:after {
+content: "f";
+color: rgba(0,0,0,0);
+background:url('http://hoti.tv/buttons/info.svg');
+background-size:35px 35px;
+background-repeat:no-repeat;
+background-position: center center;
+}
+.soundcloudIsGold > ul > .downloadable:after {
+content: "e";
+color: rgba(0,0,0,0);
+background:url('http://hoti.tv/buttons/love.svg');
+background-size:35px 35px;
+background-repeat:no-repeat;
+background-position: center center;
+}
 #title {
-        font-size: 18px;
-	font-weight: normal;
-	padding: 0px 0px 0px 0px;
-	margin:  10px 0px 0px 0px;
+font-size: 13px;
+font-weight: normal;
+padding: 0px 0px 0px 0px;
+margin:  10px 0px 0px 0px;
 }
 #track {
-        display: none;
+display: none;
 }
 #avatar {
-        display: none;
+display: none;
 }
 #comments {
-        display: none;
+display: none;
 }
 #user {
-        display: none;
+display: none;
 }
-
 @media only screen and (min-width: 768px) and (max-width: 959px) {
- 
 .soundcloudIsGold{
-    background-color: #fff;
-    background-size:750px 750px;
-    background-repeat:no-repeat;
-    height: 750px;
-    width: 750px;
-    margin:  0;
-    padding:  0;
-    }
-    .soundcloudIsGold > ul > li{
-    font-family: "v1";
-    font-size: 95px;
-    height: 95px;
-    width: 95px;
-    color: #000;
-    list-style-type: none;
-    cursor: pointer;
-    padding: 0 0 0 0;
-    margin-bottom:15px;
-    
-    }
-    .soundcloudIsGold > ul > li{
-	background:url('data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=');
-	background-size:88px 88px;
-	background-repeat:no-repeat;
-	background-position: center center;
-    }
-
+background-color: #fff;
+background-size:750px 750px;
+background-repeat:no-repeat;
+height: 750px;
+width: 750px;
+margin-top: 30px;
+padding:  0;
+}
+.soundcloudIsGold > ul > li{
+font-family: "v1";
+font-size: 85px;
+height: 85px;
+width: 85px;
+color: #000;
+list-style-type: none;
+cursor: pointer;
+padding: 0 0 0 0;
+margin-bottom:15px;
+}
+.soundcloudIsGold > ul > .play:after {
+content: "a";
+color: rgba(0,0,0,0);
+background:url('http://hoti.tv/buttons/play.svg');
+background-size:85px 85px;
+background-repeat:no-repeat;
+background-position: center center;
+}
+.soundcloudIsGold > ul > .pause:after {
+content: "b";
+color: rgba(0,0,0,0);
+background:url('http://hoti.tv/buttons/pause.svg');
+background-size:85px 85px;
+background-repeat:no-repeat;
+background-position: center center;
+}
+.soundcloudIsGold > ul > #next:after {
+content: "c";
+color: rgba(0,0,0,0);
+background:url('http://hoti.tv/buttons/next.svg');
+background-size:85px 85px;
+background-repeat:no-repeat;
+background-position: center center;
+}
+.soundcloudIsGold > ul > #prev:after {
+content: "d";
+color: rgba(0,0,0,0);
+background:url('http://hoti.tv/buttons/previous.svg');
+background-size:85px 85px;
+background-repeat:no-repeat;
+background-position: center center;
+}
+.soundcloudIsGold > ul > #playlist:after {
+content: "f";
+color: rgba(0,0,0,0);
+background:url('http://hoti.tv/buttons/info.svg');
+background-size:85px 85px;
+background-repeat:no-repeat;
+background-position: center center;
+}
+.soundcloudIsGold > ul > .downloadable:after {
+content: "e";
+color: rgba(0,0,0,0);
+background:url('http://hoti.tv/buttons/love.svg');
+background-size:85px 85px;
+background-repeat:no-repeat;
+background-position: center center;
+}
 #title {
-        font-size: 25px;
-	font-weight: normal;
-	padding: 0px 0px 0px 0px;
-	margin:  10px 0px 0px 0px;
+font-size: 25px;
+font-weight: normal;
+padding: 0px 0px 0px 0px;
+margin:  10px 0px 0px 0px;
 }
-    
 }
-
 @media only screen and (max-width: 767px) {
 .soundcloudIsGold{
-    background-color: #fff;
-    background-size:320px 320px;
-    background-repeat:no-repeat;
-    height: 320px;
-    width: 320px;
-    margin-top: 30px;
-    padding: 0px;
-    }
+background-color: #fff;
+background-size:320px 320px;
+background-repeat:no-repeat;
+height: 320px;
+width: 320px;
+margin-top: 30px;
+padding: 0px;
+}
 }
