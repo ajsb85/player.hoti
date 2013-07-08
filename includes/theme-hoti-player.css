@@ -49,48 +49,54 @@ padding-top: 100px;
 .soundcloudIsGold > ul > .play:after {
 content: "a";
 color: rgba(0,0,0,0);
-background:url('http://hoti.tv/buttons/play.svg');
-background-size:35px 35px;
+background-image:  url('http://hoti.tv/buttons/play.svg');
+background-image:  none,url('http://hoti.tv/buttons/play.svg'), url('http://hoti.tv/buttons/play.png');
+background-size: 100% 100%;
 background-repeat:no-repeat;
 background-position: center center;
 }
 .soundcloudIsGold > ul > .pause:after {
 content: "b";
 color: rgba(0,0,0,0);
-background:url('http://hoti.tv/buttons/pause.svg');
-background-size:35px 35px;
+background-image:  url('http://hoti.tv/buttons/pause.svg');
+background-image:  none,url('http://hoti.tv/buttons/pause.svg'), url('http://hoti.tv/buttons/pause.png');
+background-size: 100% 100%;
 background-repeat:no-repeat;
 background-position: center center;
 }
 .soundcloudIsGold > ul > #next:after {
 content: "c";
 color: rgba(0,0,0,0);
-background:url('http://hoti.tv/buttons/next.svg');
-background-size:35px 35px;
+background-image:  url('http://hoti.tv/buttons/next.svg');
+background-image:  none,url('http://hoti.tv/buttons/next.svg'), url('http://hoti.tv/buttons/next.png');
+background-size: 100% 100%;
 background-repeat:no-repeat;
 background-position: center center;
 }
 .soundcloudIsGold > ul > #prev:after {
 content: "d";
 color: rgba(0,0,0,0);
-background:url('http://hoti.tv/buttons/previous.svg');
-background-size:35px 35px;
+background-image:  url('http://hoti.tv/buttons/previous.svg');
+background-image:  none,url('http://hoti.tv/buttons/previous.svg'), url('http://hoti.tv/buttons/previous.png');
+background-size: 100% 100%;
 background-repeat:no-repeat;
 background-position: center center;
 }
 .soundcloudIsGold > ul > #playlist:after {
 content: "f";
 color: rgba(0,0,0,0);
-background:url('http://hoti.tv/buttons/info.svg');
-background-size:35px 35px;
+background-image:  url('http://hoti.tv/buttons/info.svg');
+background-image:  none,url('http://hoti.tv/buttons/info.svg'), url('http://hoti.tv/buttons/info.png');
+background-size: 100% 100%;
 background-repeat:no-repeat;
 background-position: center center;
 }
 .soundcloudIsGold > ul > .downloadable:after {
 content: "e";
 color: rgba(0,0,0,0);
-background:url('http://hoti.tv/buttons/love.svg');
-background-size:35px 35px;
+background-image:  url('http://hoti.tv/buttons/love.svg');
+background-image:  none,url('http://hoti.tv/buttons/love.svg'), url('http://hoti.tv/buttons/love.png');
+background-size: 100% 100%;
 background-repeat:no-repeat;
 background-position: center center;
 }
