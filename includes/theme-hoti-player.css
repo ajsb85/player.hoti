@@ -115,9 +115,11 @@ background-repeat:no-repeat;
 background-position: center center;
 }
 #title {
-font-size: 13px;
+background-color:#000;    
+color:#fff;
+font-size: 16px;
 font-weight: normal;
-padding: 0px 0px 0px 0px;
+padding: 5px 0px 0px 5px;
 margin:  10px 0px 0px 0px;
 }
 #track {
