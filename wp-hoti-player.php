@@ -1,9 +1,9 @@
 <?php
 /*
-Plugin Name: Hoti Music Player
+Plugin Name: hoti™ player
 Plugin URI: https://github.com/hotitv/Hoti-Music-Player
-Description: A todos los artistas en todas sus expresiones, esto va dedicado a ustedes.
-Version: 1.0
+Description: Reproductor musical diseñado para hoti ™ • plataforma.artistica
+Version: 0.1
 Author: Alex & Marcos
 Author URI: http://hoti.tv/
 Tags: clean,white,black,album,cover,made,in,venezuela,bitch
