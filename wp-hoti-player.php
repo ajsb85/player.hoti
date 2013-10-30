@@ -1,14 +1,14 @@
 <?php
 /*
-Theme Name: hoti™ player
-Theme URI: https://github.com/hotitv/player.hoti
+Plugin Name: hoti™ player
+Plugin URI: https://github.com/hotitv/Hoti-Music-Player
 Description: Reproductor musical diseñado para hoti ™ • plataforma.artistica
-Author: Alexander Salas & Marcos Colina (hola@hoti.tv * contactanos si quieres formar parte de los desarrolladores de esta increible plataforma.)
+Version: 0.1
+Author: Alex & Marcos
 Author URI: http://hoti.tv/
-Version: 0.1b
-Tags: hoti,plataforma,artistica
+Tags: clean,white,black,album,cover,made,in,venezuela,bitch
 License: GNU General Public License v2.0
-License URI: http://www.gnu.org/licenses/gpl-2.0.html
+License URI: http://www.gnu.org/licenses/gpl-2.0.html	
 */
 
 define ('SIG_PLUGIN_DIR', WP_PLUGIN_URL.'/'.str_replace(basename( __FILE__),"",plugin_basename(__FILE__)) );
