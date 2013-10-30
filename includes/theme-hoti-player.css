@@ -113,7 +113,7 @@ display: none;
 }
 @media only screen and (min-width: 768px) and (max-width: 959px) {
 .soundcloudIsGold{
-background-color: #fff;
+background-color: #000;
 background-size:768px 768px;
 background-repeat:no-repeat;
 height: 768px;
@@ -193,7 +193,7 @@ width: 768px;
 }
 @media only screen and (max-width: 767px) {
 .soundcloudIsGold{
-background-color: #fff;
+background-color: #000;
 background-size:320px 320px;
 background-repeat:no-repeat;
 height: 320px;
