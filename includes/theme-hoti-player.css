@@ -25,6 +25,7 @@ background-repeat:no-repeat;
 height: 300px;
 width: 300px;
 margin-top: 5px;
+margin-left: -10px;
 padding:  0;
 }
 .soundcloudIsGold > ul > li{
@@ -119,7 +120,7 @@ background-repeat:no-repeat;
 height: 768px;
 width: 768px;
 margin-top: 10px;
-margin-left: -20px;
+margin-left: -9px;
 padding:  0;
 }
 .soundcloudIsGold > ul > li{
@@ -187,7 +188,7 @@ font-size: 25px;
 font-weight: normal;
 font-family:li;
 padding: 10px 10px 10px 10px;
-margin:  0px 0px 0px -20px;
+margin:  0px 0px 0px -9px;
 width: 768px;
 }
 }
