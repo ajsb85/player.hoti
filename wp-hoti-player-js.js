@@ -31,7 +31,7 @@ jQuery(document).ready(function($){
 	    Configuration created by the "Configuration Robot"
 	    at caroufredsel.frebsite.nl
     */
-    $("#soundcloudIsGoldUserError a").click(function(e){
+    $("#hotiUserError a").click(function(e){
 	e.preventDefault();
 	$(this).parent().fadeOut();
     }).parent().css("display", "none");
@@ -40,7 +40,7 @@ jQuery(document).ready(function($){
     $("#soundcloudMMUsermameTab").slideUp('fast');
     
     function carousel(){
-	$("#soundcloudIsGoldUsernameCarousel").carouFredSel({
+	$("#hotiUsernameCarousel").carouFredSel({
 	    circular: false,
 	    infinite: false,
 	    width: 354,
@@ -54,8 +54,8 @@ jQuery(document).ready(function($){
 		    height: 118
 	    },
 	    auto: false,
-	    pagination: "#soundcloudIsGoldUsernameCarouselNav"
-    }).find("li .soundcloudIsGoldRemoveUser").click(function() {
+	    pagination: "#hotiUsernameCarouselNav"
+    }).find("li .hotiRemoveUser").click(function() {
 	    removeUser($(this).parent());
 	    removeUserFromOptions($("div input:first", $(this).parent()).val(), false);
 	}).css("cursor", "pointer");
@@ -72,7 +72,7 @@ jQuery(document).ready(function($){
 		    margin		: 0,
 		    borderWidth	: 0
 	    }, 400, function() {
-		$("#soundcloudIsGoldUsernameCarousel").trigger("removeItem", that); 
+		$("#hotiUsernameCarousel").trigger("removeItem", that); 
 	});
     }
     /** Remove User From Options (Tab only) **/
@@ -81,8 +81,8 @@ jQuery(document).ready(function($){
 	    console.log(usernameToRemove);
 	    //Set request
 	    var myData = {
-		action: 'soundcloud_is_gold_delete_user',
-		request: 'soundcloudIsGoldDeleteUser',
+		action: 'hoti_delete_user',
+		request: 'hotiDeleteUser',
 		username: usernameToRemove
 	    };
 	    jQuery.post(ajaxurl, myData, function(response) {
@@ -91,44 +91,44 @@ jQuery(document).ready(function($){
 	}
     }
     /** Add new User **/
-    $("#soundcloudIsGoldAddUser").click(function(e){
+    $("#hotiAddUser").click(function(e){
 	e.preventDefault();
 	$(".soundcloudMMLoading").fadeIn('fast');
 	//Set request
 	var myData = {
-            action: 'soundcloud_is_gold_add_user',
-            request: 'soundcloudIsGoldAddUser',
-            username: $("#soundcloudIsGoldNewUser").val(),
+            action: 'hoti_add_user',
+            request: 'hotiAddUser',
+            username: $("#hotiNewUser").val(),
 	    updateOption : $("#soundcloudMMUsermameTab").length
         };
 	jQuery.post(ajaxurl, myData, function(response) {
 	    $(".soundcloudMMLoading").fadeOut('fast');
 	    if(response != "error"){
-		var args = [response, "#soundcloudIsGoldUsernameCarousel li:first", true, 0];
-		$("#soundcloudIsGoldUsernameCarousel").trigger("insertItem", args);
+		var args = [response, "#hotiUsernameCarousel li:first", true, 0];
+		$("#hotiUsernameCarousel").trigger("insertItem", args);
 		carousel();
 	    }else{
-		$("#soundcloudIsGoldUserError p").html("wrong username").parent().fadeIn();
+		$("#hotiUserError p").html("wrong username").parent().fadeIn();
 	    }
 	});
     });
     
     /** Make User Active **/
     function makeUserActive(){
-	$("#soundcloudIsGoldUsernameCarousel .soundcloudIsGoldUserContainer div").click(function(){
-	    previousActiveUser = $("#soundcloudIsGoldActiveUserContainer .soundcloudIsGoldUserContainer");
+	$("#hotiUsernameCarousel .hotiUserContainer div").click(function(){
+	    previousActiveUser = $("#hotiActiveUserContainer .hotiUserContainer");
 	    newActiveUser = $(this).parent();
 	    //Remove from Carousel
 	    $(this).parent().fadeOut(function(){
 		//Copy new Active User to the Active User container and move active user label
-		newActiveUser.clone().css("margin", "5px 4px").appendTo("#soundcloudIsGoldActiveUserContainer").prepend($("#soundcloudIsGoldActiveLabel")).fadeIn();
+		newActiveUser.clone().css("margin", "5px 4px").appendTo("#hotiActiveUserContainer").prepend($("#hotiActiveLabel")).fadeIn();
 		//Update hidden field for active user
-		$("#soundcloudIsGoldActiveUser").val($('p', newActiveUser).html());
+		$("#hotiActiveUser").val($('p', newActiveUser).html());
 		//Remove it from carousel
-		$("#soundcloudIsGoldUsernameCarousel").trigger("removeItem", $(this));
+		$("#hotiUsernameCarousel").trigger("removeItem", $(this));
 		//Move old active user to carousel
-		var args = [previousActiveUser, "#soundcloudIsGoldUsernameCarousel li:first", true, 0];
-		$("#soundcloudIsGoldUsernameCarousel").trigger("insertItem", args);
+		var args = [previousActiveUser, "#hotiUsernameCarousel li:first", true, 0];
+		$("#hotiUsernameCarousel").trigger("insertItem", args);
 		//Init Carousel
 		carousel();
 		//Tab: extra actions
@@ -136,9 +136,9 @@ jQuery(document).ready(function($){
 		    $(".soundcloudMMLoading").fadeIn('fast');
 		    //Set request
 		    var myData = {
-			action: 'soundcloud_is_gold_set_active_user',
-			request: 'soundcloudIsGoldSetActiveUser',
-			username: $("#soundcloudIsGoldActiveUser").val()
+			action: 'hoti_set_active_user',
+			request: 'hotiSetActiveUser',
+			username: $("#hotiActiveUser").val()
 		    };
 		    jQuery.post(ajaxurl, myData, function(response) {
 			if(response != "error"){
@@ -146,7 +146,7 @@ jQuery(document).ready(function($){
 			    location.reload();
 			}else{
 			    //Error
-			    $("#soundcloudIsGoldUserError p").html("wrong username").parent().fadeIn();
+			    $("#hotiUserError p").html("wrong username").parent().fadeIn();
 			}
 		    });
 		}
@@ -157,20 +157,20 @@ jQuery(document).ready(function($){
     
     /** Remove Active user **/
     function removeActiveUser(){
-	$("#soundcloudIsGoldActiveUserContainer .soundcloudIsGoldUserContainer .soundcloudIsGoldRemoveUser").click(function(){
+	$("#hotiActiveUserContainer .hotiUserContainer .hotiRemoveUser").click(function(){
 	    removeUserFromOptions($("input:first", $(this).parent()).val(), true);
 	    activeUserToRemove = $(this).parent().parent();
 	    activeUserToRemove.fadeOut(function(){
 		//Copy new Active User to the Active User container and move active user label
-		$("#soundcloudIsGoldUsernameCarousel .soundcloudIsGoldUserContainer:first").clone().css("margin", "5px 4px").appendTo("#soundcloudIsGoldActiveUserContainer").prepend($("#soundcloudIsGoldActiveLabel")).fadeIn();
+		$("#hotiUsernameCarousel .hotiUserContainer:first").clone().css("margin", "5px 4px").appendTo("#hotiActiveUserContainer").prepend($("#hotiActiveLabel")).fadeIn();
 		//Delete Active User
 		$(this).remove();
 		//Move First User from Carousel to Active
-		$("#soundcloudIsGoldUsernameCarousel .soundcloudIsGoldUserContainer:first").fadeOut(function(){
+		$("#hotiUsernameCarousel .hotiUserContainer:first").fadeOut(function(){
 		    //Remove it from carousel
 		    removeUser($(this));
 		    //Update hidden field for active user
-		    $("#soundcloudIsGoldActiveUser").val($('#soundcloudIsGoldActiveUserContainer .soundcloudIsGoldUserContainer div p').html());
+		    $("#hotiActiveUser").val($('#hotiActiveUserContainer .hotiUserContainer div p').html());
 		});
 	    });
 	});
@@ -221,7 +221,7 @@ jQuery(document).ready(function($){
 	});
 	//Color
 	color = $('.soundcloudMMColor', parent).val();
-	user = $('.soundcloudIsGoldUserContainer div p').text();
+	user = $('.hotiUserContainer div p').text();
 	//Format
 	if($('.soundcloudMMWrapper').hasClass('sets')) format = 'sets';
 	else format = 'tracks';
@@ -256,13 +256,13 @@ jQuery(document).ready(function($){
     /********************************************/
     function shortcode(parent, autoPlay, comments, width, classes, playerType, color, artwork, format){
         var shortcode = "soundcloud id='"+getID($('.soundcloudMMId', parent))+"'";
-	if(comments != soundcloudIsGoldComments_default) shortcode += " comments='"+comments+"'";
-	if(artwork != soundcloudIsGoldArtwork_default) shortcode += " artwork='"+artwork+"'";
-        if(playerType != soundcloudIsGoldPlayerType_default) shortcode += " playerType='"+playerType+"'";
-        if(autoPlay != soundcloudIsGoldAutoPlay_default) shortcode += " autoPlay='"+autoPlay+"'";
-        if(width != soundcloudIsGoldWidth_default) shortcode += " width='"+width+"'";
-        if(classes != soundcloudIsGoldClasses_default) shortcode += " classes='"+classes+"'";
-        if(color != soundcloudIsGoldColor_default) shortcode += " color='"+color+"'";
+	if(comments != hotiComments_default) shortcode += " comments='"+comments+"'";
+	if(artwork != hotiArtwork_default) shortcode += " artwork='"+artwork+"'";
+        if(playerType != hotiPlayerType_default) shortcode += " playerType='"+playerType+"'";
+        if(autoPlay != hotiAutoPlay_default) shortcode += " autoPlay='"+autoPlay+"'";
+        if(width != hotiWidth_default) shortcode += " width='"+width+"'";
+        if(classes != hotiClasses_default) shortcode += " classes='"+classes+"'";
+        if(color != hotiColor_default) shortcode += " color='"+color+"'";
 	if(format != 'tracks') shortcode += " format='set'";
 	
         $('.soundcloudMMShortcode', parent).val("["+shortcode+"]");
@@ -292,8 +292,8 @@ jQuery(document).ready(function($){
 	}
 	//Set request
 	var myData = {
-            action: 'soundcloud_is_gold_player_preview',
-            request: 'getSoundcloudIsGoldPlayerPreview',
+            action: 'hoti_player_preview',
+            request: 'gethotiPlayerPreview',
             ID: getID($('.soundcloudMMId', parent)),
             user: user,
 	    comments: comments,
@@ -352,8 +352,8 @@ jQuery(document).ready(function($){
 	    //Reset Color to Default
 	    $('.soundcloudMMResetColor', this).click(function(e){
 		e.preventDefault();
-		soundcloudMMColorPicker.setColor(soundcloudIsGoldColor_default);
-		colorInput.val(soundcloudIsGoldColor_default).css('background-color', '#'+soundcloudIsGoldColor_default);
+		soundcloudMMColorPicker.setColor(hotiColor_default);
+		colorInput.val(hotiColor_default).css('background-color', '#'+hotiColor_default);
 		updateMe(parent, true);
 	    });
 	});

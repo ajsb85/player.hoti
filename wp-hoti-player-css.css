@@ -314,7 +314,7 @@
 /**                                   **/
 /***************************************/
 /** Main **/
-#soundcloudIsGoldUsernameCarouselWrapper, #soundcloudIsGoldAddUserContainer{
+#hotiUsernameCarouselWrapper, #hotiAddUserContainer{
     bottom: 0;
     right: 0;
     float: left;
@@ -325,13 +325,13 @@
     padding:0;
 }
 /** Active User **/
-#soundcloudIsGoldActiveUserContainer{
+#hotiActiveUserContainer{
     border-right: solid 1px #CCC;
     padding: 0 1% 0 0;
     margin: 0 1% 0 0;
     float:left;
 }
-#soundcloudIsGoldActiveLabel{
+#hotiActiveLabel{
     background: url("./images/active.png") no-repeat left top;
     width:49px;
     height:50px;
@@ -340,30 +340,30 @@
     top:0;
 }
 /** Add User **/
-#soundcloudIsGoldAddUserContainer{
+#hotiAddUserContainer{
     width:120px;
     height: 120px;
     border-right: solid 1px #CCC;
     padding: 0 1% 0 0;
     margin: 0 0 0 0;
 }
-#soundcloudIsGoldNewUser{
+#hotiNewUser{
     font-size: 70%;
     font-weight: normal;
     margin: 38px 0 4px 0;
     width: 99%;
 }
-#soundcloudIsGoldAddUser{
+#hotiAddUser{
     font-size: 140%;
     margin: 0;
     padding: 0.5% 0;
     width: 99%;
 }
-#soundcloudIsGoldUser{
+#hotiUser{
     font-weight:bold;
     width:100%;
 }
-#soundcloudIsGoldUserError{
+#hotiUserError{
     height: 102px;
     left: 0;
     margin: 0;
@@ -375,54 +375,54 @@
     text-align:center;
     display:none;
 }
-#soundcloudIsGoldUserError p{
+#hotiUserError p{
     position:absolute;
     top:20%;
     left:0;
     width:100%;
     color:#FFF;
 }
-#soundcloudIsGoldUserError a{
+#hotiUserError a{
     position:absolute;
     bottom:5%;
     width:90%;
 }
 /** Carousel **/
-#soundcloudIsGoldUsernameCarouselWrapper{
+#hotiUsernameCarouselWrapper{
     height: 138px;
     padding-left:15px;
     background:URL("./images/addpointer.png") no-repeat -10px 50px;
 }
-#soundcloudIsGoldUsernameCarousel{
+#hotiUsernameCarousel{
 
 }
 .caroufredsel_wrapper{
     margin:0 !important;
 }
-#soundcloudIsGoldUsernameCarousel .soundcloudIsGoldUserContainer{
+#hotiUsernameCarousel .hotiUserContainer{
     cursor: pointer;
 }
-#soundcloudIsGoldUsernameCarouselNav {
+#hotiUsernameCarouselNav {
     text-align:center;
     padding-top:5px;
     background:#FFF;
 }
-#soundcloudIsGoldUsernameCarouselNav a {
+#hotiUsernameCarouselNav a {
 	background: url(./images/pag.png) 0 0 no-repeat transparent;
 	width: 15px;
 	height: 15px;
 	margin: 0 5px 0 0;
 	display: inline-block;
 }
-#soundcloudIsGoldUsernameCarouselNav a.selected {
+#hotiUsernameCarouselNav a.selected {
 	background-position: -15px 0;
 	cursor: default;
 }
-#soundcloudIsGoldUsernameCarouselNav a span {
+#hotiUsernameCarouselNav a span {
 	display: none;
 }
 /** User **/
-.soundcloudIsGoldUserContainer{
+.hotiUserContainer{
     width:100px;
     height:100px;
     padding:4px;
@@ -435,11 +435,11 @@
     position:relative;
     display:block;
 }
-.soundcloudIsGoldUserContainer div{
+.hotiUserContainer div{
     width:100px;
     height:100px; 
 }
-.soundcloudIsGoldUserContainer div p{
+.hotiUserContainer div p{
     background:#F6F6F6;
     bottom: 0;
     font-size: 120%;
@@ -448,13 +448,13 @@
     position: absolute;
     width: 96px;
 }
-.soundcloudIsGoldUserContainer div:hover{
+.hotiUserContainer div:hover{
 }
-.soundcloudIsGoldUserContainer div:hover p{
+.hotiUserContainer div:hover p{
     color:#F6F6F6;
     background:#333;
 }
-.soundcloudIsGoldRemoveUser {
+.hotiRemoveUser {
 	background: url(./images/remove.png) 0 0 no-repeat transparent;
 	width: 20px;
 	height: 20px;
@@ -462,7 +462,7 @@
 	top:-7px;
 	right:-7px;
 }
-.soundcloudIsGoldRemoveUser:hover {
+.hotiRemoveUser:hover {
 	background-position: -20px 0;
 	cursor: pointer;
 }
@@ -696,7 +696,7 @@ select.soundcloudMMInput option{
     width: 97%;
     display:block;
 }
-#soundcloudIsGoldAddUserContainer .soundcloudMMLoading{
+#hotiAddUserContainer .soundcloudMMLoading{
     height: 100%;
     position: absolute;
     width: 95%;

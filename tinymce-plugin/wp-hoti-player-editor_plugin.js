@@ -22,7 +22,7 @@
 */
 
 (function() {
-	tinymce.create('tinymce.plugins.soundcloudIsGold', {
+	tinymce.create('tinymce.plugins.hoti', {
 	
 		init : function(ed, url) {
 			var t = this;
@@ -31,33 +31,33 @@
 			t._createButtons();
 
 			// Register the command so that it can be invoked by using tinyMCE.activeEditor.execCommand('...');
-			ed.addCommand('soundcloud_Is_Gold', function() {
+			ed.addCommand('hoti', function() {
 				var el = ed.selection.getNode(), post_id, vp = tinymce.DOM.getViewPort(),
 					H = vp.h - 80, W = ( 640 < vp.w ) ? 640 : vp.w;
 
 				if ( el.nodeName != 'IMG' ) return;
-				if ( ed.dom.getAttrib(el, 'class').indexOf('soundcloudIsGold') == -1 )	return;
+				if ( ed.dom.getAttrib(el, 'class').indexOf('hoti') == -1 )	return;
 
 				post_id = tinymce.DOM.get('post_ID').value;
-				tb_show('', tinymce.documentBaseURL + '/media-upload.php?post_id='+post_id+'&tab=soundcloud_is_gold&TB_iframe=true&width='+W+'&height='+H);
+				tb_show('', tinymce.documentBaseURL + '/media-upload.php?post_id='+post_id+'&tab=hoti&TB_iframe=true&width='+W+'&height='+H);
 				
 				tinymce.DOM.setStyle( ['TB_overlay','TB_window','TB_load'], 'z-index', '999999' );
 			});
 			
 			
 			ed.onMouseDown.add(function(ed, e) {
-				if ( e.target.nodeName == 'IMG' && ed.dom.hasClass(e.target, 'soundcloudIsGold') )
-					t._showButtons(t, e.target, 'soundcloudisgoldbtns');
+				if ( e.target.nodeName == 'IMG' && ed.dom.hasClass(e.target, 'hoti') )
+					t._showButtons(t, e.target, 'hotibtns');
 			});
 						
 			//Replace Shortcode with Styled img or whatever
 			ed.onBeforeSetContent.add(function(ed, o) {
-				o.content = t._do_soundcloudIsGold(o.content);
+				o.content = t._do_hoti(o.content);
 			});
 			//Put Back the shortcode when saving
 			ed.onPostProcess.add(function(ed, o) {
 				if (o.get)
-					o.content = t._get_soundcloudIsGold(o.content);
+					o.content = t._get_hoti(o.content);
 			});
 		},
 		
@@ -88,25 +88,25 @@
 			if ( !this.mceTout )
 				return;
 
-			if ( document.getElementById('soundcloudisgold_edit_shortcode') )
-				tinymce.DOM.hide('soundcloudisgold_edit_shortcode');
+			if ( document.getElementById('hoti_edit_shortcode') )
+				tinymce.DOM.hide('hoti_edit_shortcode');
 
-			if ( document.getElementById('soundcloudisgoldbtns') )
-				tinymce.DOM.hide('soundcloudisgoldbtns');
+			if ( document.getElementById('hotibtns') )
+				tinymce.DOM.hide('hotibtns');
 
 			clearTimeout(this.mceTout);
 			this.mceTout = 0;
 		},
 		
 		//Replace Shortcode with Styled img or whatever
-		_do_soundcloudIsGold : function(co) {
+		_do_hoti : function(co) {
 			return co.replace(/\[soundcloud([^\]]*)\]/g, function(a,b){
-				return '<img src="../wp-content/plugins/wp-hoti-player-master/tinymce-plugin/img/t.gif" class="soundcloudIsGold mceItem" title="soundcloud'+tinymce.DOM.encode(b)+'" />';
+				return '<img src="../wp-content/plugins/wp-hoti-player-master/tinymce-plugin/img/t.gif" class="hoti mceItem" title="soundcloud'+tinymce.DOM.encode(b)+'" />';
 			});
 		},
 		
 		//Put Back the shortcode when saving
-		_get_soundcloudIsGold : function(co) {
+		_get_hoti : function(co) {
 
 			function getAttr(s, n) {
 				n = new RegExp(n + '=\"([^\"]+)\"', 'g').exec(s);
@@ -127,15 +127,15 @@
 		_createButtons : function() {
 			var t = this, ed = tinyMCE.activeEditor, DOM = tinymce.DOM, soundcloudIGold_editButton, soundcloudIGold_dellButton;
 
-			DOM.remove('soundcloudisgoldbtns');
+			DOM.remove('hotibtns');
 
 			DOM.add(document.body, 'div', {
-				id : 'soundcloudisgoldbtns',
+				id : 'hotibtns',
 				style : 'display:none;'
 			});
 			
 			//Create Edit Button: Keep wp_editgallery as id to herite style for gallery edit button
-			soundcloudIGold_editButton = DOM.add('soundcloudisgoldbtns', 'img', {
+			soundcloudIGold_editButton = DOM.add('hotibtns', 'img', {
 				src : '../wp-content/plugins/wp-hoti-player-master/tinymce-plugin/img/edit.png',
 				id : 'wp_editgallery',
 				width : '24',
@@ -146,11 +146,11 @@
 			tinymce.dom.Event.add(soundcloudIGold_editButton, 'mousedown', function(e) {
 				var ed = tinyMCE.activeEditor;
 				ed.windowManager.bookmark = ed.selection.getBookmark('simple');
-				ed.execCommand("soundcloud_Is_Gold");
+				ed.execCommand("hoti");
 			});
 			
 			//Create Delite Button: Keep wp_editgallery as id to herite style for gallery edit button
-			soundcloudIGold_dellButton = DOM.add('soundcloudisgoldbtns', 'img', {
+			soundcloudIGold_dellButton = DOM.add('hotibtns', 'img', {
 				src : '../wp-content/plugins/wp-hoti-player-master/tinymce-plugin/img/delete.png',
 				id : 'wp_delgallery',
 				width : '24',
@@ -161,7 +161,7 @@
 			tinymce.dom.Event.add(soundcloudIGold_dellButton, 'mousedown', function(e) {
 				var ed = tinyMCE.activeEditor, el = ed.selection.getNode();
 
-				if ( el.nodeName == 'IMG' && ed.dom.hasClass(el, 'soundcloudIsGold') ) {
+				if ( el.nodeName == 'IMG' && ed.dom.hasClass(el, 'hoti') ) {
 					ed.dom.remove(el);
 					t._hideButtons();
 					ed.execCommand('mceRepaint');
@@ -181,5 +181,5 @@
 		}
 	});
 
-	tinymce.PluginManager.add('soundcloudIsGold', tinymce.plugins.soundcloudIsGold);
+	tinymce.PluginManager.add('hoti', tinymce.plugins.hoti);
 })();

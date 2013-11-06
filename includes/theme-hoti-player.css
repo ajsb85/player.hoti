@@ -2,7 +2,7 @@
 Theme Name: hoti™ player
 Theme URI: https://github.com/hotitv/player.hoti
 Description: Reproductor musical diseñado para hoti™ plataforma.artistica
-Author: Alexander Salas & Marcos Colina
+Author: Thomas Michalak, Alexander Salas & Marcos Colina
 Author URI: http://hoti.tv/contacto
 Version: 0.1b
 Tags: hoti,plataforma,artistica
@@ -18,17 +18,17 @@ url('hoti-webfont/v1.ttf') format('truetype');
 font-weight: normal;
 font-style: normal;
 }  
-.soundcloudIsGold{
+.hoti{
 background-color: #000;
 background-size:300px 300px;
 background-repeat:no-repeat;
 height: 300px;
 width: 300px;
 margin-top: 5px;
-margin-left: -10px;
+margin-left: 0px;
 padding:  0;
 }
-.soundcloudIsGold > ul > li{
+.hoti > ul > li{
 font-family: "v1";
 font-size: 35px;
 height: 35px;
@@ -40,11 +40,11 @@ padding: 0 0 0 0;
 margin-bottom:5px;
 margin-left:-1px;
 }
-.soundcloudIsGold > ul{
+.hoti > ul{
 padding: adding-left: 0;
 padding-top: 100px;
 }
-.soundcloudIsGold > ul > .play:after {
+.hoti > ul > .play:after {
 content: "a";
 color: rgba(0,0,0,0);
 background:url('http://hoti.tv/buttons/play.svg');
@@ -52,7 +52,7 @@ background-size:35px 35px;
 background-repeat:no-repeat;
 background-position: center center;
 }
-.soundcloudIsGold > ul > .pause:after {
+.hoti > ul > .pause:after {
 content: "b";
 color: rgba(0,0,0,0);
 background:url('http://hoti.tv/buttons/pause.svg');
@@ -60,7 +60,7 @@ background-size:35px 35px;
 background-repeat:no-repeat;
 background-position: center center;
 }
-.soundcloudIsGold > ul > #next:after {
+.hoti > ul > #next:after {
 content: "c";
 color: rgba(0,0,0,0);
 background:url('http://hoti.tv/buttons/next.svg');
@@ -68,7 +68,7 @@ background-size:35px 35px;
 background-repeat:no-repeat;
 background-position: center center;
 }
-.soundcloudIsGold > ul > #prev:after {
+.hoti > ul > #prev:after {
 content: "d";
 color: rgba(0,0,0,0);
 background:url('http://hoti.tv/buttons/previous.svg');
@@ -76,7 +76,7 @@ background-size:35px 35px;
 background-repeat:no-repeat;
 background-position: center center;
 }
-.soundcloudIsGold > ul > #playlist:after {
+.hoti > ul > #playlist:after {
 content: "f";
 color: rgba(0,0,0,0);
 background:url('http://hoti.tv/buttons/info.svg');
@@ -84,7 +84,7 @@ background-size:35px 35px;
 background-repeat:no-repeat;
 background-position: center center;
 }
-.soundcloudIsGold > ul > .downloadable:after {
+.hoti > ul > .downloadable:after {
 content: "e";
 color: rgba(0,0,0,0);
 background:url('http://hoti.tv/buttons/love.svg');
@@ -113,7 +113,7 @@ display: none;
 display: none;
 }
 @media only screen and (min-width: 768px) and (max-width: 959px) {
-.soundcloudIsGold{
+.hoti{
 background-color: #000;
 background-size:768px 768px;
 background-repeat:no-repeat;
@@ -123,7 +123,7 @@ margin-top: 10px;
 margin-left: -9px;
 padding:  0;
 }
-.soundcloudIsGold > ul > li{
+.hoti > ul > li{
 font-family: "v1";
 font-size: 65px;
 height: 65px;
@@ -135,7 +135,7 @@ padding: 0 0 0 0;
 margin-bottom:15px;
 margin-left:-1px;
 }
-.soundcloudIsGold > ul > .play:after {
+.hoti > ul > .play:after {
 content: "a";
 color: rgba(0,0,0,0);
 background:url('http://hoti.tv/buttons/play.svg');
@@ -143,7 +143,7 @@ background-size:65px 65px;
 background-repeat:no-repeat;
 background-position: center center;
 }
-.soundcloudIsGold > ul > .pause:after {
+.hoti > ul > .pause:after {
 content: "b";
 color: rgba(0,0,0,0);
 background:url('http://hoti.tv/buttons/pause.svg');
@@ -151,7 +151,7 @@ background-size:65px 65px;
 background-repeat:no-repeat;
 background-position: center center;
 }
-.soundcloudIsGold > ul > #next:after {
+.hoti > ul > #next:after {
 content: "c";
 color: rgba(0,0,0,0);
 background:url('http://hoti.tv/buttons/next.svg');
@@ -159,7 +159,7 @@ background-size:65px 65px;
 background-repeat:no-repeat;
 background-position: center center;
 }
-.soundcloudIsGold > ul > #prev:after {
+.hoti > ul > #prev:after {
 content: "d";
 color: rgba(0,0,0,0);
 background:url('http://hoti.tv/buttons/previous.svg');
@@ -167,7 +167,7 @@ background-size:65px 65px;
 background-repeat:no-repeat;
 background-position: center center;
 }
-.soundcloudIsGold > ul > #playlist:after {
+.hoti > ul > #playlist:after {
 content: "f";
 color: rgba(0,0,0,0);
 background:url('http://hoti.tv/buttons/info.svg');
@@ -175,7 +175,7 @@ background-size:65px 65px;
 background-repeat:no-repeat;
 background-position: center center;
 }
-.soundcloudIsGold > ul > .downloadable:after {
+.hoti > ul > .downloadable:after {
 content: "e";
 color: rgba(0,0,0,0);
 background:url('http://hoti.tv/buttons/love.svg');
@@ -193,7 +193,7 @@ width: 768px;
 }
 }
 @media only screen and (max-width: 767px) {
-.soundcloudIsGold{
+.hoti{
 background-color: #000;
 background-size:320px 320px;
 background-repeat:no-repeat;

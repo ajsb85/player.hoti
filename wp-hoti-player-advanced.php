@@ -9,7 +9,7 @@
 		Alexander Salas <a.salas@ieee.org>
 */
 
-$soundcloudIsGoldAdvancedPlayerDefault = array(
+$hotiAdvancedPlayerDefault = array(
     'checkboxes' => array(        
             'buying' => array('label' => 'Show/Hide Buying', 'slug' => 'Buying', 'value' => TRUE, 'type' => 'checkboxes'),
             'sharing' => array('label' => 'Show/Hide Sharing', 'slug' => 'Sharing', 'value' => TRUE, 'type' => 'checkboxes'),
@@ -29,16 +29,16 @@ $soundcloudIsGoldAdvancedPlayerDefault = array(
             'font' => array('label' => 'Font', 'slug' => 'Font', 'value' => '', 'type' => 'texts')
         )
 );
-add_option('soundcloud_is_gold_advanced_player', $soundcloudIsGoldAdvancedPlayerDefault);
+add_option('hoti_advanced_player', $hotiAdvancedPlayerDefault);
 
 /* Default Settings */
-$soundcloudIsGoldAdvancedPlayer = get_option('soundcloud_is_gold_advanced_player');
-printl($soundcloudIsGoldAdvancedPlayer);
+$hotiAdvancedPlayer = get_option('hoti_advanced_player');
+printl($hotiAdvancedPlayer);
 ?>
 <div id="soundcloudMMAdvancedSettingsOptions" class="subSettings">
     <a href="#" title="bring it on!" id="soundcloudMMAdvancedSettingsShowHide" class="soundcloudMMAdvancedSettingsShowHide">I'm a grown up, show me those Advanced Options!</a>
     <div class="soundcloudMMAdvancedSettingsPanels">
-        <?php foreach($soundcloudIsGoldAdvancedPlayer as $topKey => $advancePlayerOptions) : ?>
+        <?php foreach($hotiAdvancedPlayer as $topKey => $advancePlayerOptions) : ?>
         <ul class="subSettings <?php echo $topKey ?>">
             <?php foreach($advancePlayerOptions as $key => $advancePlayerOption) : ?>
                 
@@ -47,7 +47,7 @@ printl($soundcloudIsGoldAdvancedPlayer);
                 <li>
                     <label for="soundcloudMM<?php echo $advancePlayerOption['slug'] ?>"><?php echo $advancePlayerOption['label'] ?></label>
                     <div class="soundcloudMMColorPickerContainer" id="soundcloudMMColorPickerContainer">
-                        <input type="text" class="soundcloudMMInput soundcloudMMColor soundcloudMM<?php echo $advancePlayerOption['slug'] ?>" id="soundcloudMM<?php echo $advancePlayerOption['slug'] ?>" name="soundcloud_is_gold_advanced_player[<?php echo $topKey ?>][<?php echo $key ?>][value]" value="<?php echo $advancePlayerOption['value'] ?>" style="background-color:<?php echo $advancePlayerOption['value'] ?>"/><a href="#" class="soundcloudMMBt soundcloudMMBtSmall inline blue soundcloudMMRounder soundcloudMMResetColor">reset to default</a>
+                        <input type="text" class="soundcloudMMInput soundcloudMMColor soundcloudMM<?php echo $advancePlayerOption['slug'] ?>" id="soundcloudMM<?php echo $advancePlayerOption['slug'] ?>" name="hoti_advanced_player[<?php echo $topKey ?>][<?php echo $key ?>][value]" value="<?php echo $advancePlayerOption['value'] ?>" style="background-color:<?php echo $advancePlayerOption['value'] ?>"/><a href="#" class="soundcloudMMBt soundcloudMMBtSmall inline blue soundcloudMMRounder soundcloudMMResetColor">reset to default</a>
                         <div id="soundcloudMMColorPicker" class="shadow soundcloudMMColorPicker"><div id="soundcloudMMColorPickerSelect" class="soundcloudMMColorPickerSelect"></div><a id="soundcloudMMColorPickerClose" class="blue soundcloudMMBt soundcloudMMColorPickerClose">done</a></div>
                     </div>
                 </li>
@@ -55,12 +55,12 @@ printl($soundcloudIsGoldAdvancedPlayer);
                 
                 <!-- Text Fields -->
                 <?php if(isset($advancePlayerOption['type']) && $advancePlayerOption['type'] == 'texts' && $key != 'start_track') :?>
-                <li><label for="soundcloudMM<?php echo $advancePlayerOption['slug'] ?>"><?php echo $advancePlayerOption['label'] ?></label><input type="text" value="<?php echo $advancePlayerOption['value'] ?>" name="soundcloud_is_gold_advanced_player[<?php echo $topKey ?>][<?php echo $key ?>][value]" class="soundcloudMMInput soundcloudMM<?php echo $advancePlayerOption['slug'] ?>" id="soundcloudMM<?php echo $advancePlayerOption['slug'] ?>" /></li>
+                <li><label for="soundcloudMM<?php echo $advancePlayerOption['slug'] ?>"><?php echo $advancePlayerOption['label'] ?></label><input type="text" value="<?php echo $advancePlayerOption['value'] ?>" name="hoti_advanced_player[<?php echo $topKey ?>][<?php echo $key ?>][value]" class="soundcloudMMInput soundcloudMM<?php echo $advancePlayerOption['slug'] ?>" id="soundcloudMM<?php echo $advancePlayerOption['slug'] ?>" /></li>
                 <?php endif; ?>
                 
                 <!-- Checkboxes Fields -->    
                 <?php if(isset($advancePlayerOption['type']) && $advancePlayerOption['type'] == 'checkboxes') :?>
-                <li><input type="checkbox" <?php echo (isset($advancePlayerOption['value']) && $advancePlayerOption['value']) ? 'checked="checked"' : ''?> name="soundcloud_is_gold_advanced_player[<?php echo $topKey ?>][<?php echo $key ?>][value]" value="true" class="soundcloudMM<?php echo $advancePlayerOption['slug'] ?>" id="soundcloudMM<?php echo $advancePlayerOption['slug'] ?>"/><label for="soundcloudMM<?php echo $advancePlayerOption['slug'] ?>"><?php echo $advancePlayerOption['label'] ?></label></li>
+                <li><input type="checkbox" <?php echo (isset($advancePlayerOption['value']) && $advancePlayerOption['value']) ? 'checked="checked"' : ''?> name="hoti_advanced_player[<?php echo $topKey ?>][<?php echo $key ?>][value]" value="true" class="soundcloudMM<?php echo $advancePlayerOption['slug'] ?>" id="soundcloudMM<?php echo $advancePlayerOption['slug'] ?>"/><label for="soundcloudMM<?php echo $advancePlayerOption['slug'] ?>"><?php echo $advancePlayerOption['label'] ?></label></li>
                 <?php endif; ?>
                
             <?php endforeach; ?>

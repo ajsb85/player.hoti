@@ -15,16 +15,16 @@ define ('SIG_PLUGIN_DIR', WP_PLUGIN_URL.'/'.str_replace(basename( __FILE__),"",p
 require_once('wp-hoti-player-functions.php');
 
 /** Get Plugin Version **/
-function get_soundcloud_is_gold_version() {
+function get_hoti_version() {
 	$plugin_data = get_plugin_data( __FILE__ );
 	$plugin_version = $plugin_data['Version'];
 	return $plugin_version;
 }
 
 /*** Plugin Init ***/
-add_action( 'admin_init', 'soundcloud_is_gold_admin_init' );
-function soundcloud_is_gold_admin_init() {
-    register_setting( 'soundcloud_is_gold_options', 'soundcloud_is_gold_options' );
+add_action( 'admin_init', 'hoti_admin_init' );
+function hoti_admin_init() {
+    register_setting( 'hoti_options', 'hoti_options' );
     wp_register_script('wp-hoti-player-js', SIG_PLUGIN_DIR.'wp-hoti-player-js.js', array('jquery', 'farbtastic'));
     wp_register_script('carouFredSel', SIG_PLUGIN_DIR.'includes/jquery.carouFredSel-5.5.0-packed.js', array('jquery'));
     wp_register_style('wp-hoti-player-css', SIG_PLUGIN_DIR.'wp-hoti-player-css.css');
@@ -33,122 +33,122 @@ function soundcloud_is_gold_admin_init() {
     wp_register_style('wp-hoti-player-editor-css', SIG_PLUGIN_DIR.'tinymce-plugin/wp-hoti-player-editor_plugin.css');
 }
 //Plugin option scripts
-function soundcloud_is_gold_option_scripts() {
+function hoti_option_scripts() {
     wp_enqueue_script('farbtastic');
     wp_enqueue_script('wp-hoti-player-js');
     wp_enqueue_script('carouFredSel');
 }
 //Plugin option style
-function soundcloud_is_gold_option_styles() {
+function hoti_option_styles() {
   wp_enqueue_style('wp-hoti-player-css');
   wp_enqueue_style('farbtastic');
 }
 //Plugin Options' Fonts
-/* function soundcloud_is_gold_option_fonts() {
+/* function hoti_option_fonts() {
   wp_enqueue_style('ChunkFive');
   wp_enqueue_style('Quicksand');
 } */
 /*** Add Admin Menu ***/
-/* add_action('admin_menu', 'soundcloud_is_gold_menu');
-function soundcloud_is_gold_menu() {
+/* add_action('admin_menu', 'hoti_menu');
+function hoti_menu() {
 	//Main
-	$soundcloudIsGoldPage = add_menu_page('Hotï Player: Options', 'Hotï Player', 'activate_plugins', __FILE__, 'soundcloud_is_gold_options', SIG_PLUGIN_DIR.'images/wp-hoti-player-icon.png');
-	add_action( "admin_print_scripts-$soundcloudIsGoldPage", 'soundcloud_is_gold_option_scripts' ); // Add script
-	add_action( "admin_print_styles-$soundcloudIsGoldPage", 'soundcloud_is_gold_option_styles' ); // Add Style
-	//add_action( "admin_print_styles-$soundcloudIsGoldPage", 'soundcloud_is_gold_option_fonts' ); // Add Fonts
+	$hotiPage = add_menu_page('Hotï Player: Options', 'Hotï Player', 'activate_plugins', __FILE__, 'hoti_options', SIG_PLUGIN_DIR.'images/wp-hoti-player-icon.png');
+	add_action( "admin_print_scripts-$hotiPage", 'hoti_option_scripts' ); // Add script
+	add_action( "admin_print_styles-$hotiPage", 'hoti_option_styles' ); // Add Style
+	//add_action( "admin_print_styles-$hotiPage", 'hoti_option_fonts' ); // Add Fonts
 } */
-function soundcloud_is_gold_advanced_options() {
+function hoti_advanced_options() {
 	//include('wp-hoti-player-advanced.php');
 }
 /*** Link to Settings from the plugin Page ***/
-/* function soundcloud_is_gold_settings_link($links, $file) { 
+/* function hoti_settings_link($links, $file) { 
     if ( $file == plugin_basename( __FILE__ ) ) {
 	$settings_link = '<a href="admin.php?page=wp-hoti-player-master/wp-hoti-player.php">'.__('Settings').'</a>'; 
 	array_unshift($links, $settings_link);
     }
     return $links;
 }
-add_filter("plugin_action_links", 'soundcloud_is_gold_settings_link', 10, 2 ); */
+add_filter("plugin_action_links", 'hoti_settings_link', 10, 2 ); */
 
 /*** Add tint Mce Hotï Player Plugin ***/
-add_filter("mce_external_plugins", 'soundcloud_is_gold_mce_plugin');
-//add_filter( 'mce_buttons', 'soundcloud_is_gold_mce_button' );
-add_filter('mce_css', 'soundcloud_is_gold_mce_css');
+add_filter("mce_external_plugins", 'hoti_mce_plugin');
+//add_filter( 'mce_buttons', 'hoti_mce_button' );
+add_filter('mce_css', 'hoti_mce_css');
 
 
 /*** Options and Utilities***/
-register_activation_hook(__FILE__, 'soundcloud_is_gold_add_defaults');
-function soundcloud_is_gold_add_defaults() {
-    $tmp = get_option('soundcloud_is_gold_options');
+register_activation_hook(__FILE__, 'hoti_add_defaults');
+function hoti_add_defaults() {
+    $tmp = get_option('hoti_options');
     //First Time install or upgrade from version previous to 1.0.7
     if(empty($tmp)) {
-	$soundcloudIsGoldDefaultUsers = array(
+	$hotiDefaultUsers = array(
 					    'anna-chocola' => array('anna-chocola', 'http://i1.sndcdn.com/avatars-000009470567-spqine-large.jpg?4387aef'),
 					    't-m' => array('t-m', 'http://i1.sndcdn.com/avatars-000002680779-fkvvpj-large.jpg?4387aef'),
 					    'my-disco-nap' => array('my-disco-nap', 'http://i1.sndcdn.com/avatars-000012680897-foqv41-large.jpg?b9f92e9')
 					    );
-	$soundcloudIsGoldDefaultUser = $soundcloudIsGoldDefaultUsers[array_rand($soundcloudIsGoldDefaultUsers, 1)][0];
-	if(get_option('soundcloud_is_gold_user')){
-	    $soundcloudIsGoldDefaultUser = get_option('soundcloud_is_gold_user');
-	    $userInfo = get_soundcloud_is_gold_api_response("http://api.soundcloud.com/users/".$soundcloudIsGoldDefaultUser.".xml?client_id=43195eb2f2b85520cb5f65e78d6501bf");
+	$hotiDefaultUser = $hotiDefaultUsers[array_rand($hotiDefaultUsers, 1)][0];
+	if(get_option('hoti_user')){
+	    $hotiDefaultUser = get_option('hoti_user');
+	    $userInfo = get_hoti_api_response("http://api.soundcloud.com/users/".$hotiDefaultUser.".xml?client_id=43195eb2f2b85520cb5f65e78d6501bf");
 	    $newUsername = (string)$userInfo['response']->permalink;
 	    $newUsernameImg = (string)$userInfo['response']->{'avatar-url'}[0];
-	    $soundcloudIsGoldDefaultUsers[$newUsername][0] = $newUsername;
-	    $soundcloudIsGoldDefaultUsers[$newUsername][1] = $newUsernameImg;
+	    $hotiDefaultUsers[$newUsername][0] = $newUsername;
+	    $hotiDefaultUsers[$newUsername][1] = $newUsernameImg;
 	}
-	$soundcloudIsGoldDefaultSettings = array(
+	$hotiDefaultSettings = array(
                                         false,
                                         true,
 					true
 	);
-	$soundcloudIsGoldWitdhDefaultSettings = array(
+	$hotiWitdhDefaultSettings = array(
                                        "type" => "custom",
                                        "wp" => "medium",
                                        "custom" => "100%"                
 	);
 	//Either use previous settings from version prior to 1.0.7 or use defaults is first time install
 	$args = array(
-	    'soundcloud_is_gold_users' => $soundcloudIsGoldDefaultUsers,
-	    'soundcloud_is_gold_active_user' => $soundcloudIsGoldDefaultUser,
-	    'soundcloud_is_gold_settings' => (get_option('soundcloud_is_gold_settings')) ? get_option('soundcloud_is_gold_settings') : $soundcloudIsGoldDefaultSettings,
-	    'soundcloud_is_gold_playerType' => (get_option('soundcloud_is_gold_playerType')) ? get_option('soundcloud_is_gold_playerType') : 'html5',
-	    'soundcloud_is_gold_width_settings' => (get_option('soundcloud_is_gold_width_settings')) ? get_option('soundcloud_is_gold_width_settings') : $soundcloudIsGoldWitdhDefaultSettings,
-	    'soundcloud_is_gold_classes' => (get_option('soundcloud_is_gold_classes')) ? get_option('soundcloud_is_gold_classes') : '',
-	    'soundcloud_is_gold_color' => (get_option('soundcloud_is_gold_color')) ? get_option('soundcloud_is_gold_color') : 'ff7700'
+	    'hoti_users' => $hotiDefaultUsers,
+	    'hoti_active_user' => $hotiDefaultUser,
+	    'hoti_settings' => (get_option('hoti_settings')) ? get_option('hoti_settings') : $hotiDefaultSettings,
+	    'hoti_playerType' => (get_option('hoti_playerType')) ? get_option('hoti_playerType') : 'html5',
+	    'hoti_width_settings' => (get_option('hoti_width_settings')) ? get_option('hoti_width_settings') : $hotiWitdhDefaultSettings,
+	    'hoti_classes' => (get_option('hoti_classes')) ? get_option('hoti_classes') : '',
+	    'hoti_color' => (get_option('hoti_color')) ? get_option('hoti_color') : 'ff7700'
 		      );
 	//Update with old/default values
-	update_option('soundcloud_is_gold_options', $args);
+	update_option('hoti_options', $args);
 	//Delete old entries in db
-	delete_option("soundcloud_is_gold_user");
-	delete_option("soundcloud_is_gold_settings");
-	delete_option("soundcloud_is_gold_playerType");
-	delete_option("soundcloud_is_gold_width_settings");
-	delete_option("soundcloud_is_gold_classes");
-	delete_option("soundcloud_is_gold_color");
+	delete_option("hoti_user");
+	delete_option("hoti_settings");
+	delete_option("hoti_playerType");
+	delete_option("hoti_width_settings");
+	delete_option("hoti_classes");
+	delete_option("hoti_color");
     }
 }
 // Delete options table entries ONLY when plugin deactivated AND deleted
-register_uninstall_hook(__FILE__, 'soundcloud_is_gold_delete_plugin_options');
-function soundcloud_is_gold_delete_plugin_options() {
-	delete_option("soundcloud_is_gold_options");
+register_uninstall_hook(__FILE__, 'hoti_delete_plugin_options');
+function hoti_delete_plugin_options() {
+	delete_option("hoti_options");
 }
 /*** Options Output ***/
-function soundcloud_is_gold_options(){
-    $options = get_option('soundcloud_is_gold_options');
+function hoti_options(){
+    $options = get_option('hoti_options');
     //printl($options);
-    $soundcloudIsGoldActiveUser = isset($options['soundcloud_is_gold_active_user']) ? $options['soundcloud_is_gold_active_user'] : '';
-    $soundcloudIsGoldUsers = isset($options['soundcloud_is_gold_users']) ? $options['soundcloud_is_gold_users'] : '';
-    $soundcloudIsGoldSettings = isset($options['soundcloud_is_gold_settings']) ? $options['soundcloud_is_gold_settings'] : '';
-    $soundcloudIsGoldPlayerType = isset($options['soundcloud_is_gold_playerType']) ? $options['soundcloud_is_gold_playerType'] : '';
-    $soundcloudIsGoldPlayerTypeDefault = empty($soundcloudIsGoldPlayerType) ? TRUE : FALSE;
-    $soundcloudIsGoldWidthSettings = isset($options['soundcloud_is_gold_width_settings']) ? $options['soundcloud_is_gold_width_settings'] : '';
-    $soundcloudIsGoldClasses = isset($options['soundcloud_is_gold_classes']) ? $options['soundcloud_is_gold_classes'] : '';
-    $soundcloudIsGoldColor = isset($options['soundcloud_is_gold_color']) ? $options['soundcloud_is_gold_color'] : ''; 
+    $hotiActiveUser = isset($options['hoti_active_user']) ? $options['hoti_active_user'] : '';
+    $hotiUsers = isset($options['hoti_users']) ? $options['hoti_users'] : '';
+    $hotiSettings = isset($options['hoti_settings']) ? $options['hoti_settings'] : '';
+    $hotiPlayerType = isset($options['hoti_playerType']) ? $options['hoti_playerType'] : '';
+    $hotiPlayerTypeDefault = empty($hotiPlayerType) ? TRUE : FALSE;
+    $hotiWidthSettings = isset($options['hoti_width_settings']) ? $options['hoti_width_settings'] : '';
+    $hotiClasses = isset($options['hoti_classes']) ? $options['hoti_classes'] : '';
+    $hotiColor = isset($options['hoti_color']) ? $options['hoti_color'] : ''; 
     
-    $soundcloudIsGoldApiCall = 'http://api.soundcloud.com/users/'.$soundcloudIsGoldActiveUser.'/tracks.xml?limit=1&client_id=43195eb2f2b85520cb5f65e78d6501bf';
-    $soundcloudIsGoldApiResponse = get_soundcloud_is_gold_api_response($soundcloudIsGoldApiCall);
-    if(isset($soundcloudIsGoldApiResponse['response']) && $soundcloudIsGoldApiResponse['response']){
-	foreach($soundcloudIsGoldApiResponse['response'] as $soundcloudMMLatestTrack){
+    $hotiApiCall = 'http://api.soundcloud.com/users/'.$hotiActiveUser.'/tracks.xml?limit=1&client_id=43195eb2f2b85520cb5f65e78d6501bf';
+    $hotiApiResponse = get_hoti_api_response($hotiApiCall);
+    if(isset($hotiApiResponse['response']) && $hotiApiResponse['response']){
+	foreach($hotiApiResponse['response'] as $soundcloudMMLatestTrack){
 	    $soundcouldMMId = (string)$soundcloudMMLatestTrack->id;
 	}
     }
@@ -158,7 +158,7 @@ function soundcloud_is_gold_options(){
     
     <script type="text/javascript">
 	//Set default Hotï Player Settings
-        <?php get_soundcloud_is_gold_default_settings_for_js(); ?>
+        <?php get_hoti_default_settings_for_js(); ?>
     </script>
     
     <div class="soundcloudMMWrapper soundcloudMMOptions soundcloudMMMainWrapper">
@@ -168,32 +168,32 @@ function soundcloud_is_gold_options(){
                 <span class="soundcloudMMTitle">Hotï Player <small>by Thomas Michalak</small></span>
                 <span class="soundcloudMMUrl">www.mightymess.com/wp-hoti-player-wordpress-plugin</span>
             </a>
-	    <p id="soundcloudMMVersion">version <?php echo get_soundcloud_is_gold_version($options) ?></p>
+	    <p id="soundcloudMMVersion">version <?php echo get_hoti_version($options) ?></p>
         </div>
         
         <div id="soundcloudMMMain" class="lightBlueGradient">
             <form method="post" action="options.php" id="soundcloudMMMainForm" name="soundcloudMMMainForm" class="">
 	    <p class="hidden soundcloudMMId" id="soundcloudMMId-<?php echo $soundcouldMMId ?>"><?php echo $soundcouldMMId ?></p>
-            <?php settings_fields('soundcloud_is_gold_options'); ?>
+            <?php settings_fields('hoti_options'); ?>
                 <ul id="soundcloudMMSettings">
                     <!-- Username -->
 		    <li class="soundcloudMMBox"><label class="optionLabel">User Name</label>
-			<?php get_soundcloud_is_gold_username_interface($options, $soundcloudIsGoldUsers) ?>
+			<?php get_hoti_username_interface($options, $hotiUsers) ?>
 		    </li>
 		    <!-- Default Settings -->
                     <li class="soundcloudMMBox"><label class="optionLabel">Default Settings</label>
                         <ul class="subSettings checkboxes">
-                            <li><input type="checkbox" <?php echo (isset($soundcloudIsGoldSettings[0]) && $soundcloudIsGoldSettings[0]) ? 'checked="checked"' : ''?> name="soundcloud_is_gold_options[soundcloud_is_gold_settings][0]" value="true" class="soundcloudMMAutoPlay" id="soundcloudMMAutoPlay"/><label for="soundcloudMMAutoPlay">Play Automatically</label></li>
-                            <li><input type="checkbox" <?php echo (isset($soundcloudIsGoldSettings[1]) && $soundcloudIsGoldSettings[1]) ? 'checked="checked"' : ''?> name="soundcloud_is_gold_options[soundcloud_is_gold_settings][1]" value="true" class="soundcloudMMShowComments" id="soundcloudMMShowComments"/><label for="soundcloudMMShowComments">Show comments <small>(Standard and Artwork player)</small></label></li>
-			    <li><input type="checkbox" <?php echo (isset($soundcloudIsGoldSettings[2]) && $soundcloudIsGoldSettings[2]) ? 'checked="checked"' : ''?> name="soundcloud_is_gold_options[soundcloud_is_gold_settings][2]" value="true" class="soundcloudMMShowArtwork" id="soundcloudMMShowArtwork"/><label for="soundcloudMMShowArtwork">Show Artwork <small>(html5 player)</small></label></li>
+                            <li><input type="checkbox" <?php echo (isset($hotiSettings[0]) && $hotiSettings[0]) ? 'checked="checked"' : ''?> name="hoti_options[hoti_settings][0]" value="true" class="soundcloudMMAutoPlay" id="soundcloudMMAutoPlay"/><label for="soundcloudMMAutoPlay">Play Automatically</label></li>
+                            <li><input type="checkbox" <?php echo (isset($hotiSettings[1]) && $hotiSettings[1]) ? 'checked="checked"' : ''?> name="hoti_options[hoti_settings][1]" value="true" class="soundcloudMMShowComments" id="soundcloudMMShowComments"/><label for="soundcloudMMShowComments">Show comments <small>(Standard and Artwork player)</small></label></li>
+			    <li><input type="checkbox" <?php echo (isset($hotiSettings[2]) && $hotiSettings[2]) ? 'checked="checked"' : ''?> name="hoti_options[hoti_settings][2]" value="true" class="soundcloudMMShowArtwork" id="soundcloudMMShowArtwork"/><label for="soundcloudMMShowArtwork">Show Artwork <small>(html5 player)</small></label></li>
                         </ul>
                     </li>
 		    <!-- Player Type -->
                     <li class="soundcloudMMBox"><label class="optionLabel">Default Player Type</label>
                         <ul class="subSettings radios">
                             <?php
-                            foreach(get_soundcloud_is_gold_player_types() as $type) : ?>
-                                <li><input name="soundcloud_is_gold_options[soundcloud_is_gold_playerType]" id="<?php echo $type ?>" class="soundcloudMMPlayerType" type="radio" value="<?php echo $type ?>" <?php if($soundcloudIsGoldPlayerTypeDefault && $type == 'Standard') echo 'checked="checked"'; else echo ($soundcloudIsGoldPlayerType === $type) ? 'checked="checked"' : '' ?> /><label for="<?php echo $type ?>"><?php echo $type; if($type == 'Artwork') echo ' <small>(not available on free soundcloud account)</small>'; if($type == 'html5') echo ' <small>new! (beta)</small>' ?></label></li>
+                            foreach(get_hoti_player_types() as $type) : ?>
+                                <li><input name="hoti_options[hoti_playerType]" id="<?php echo $type ?>" class="soundcloudMMPlayerType" type="radio" value="<?php echo $type ?>" <?php if($hotiPlayerTypeDefault && $type == 'Standard') echo 'checked="checked"'; else echo ($hotiPlayerType === $type) ? 'checked="checked"' : '' ?> /><label for="<?php echo $type ?>"><?php echo $type; if($type == 'Artwork') echo ' <small>(not available on free soundcloud account)</small>'; if($type == 'html5') echo ' <small>new! (beta)</small>' ?></label></li>
                             <?php endforeach; ?>
                         </ul>
                     </li>
@@ -201,20 +201,20 @@ function soundcloud_is_gold_options(){
                     <li class="soundcloudMMBox"><label class="optionLabel">Default Width</label>
                         <ul id="soundcloudMMWidthSetting" class="subSettings texts">
                             <li>
-                                <input name="soundcloud_is_gold_options[soundcloud_is_gold_width_settings][type]" <?php echo ($soundcloudIsGoldWidthSettings['type'] == "wp") ? 'checked="checked"' : ''; ?> id="soundcloudMMWpWidth" value="wp" type="radio" class="soundcloudMMWpWidth soundcloudMMWidthType radio"/><label for="soundcloudMMWpWidth">Media Width</label>
-                                <select class="soundcloudMMInput soundcloudMMWidth" name="soundcloud_is_gold_options[soundcloud_is_gold_width_settings][wp]">
-                                <?php foreach(get_soundcloud_is_gold_wordpress_sizes() as $key => $soundcloudIsGoldMediaSize) : ?>
+                                <input name="hoti_options[hoti_width_settings][type]" <?php echo ($hotiWidthSettings['type'] == "wp") ? 'checked="checked"' : ''; ?> id="soundcloudMMWpWidth" value="wp" type="radio" class="soundcloudMMWpWidth soundcloudMMWidthType radio"/><label for="soundcloudMMWpWidth">Media Width</label>
+                                <select class="soundcloudMMInput soundcloudMMWidth" name="hoti_options[hoti_width_settings][wp]">
+                                <?php foreach(get_hoti_wordpress_sizes() as $key => $hotiMediaSize) : ?>
                                     <?php
                                     //First Time, then Other Times
-                                    if($soundcloudIsGoldWidthSettings['wp'] == 'medium') $soundcloudIsGoldMediaSelected = ($key == $soundcloudIsGoldWidthSettings['wp']) ? 'selected="selected"' : '';  
-                                    else $soundcloudIsGoldMediaSelected = ($soundcloudIsGoldMediaSize[0] == $soundcloudIsGoldWidthSettings['wp']) ? 'selected="selected"' : ''; ?>
-                                    <option <?php echo $soundcloudIsGoldMediaSelected ?> value="<?php echo $soundcloudIsGoldMediaSize[0]?>" class="soundcloudMMWpSelectedWidth"><?php echo $key.': '.$soundcloudIsGoldMediaSize[0]?></option>
+                                    if($hotiWidthSettings['wp'] == 'medium') $hotiMediaSelected = ($key == $hotiWidthSettings['wp']) ? 'selected="selected"' : '';  
+                                    else $hotiMediaSelected = ($hotiMediaSize[0] == $hotiWidthSettings['wp']) ? 'selected="selected"' : ''; ?>
+                                    <option <?php echo $hotiMediaSelected ?> value="<?php echo $hotiMediaSize[0]?>" class="soundcloudMMWpSelectedWidth"><?php echo $key.': '.$hotiMediaSize[0]?></option>
                                 <?php endforeach; ?>
                                 </select>
                             </li>
                             <li>
-                                <input name="soundcloud_is_gold_options[soundcloud_is_gold_width_settings][type]" <?php echo ($soundcloudIsGoldWidthSettings['type'] == "custom") ? 'checked="checked"' : ''; ?> id="soundcloudMMCustomWidth" value="custom" type="radio" class="soundcloudMMCustomWidth soundcloudMMWidthType radio"/><label for="soundcloudMMCustomWidth">Custom Width</label>
-                                <input name="soundcloud_is_gold_options[soundcloud_is_gold_width_settings][custom]" id="soundcloudMMCustomSelectedWidth" class="soundcloudMMInput soundcloudMMWidth soundcloudMMCustomSelectedWidth" type="text" name="soundcloud_is_gold_options[soundcloudMMCustomSelectedWidth]" value="<?php echo $soundcloudIsGoldWidthSettings['custom'] ?>" />
+                                <input name="hoti_options[hoti_width_settings][type]" <?php echo ($hotiWidthSettings['type'] == "custom") ? 'checked="checked"' : ''; ?> id="soundcloudMMCustomWidth" value="custom" type="radio" class="soundcloudMMCustomWidth soundcloudMMWidthType radio"/><label for="soundcloudMMCustomWidth">Custom Width</label>
+                                <input name="hoti_options[hoti_width_settings][custom]" id="soundcloudMMCustomSelectedWidth" class="soundcloudMMInput soundcloudMMWidth soundcloudMMCustomSelectedWidth" type="text" name="hoti_options[soundcloudMMCustomSelectedWidth]" value="<?php echo $hotiWidthSettings['custom'] ?>" />
                             </li>
                         </ul>
                     </li>
@@ -224,29 +224,29 @@ function soundcloud_is_gold_options(){
                             <li>
                                 <label>Color</label>
                                 <div class="soundcloudMMColorPickerContainer" id="soundcloudMMColorPickerContainer">
-                                    <input type="text" class="soundcloudMMInput soundcloudMMColor" id="soundcloudMMColor" name="soundcloud_is_gold_options[soundcloud_is_gold_color]" value="<?php echo $soundcloudIsGoldColor ?>" style="background-color:<?php echo $soundcloudIsGoldColor ?>"/><a href="#" class="soundcloudMMBt soundcloudMMBtSmall inline blue soundcloudMMRounder soundcloudMMResetColor">reset to default</a>
+                                    <input type="text" class="soundcloudMMInput soundcloudMMColor" id="soundcloudMMColor" name="hoti_options[hoti_color]" value="<?php echo $hotiColor ?>" style="background-color:<?php echo $hotiColor ?>"/><a href="#" class="soundcloudMMBt soundcloudMMBtSmall inline blue soundcloudMMRounder soundcloudMMResetColor">reset to default</a>
                                     <div id="soundcloudMMColorPicker" class="shadow soundcloudMMColorPicker"><div id="soundcloudMMColorPickerSelect" class="soundcloudMMColorPickerSelect"></div><a id="soundcloudMMColorPickerClose" class="blue soundcloudMMBt soundcloudMMColorPickerClose">done</a></div>
                                 </div>
                             </li>
                             <li class="clear">
-                                <label>Classes <small>(no commas)</small></label><input class="soundcloudMMInput soundcloudMMClasses" type="text" name="soundcloud_is_gold_options[soundcloud_is_gold_classes]" value="<?php echo $soundcloudIsGoldClasses ?>" />
+                                <label>Classes <small>(no commas)</small></label><input class="soundcloudMMInput soundcloudMMClasses" type="text" name="hoti_options[hoti_classes]" value="<?php echo $hotiClasses ?>" />
                             </li>
                         </ul>
                     </li>
 		    <!-- Advance Options -->
 		    <!-- <li class="hidden soundcloudMMBox"><label class="optionLabel">Advanced Options</label>
-			<?php //soundcloud_is_gold_advanced_options() ?>
+			<?php //hoti_advanced_options() ?>
 		    </li> -->
 		    <!-- Preview -->
                     <li class="soundcloudMMBox"><label class="optionLabel previewLabel">Live Preview <small>(your latest track)</small></label>
-                        <?php if($soundcloudIsGoldApiResponse['response']) :?>
+                        <?php if($hotiApiResponse['response']) :?>
                         <p class="soundcloudMMEmbed soundcloudMMEmbedOptions" style="text-align:center;">
 			    <!-- Soundcloud Preview here -->
 			</p>
                         <p class="soundcloudMMLoading soundcloudMMPreviewLoading" style="display:none"></p>
                         <?php else : ?>
                         <!-- Error getting XML -->
-                        <div class="soundcloudMMXmlError"><p><?php echo $soundcloudIsGoldApiResponse['error'] ? $soundcloudIsGoldApiResponse['error'] : "Oups! There's been a error while getting the tracks from soundcloud. Please reload the page."?></p></div>
+                        <div class="soundcloudMMXmlError"><p><?php echo $hotiApiResponse['error'] ? $hotiApiResponse['error'] : "Oups! There's been a error while getting the tracks from soundcloud. Please reload the page."?></p></div>
                         <?php endif; ?>
                     </li>
                 </ul>
