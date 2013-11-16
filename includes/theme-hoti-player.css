@@ -200,6 +200,16 @@ background-repeat:no-repeat;
 height: 320px;
 width: 320px;
 margin-top: 10px;
+margin-left: -10px;
 padding: 0px;
+}
+.hoti > ul > .downloadable:after {
+content: "e";
+color: rgba(0,0,0,0);
+background:url('http://hoti.tv/buttons/love.svg');
+background-size:35px 35px;
+background-repeat:no-repeat;
+background-position: center center;
+display:none;
 }
 }
