@@ -7,7 +7,7 @@ Requires at least: 3.2
 Tested up to: 3.7
 Stable tag: 2.2.1
 
-Descripcion: Diseñado desde cero y realizado totalmente en casa, complementa la rica experiencia visual de nuestra plataforma, lo vas a amar.
+Description: Designed from scratch and made ​​entirely at home, complements the rich visual experience of our platform, you're going to love.
 
 License:
 
