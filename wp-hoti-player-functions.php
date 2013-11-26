@@ -1,7 +1,7 @@
 <?php
 /*
     hoti™ - Venezuelan Artistic Material
-    Copyright (C) 2013 Marcos Colina
+    Copyright (C) 2013
     GNU General Public License
 	
 	Contributors
@@ -660,21 +660,23 @@ $("#download").show();
                 $("#download").hide();
 }
 			document.querySelector('.hoti').style.backgroundImage="url('"+track.artwork_url.split("large").join("crop")+"')"
-			SC.stream(track.uri, {autoPlay: true}, function (stream) {
+			SC.stream(track.uri, {
+  autoPlay: true}, function (stream) {
 				window.stream = stream;
 				if($ap){
 					block = true;
 					$("#toggle").toggleClass("pause");
 				}
 				//window.stream = stream.play();
-			});
+});
 		});
 		$("#toggle").on("click", function () {
 			if(!block){
 				window.stream.play();
 				block = true;
 			}else{
-				window.stream.togglePause();
+				window.stream.pause();
+				block = false;
 			}
 			$("#toggle").toggleClass("pause");
 		});
@@ -724,7 +726,8 @@ if($detect->isIOS()){
 				window.stream.play();
 				block = true;
 			}else{
-				window.stream.togglePause();
+				window.stream.pause();
+				block = false;
 			}
 			$("#toggle").toggleClass("pause");
 		});
@@ -838,7 +841,8 @@ MY_MARKER;
 				window.stream.play();
 				block = true;
 			}else{
-				window.stream.togglePause();
+				window.stream.pause();
+				block = false;
 			}
 			$("#toggle").toggleClass("pause");
 		});
