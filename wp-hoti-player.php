@@ -5,6 +5,7 @@ Plugin URI: https://github.com/hotitv/player.hoti
 Description: Reproductor musical diseñado para hoti™ plataforma.artistica
 Author: Alexander Salas & Marcos Colina
 Author URI: http://hoti.tv/contacto
+Version: 1.0.4
 Tags: hoti,plataforma,artistica
 License: GNU General Public License v2.0
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -24,7 +25,7 @@ if (is_admin()) { // note the use of is_admin() to double check that this is hap
         'raw_url' => 'https://raw.github.com/hotitv/player.hoti/master',
         'github_url' => 'https://github.com/hotitv/player.hoti',
         'zip_url' => 'https://github.com/hotitv/player.hoti/zipball/master',
-        'sslverify' => true // wether WP should check the validity of the SSL cert when getting an update, see https://github.com/jkudish/WordPress-GitHub-Plugin-Updater/issues/2 and https://github.com/jkudish/WordPress-GitHub-Plugin-Updater/issues/4 for details
+        'sslverify' => true, // wether WP should check the validity of the SSL cert when getting an update, see https://github.com/jkudish/WordPress-GitHub-Plugin-Updater/issues/2 and https://github.com/jkudish/WordPress-GitHub-Plugin-Updater/issues/4 for details
         'requires' => '3.0', // which version of WordPress does your plugin require?
         'tested' => '3.3', // which version of WordPress is your plugin tested up to?
         'readme' => 'README.md', // which file to use as the readme for the version number
