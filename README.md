@@ -5,11 +5,11 @@ Contributors: Thomas Michalak, Alexander Salas, Marcos Colina
 Tags: html5, hoti, player, music
 Requires at least: 3.2
 Tested up to: 3.7.1
-Stable tag: 0.2.2b
+Stable tag: 0.2.3b
 
 Description: Designed from scratch and made ​​entirely at home, complements the rich visual experience of our platform, you're going to love.
 
-~Current Version:0.2.2b~
+~Current Version:0.2.3b~
 
 License:
 
