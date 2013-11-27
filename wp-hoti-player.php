@@ -5,7 +5,7 @@ Plugin URI: https://github.com/hotitv/player.hoti
 Description: Reproductor musical diseñado para hoti™ plataforma.artistica
 Author: Alexander Salas & Marcos Colina
 Author URI: http://hoti.tv/contacto
-Version: 0.2.1b
+Version: 0.2.2b
 Tags: hoti,plataforma,artistica
 License: GNU General Public License v2.0
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -18,16 +18,16 @@ require_once('wp-hoti-player-functions.php');
 
 if (is_admin()) { // note the use of is_admin() to double check that this is happening in the admin
     $config = array(
-        'slug' => plugin_basename(__FILE__), // this is the slug of your plugin
-        'proper_folder_name' => 'player.hoti', // this is the name of the folder your plugin lives in
-        'api_url' => 'https://api.github.com/repos/hotitv/player.hoti', // the github API url of your github repo
-        'raw_url' => 'https://raw.github.com/hotitv/player.hoti/master', // the github raw url of your github repo
-        'github_url' => 'https://github.com/hotitv/player.hoti', // the github url of your github repo
-        'zip_url' => 'https://github.com/hotitv/player.hoti/zipball/master', // the zip url of the github repo
-        'sslverify' => true // wether WP should check the validity of the SSL cert when getting an update, see https://github.com/jkudish/WordPress-GitHub-Plugin-Updater/issues/2 and https://github.com/jkudish/WordPress-GitHub-Plugin-Updater/issues/4 for details
-        'requires' => '3.0', // which version of WordPress does your plugin require?
-        'tested' => '3.7.1', // which version of WordPress is your plugin tested up to?
-        'readme' => 'README.MD' // which file to use as the readme for the version number
+        'slug' => plugin_basename(__FILE__),
+        'proper_folder_name' => 'player.hoti',
+        'api_url' => 'https://api.github.com/repos/hotitv/player.hoti',
+        'raw_url' => 'https://raw.github.com/hotitv/player.hoti/master',
+        'github_url' => 'https://github.com/hotitv/player.hoti',
+        'zip_url' => 'https://github.com/hotitv/player.hoti/zipball/master',
+        'sslverify' => true,
+        'requires' => '3.0',
+        'tested' => '3.7.1',
+        'readme' => 'README.MD',
     );
     new WPGitHubUpdater($config);
 }
