@@ -14,6 +14,8 @@
 /***                                                               ***/
 /*********************************************************************/
 
+include_once('updater.php');
+
 require_once 'includes/Mobile_Detect.php';
 
 

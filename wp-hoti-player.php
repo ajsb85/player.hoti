@@ -14,6 +14,24 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 define ('SIG_PLUGIN_DIR', WP_PLUGIN_URL.'/'.str_replace(basename( __FILE__),"",plugin_basename(__FILE__)) );
 require_once('wp-hoti-player-functions.php');
 
+/*Updater*/
+
+if (is_admin()) { // note the use of is_admin() to double check that this is happening in the admin
+    $config = array(
+        'slug' => plugin_basename(__FILE__), // this is the slug of your plugin
+        'proper_folder_name' => 'player.hoti', // this is the name of the folder your plugin lives in
+        'api_url' => 'https://api.github.com/repos/hotitv/player.hoti', // the github API url of your github repo
+        'raw_url' => 'https://raw.github.com/hotitv/player.hoti/master', // the github raw url of your github repo
+        'github_url' => 'https://github.com/hotitv/player.hoti', // the github url of your github repo
+        'zip_url' => 'https://github.com/hotitv/player.hoti/zipball/master', // the zip url of the github repo
+        'sslverify' => true // wether WP should check the validity of the SSL cert when getting an update, see https://github.com/jkudish/WordPress-GitHub-Plugin-Updater/issues/2 and https://github.com/jkudish/WordPress-GitHub-Plugin-Updater/issues/4 for details
+        'requires' => '3.0', // which version of WordPress does your plugin require?
+        'tested' => '3.7.1', // which version of WordPress is your plugin tested up to?
+        'readme' => 'README.MD' // which file to use as the readme for the version number
+    );
+    new WPGitHubUpdater($config);
+}
+
 /** Get Plugin Version **/
 function get_hoti_version() {
 	$plugin_data = get_plugin_data( __FILE__ );
