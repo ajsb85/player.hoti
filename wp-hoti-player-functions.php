@@ -1,20 +1,17 @@
 <?php
 /*
     hoti™ - Venezuelan Artistic Material
-    Copyright (C) 2013
+    Copyright (C) Alex & Marcos
     GNU General Public License
-	
 	Contributors
-		Marcos Colina <ceo@hoti.tv>
-		Alexander Salas <a.salas@ieee.org>
+    Marcos Colina <ceo@hoti.tv>
+	Alexander Salas <a.salas@ieee.org>
 */
 /*********************************************************************/
 /***                                                               ***/
 /***                     SOUNDCLOUD UTILITIES                      ***/
 /***                                                               ***/
 /*********************************************************************/
-
-include_once('updater.php');
 
 require_once 'includes/Mobile_Detect.php';
 
@@ -662,23 +659,21 @@ $("#download").show();
                 $("#download").hide();
 }
 			document.querySelector('.hoti').style.backgroundImage="url('"+track.artwork_url.split("large").join("crop")+"')"
-			SC.stream(track.uri, {
-  autoPlay: true}, function (stream) {
+			SC.stream(track.uri, {autoPlay: true}, function (stream) {
 				window.stream = stream;
 				if($ap){
 					block = true;
 					$("#toggle").toggleClass("pause");
 				}
 				//window.stream = stream.play();
-});
+			});
 		});
 		$("#toggle").on("click", function () {
 			if(!block){
 				window.stream.play();
 				block = true;
 			}else{
-				window.stream.pause();
-				block = false;
+				window.stream.togglePause();
 			}
 			$("#toggle").toggleClass("pause");
 		});
@@ -728,8 +723,7 @@ if($detect->isIOS()){
 				window.stream.play();
 				block = true;
 			}else{
-				window.stream.pause();
-				block = false;
+				window.stream.togglePause();
 			}
 			$("#toggle").toggleClass("pause");
 		});
@@ -843,8 +837,7 @@ MY_MARKER;
 				window.stream.play();
 				block = true;
 			}else{
-				window.stream.pause();
-				block = false;
+				window.stream.togglePause();
 			}
 			$("#toggle").toggleClass("pause");
 		});

@@ -4,6 +4,7 @@ Theme URI: https://github.com/hotitv/player.hoti
 Description: Reproductor musical diseñado para hoti™ plataforma.artistica
 Author: Thomas Michalak, Alexander Salas & Marcos Colina
 Author URI: http://hoti.tv/contacto
+Version: 0.1b
 Tags: hoti,plataforma,artistica
 License: GNU General Public License v2.0
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -18,7 +19,7 @@ font-weight: normal;
 font-style: normal;
 }  
 .hoti{
-background-color: #000;
+background-color: #2eb2a0;
 background-size:300px 300px;
 background-repeat:no-repeat;
 height: 300px;
@@ -32,7 +33,7 @@ font-family: "v1";
 font-size: 35px;
 height: 35px;
 width: 35px;
-color: #000;
+color: #94e5d7;
 list-style-type: none;
 cursor: pointer;
 padding: 0 0 0 0;
@@ -92,7 +93,7 @@ background-repeat:no-repeat;
 background-position: center center;
 }
 #title {
-background-color:#000;    
+background-color:#2eb2a0;    
 color:#fff;
 font-size: 18px;
 font-weight: normal;
@@ -113,7 +114,7 @@ display: none;
 }
 @media only screen and (min-width: 768px) and (max-width: 959px) {
 .hoti{
-background-color: #000;
+background-color: #2eb2a0;
 background-size:768px 768px;
 background-repeat:no-repeat;
 height: 768px;
@@ -193,7 +194,7 @@ width: 768px;
 }
 @media only screen and (max-width: 767px) {
 .hoti{
-background-color: #000;
+background-color: #2eb2a0;
 background-size:320px 320px;
 background-repeat:no-repeat;
 height: 320px;
