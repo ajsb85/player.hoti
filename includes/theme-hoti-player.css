@@ -106,7 +106,7 @@ color:#fff;
 font-family: 'hotifont'!important;
 font-size: 18px;
 font-weight: normal;
-padding: 5px 0px 0px 5px;
+padding: 5px 0px 5px 5px;
 margin:  10px 0px 0px 0px;
 }
 #track {
@@ -131,6 +131,14 @@ width: 768px;
 margin-top: 10px;
 margin-left: -9px;
 padding:  0;
+}
+#title {
+font-size: 35px!important;
+font-weight: normal;
+font-family: 'hotifont'!important;
+padding: 10px 10px 10px 10px;
+margin:  0px 0px 0px -9px;
+width: 768px;
 }
 .hoti > ul > li{
 font-family: "v1";
@@ -192,14 +200,6 @@ background-size:65px 65px;
 background-repeat:no-repeat;
 background-position: center center;
 display:none;
-}
-#title {
-font-size: 25px;
-font-weight: normal;
-font-family: 'hotifont'!important;
-padding: 10px 10px 10px 10px;
-margin:  0px 0px 0px -9px;
-width: 768px;
 }
 }
 @media only screen and (max-width: 767px) {
