@@ -17,7 +17,15 @@ src: url('hoti-webfont/v1.eot?#iefix') format('embedded-opentype'),
 url('hoti-webfont/v1.ttf') format('truetype');
 font-weight: normal;
 font-style: normal;
-}  
+}
+
+@font-face {
+  font-family: 'hotifont';
+  font-style: normal;
+  font-weight: 300;
+  src: local('Source Sans Pro Light'), local('SourceSansPro-Light'), url(http://hoti.tv/font/hotifont.woff) format('woff');
+}
+
 .hoti{
 background-color: #2eb2a0;
 background-size:300px 300px;
@@ -95,6 +103,7 @@ background-position: center center;
 #title {
 background-color:#2eb2a0;    
 color:#fff;
+font-family: 'hotifont'!important;
 font-size: 18px;
 font-weight: normal;
 padding: 5px 0px 0px 5px;
@@ -182,11 +191,12 @@ background:url('http://hoti.tv/buttons/love.svg');
 background-size:65px 65px;
 background-repeat:no-repeat;
 background-position: center center;
+display:none;
 }
 #title {
 font-size: 25px;
 font-weight: normal;
-font-family:li;
+font-family: 'hotifont'!important;
 padding: 10px 10px 10px 10px;
 margin:  0px 0px 0px -9px;
 width: 768px;
@@ -211,5 +221,12 @@ background-size:35px 35px;
 background-repeat:no-repeat;
 background-position: center center;
 display:none;
+}
+#title {
+font-family: 'hotifont'!important;
+font-size: 25px;
+font-weight: normal;
+padding: 10px 10px 10px 10px;
+margin:  0px 0px 0px -9px;
 }
 }
